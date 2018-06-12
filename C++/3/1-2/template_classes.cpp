@@ -21,17 +21,17 @@ void forEach(LinkedList & L, funcPtr F)
 void forEach(BinaryTree & T, funcPtr F)
 {
 	/*
-									ПОШУК ВШИР
-	Корінь->черга
+	РџРћРЁРЈРљ Р’РЁРР 
+	РљРѕСЂС–РЅСЊ->С‡РµСЂРіР°
 
-	Поки черга не пуста
-	1. візьми елемент з початку черги і кинь його дітей в кінець черги
-	2. забери лемент з початку черги
+	РџРѕРєРё С‡РµСЂРіР° РЅРµ РїСѓСЃС‚Р°
+	1. РІС–Р·СЊРјРё РµР»РµРјРµРЅС‚ Р· РїРѕС‡Р°С‚РєСѓ С‡РµСЂРіРё С– РєРёРЅСЊ Р№РѕРіРѕ РґС–С‚РµР№ РІ РєС–РЅРµС†СЊ С‡РµСЂРіРё
+	2. Р·Р°Р±РµСЂРё Р»РµРјРµРЅС‚ Р· РїРѕС‡Р°С‚РєСѓ С‡РµСЂРіРё
 	*/
 
 	queue<BinaryTree::Node *> Element;
 	Element.push(T.getNode());
-	
+
 	while (!Element.empty())
 	{
 		BinaryTree::Node* tempNode = Element.front();
@@ -46,6 +46,6 @@ void forEach(BinaryTree & T, funcPtr F)
 		}
 
 		Element.pop();
-		F( tempNode->data);
-	}		
+		F(tempNode->data);
+	}
 }
