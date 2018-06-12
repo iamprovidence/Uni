@@ -9,11 +9,11 @@
 
 using namespace std;
 
-// повертає випадкове число із діапазону [min, max)
+// РїРѕРІРµСЂС‚Р°С” РІРёРїР°РґРєРѕРІРµ С‡РёСЃР»Рѕ С–Р· РґС–Р°РїР°Р·РѕРЅСѓ [min, max)
 template<int min = 1, int max = 5 >
 int get_rand()
 {
-	//формула rand() % (різниця між границями) + ліва границя
+	//С„РѕСЂРјСѓР»Р° rand() % (СЂС–Р·РЅРёС†СЏ РјС–Р¶ РіСЂР°РЅРёС†СЏРјРё) + Р»С–РІР° РіСЂР°РЅРёС†СЏ
 	return rand() % (max - min) + min;
 }
 
@@ -50,12 +50,12 @@ void main()
 	//1
 	const int amount_of_student = 15;
 	array<forward_list<string>, amount_of_student> students;
-	//заповнити
+	//Р·Р°РїРѕРІРЅРёС‚Рё
 	for (int i = 0; i < amount_of_student; ++i)
 	{
 		generate_n(front_inserter(students[i]), get_rand(), get_rand_subject);
 	}
-	// вивід
+	// РІРёРІС–Рґ
 	for (int i = 0; i < amount_of_student; ++i)
 	{
 		cout << get_rand_name() << '\t';
@@ -65,7 +65,7 @@ void main()
 		}
 		cout << endl;
 	}
-	//найпопулярніший предмет
+	//РЅР°Р№РїРѕРїСѓР»СЏСЂРЅС–С€РёР№ РїСЂРµРґРјРµС‚
 	map<string, int> how_mush_every_subject_choosed;
 	for (int i = 0; i < amount_of_student; ++i)
 	{
