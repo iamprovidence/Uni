@@ -1,4 +1,4 @@
-//Кізло Тарас варіант8 
+//РљС–Р·Р»Рѕ РўР°СЂР°СЃ РІР°СЂС–Р°РЅС‚8 
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -89,7 +89,7 @@ public:
 	}
 };
 
-//сортування за адресою
+//СЃРѕСЂС‚СѓРІР°РЅРЅСЏ Р·Р° Р°РґСЂРµСЃРѕСЋ
 void sort(Building **a, int n)
 {
 	Building *t;
@@ -104,7 +104,7 @@ void sort(Building **a, int n)
 		}
 	}
 }
-//пошук наймолодшої будівлі з мін кл квартир
+//РїРѕС€СѓРє РЅР°Р№РјРѕР»РѕРґС€РѕС— Р±СѓРґС–РІР»С– Р· РјС–РЅ РєР» РєРІР°СЂС‚РёСЂ
 string theYoungestBuildingWithMinAmountofAppartment(Building **a, int n)
 {
 	int max_year = 3000, current_year;
@@ -130,7 +130,7 @@ string theYoungestBuildingWithMinAmountofAppartment(Building **a, int n)
 	}
 	return address;
 }
-//вивід будівель вказаної галузі
+//РІРёРІС–Рґ Р±СѓРґС–РІРµР»СЊ РІРєР°Р·Р°РЅРѕС— РіР°Р»СѓР·С–
 void output_of_building_industry(Building **a, int n, string branch)
 {
 	Industrial *p;
@@ -195,7 +195,7 @@ int main()
 	{
 		delete a[i];
 	}
-	delete[]a;
+	delete[] a;
 
 	system("pause");
 }
