@@ -1,135 +1,139 @@
+//РљС–Р·Р»Рѕ РўР°СЂР°СЃ РџРњС–-14
+
 #include <iostream>
 
 using namespace std;
 
+typedef int**(*FunType)(int,int**);
+
 class vector
 {
 public:
-	//конструктор за замовчуанням
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р·Р° Р·Р°РјРѕРІС‡СѓР°РЅРЅСЏРј
 	vector()
 	{
-		mas = 0;
-		n = -1;
-		//cout<<"Спрацював конструктор за замовчуванням\n";
+		mas=0;
+		n=-1;
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р·Р° Р·Р°РјРѕРІС‡СѓРІР°РЅРЅСЏРј\n";
 	}
-	//конструктор з парамерами
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р· РїР°СЂР°РјРµСЂР°РјРё
 	vector(int _n)
 	{
-		//cout<<"Спрацював конструктор з параметрами\n";
-		mas = new int[_n];
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р· РїР°СЂР°РјРµС‚СЂР°РјРё\n";
+		mas=new int[_n];
 		for (int i = 0; i < _n; i++)
 		{
-			mas[i] = 0;
+			mas[i]=0;
 		}
-		n = _n;
+		n=_n;
 	}
 	void resize(int _n)
 	{
-		if (_n >= n)
+		if(_n>=n)
 		{
 			for (int i = n; i < _n; i++)
 			{
-				mas[i] = 0;
+				mas[i]=0;
 			}
-			n = _n;
+			n=_n;
 		}
-		else if (_n>0 && _n<n)
+		else if(_n>0 && _n<n)
 		{
 			for (int i = 0; i < _n; i++)
 			{
-				mas[i] = mas[i];
+				mas[i]=mas[i];
 			}
-			n = _n;
+			n=_n;
 		}
 	}
 	void enter(int _n)
 	{
-		if (_n != n)
+		if(_n!=n)
 		{
-			cout << "Розмiр вектора неправильний\n";
+			cout<<"Р РѕР·РјiСЂ РІРµРєС‚РѕСЂР° РЅРµРїСЂР°РІРёР»СЊРЅРёР№\n";
 		}
 		else
 		{
-			mas = new int[_n];
-			cout << "Заповнiть вектор розмiром " << _n << endl;
+			mas=new int[_n];
+			cout<<"Р—Р°РїРѕРІРЅiС‚СЊ РІРµРєС‚РѕСЂ СЂРѕР·РјiСЂРѕРј "<<_n<<endl;
 			for (int i = 0; i < _n; i++)
 			{
-				cin >> mas[i];
+				cin>>mas[i];
 			}
 		}
 	}
-	//вставлення
+	//РІСЃС‚Р°РІР»РµРЅРЅСЏ
 	void insert(int v, int ind)
 	{
-		if (ind<0 || ind >= n)
+		if(ind<0||ind>=n)
 		{
 			return;
 		}
-		mas[ind] = v;
-		//cout<<"Спрацював конструктор вставлення\n";
+		mas[ind]=v;
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РІСЃС‚Р°РІР»РµРЅРЅСЏ\n";
 	}
-	//вектор / розмір вектора / елемент в векторі по індексі
-	void print()
-	{
-		cout << "Вектор має вигляд\n";
+	//РІРµРєС‚РѕСЂ / СЂРѕР·РјС–СЂ РІРµРєС‚РѕСЂР° / РµР»РµРјРµРЅС‚ РІ РІРµРєС‚РѕСЂС– РїРѕ С–РЅРґРµРєСЃС–
+	void print() 
+    {
+		cout<<"Р’РµРєС‚РѕСЂ РјР°С” РІРёРіР»СЏРґ\n";
 		for (int i = 0; i < n; i++)
 		{
-			cout << mas[i] << " ";
+			cout<<mas[i]<<" ";
 		}
-		cout << endl;
-	}
+		cout<<endl;	
+    }
 	int getSize()
 	{
-		cout << "Розмiр вектора\n";
+		cout<<"Р РѕР·РјiСЂ РІРµРєС‚РѕСЂР°\n";
 		return n;
 	}
-	void getElementByIndex(int N)
-	{
-		if (N <= n - 1 && N >= 0)
+	void getElementByIndex(int N) 
+    {
+		if(N<=n-1 && N>=0)
 		{
-			cout << "Елемент за iндексом " << N << endl;
-			cout << mas[N] << endl;
+			cout<<"Р•Р»РµРјРµРЅС‚ Р·Р° iРЅРґРµРєСЃРѕРј "<<N<<endl;
+			cout<<mas[N]<<endl;
 		}
 		else
 		{
-			cout << "Взяти елемент за iндексом не вдалось." << endl;
+			cout<<"Р’Р·СЏС‚Рё РµР»РµРјРµРЅС‚ Р·Р° iРЅРґРµРєСЃРѕРј РЅРµ РІРґР°Р»РѕСЃСЊ."<<endl;
 		}
-	}
-	//конструктор копіювання / присвоєння
+    }
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїС–СЋРІР°РЅРЅСЏ / РїСЂРёСЃРІРѕС”РЅРЅСЏ
 	vector(const vector&v)
 	{
-		this->n = v.n;
-		mas = new int[this->n];
+		this->n=v.n;
+		mas=new int[this->n];
 		for (int i = 0; i < n; i++)
 		{
-			mas[i] = v.mas[i];
+			mas[i]=v.mas[i];
 		}
-		//cout<<"Спрацював конструктор копiювання\n";
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїiСЋРІР°РЅРЅСЏ\n";
 	}
 	vector& operator=(const vector&v)
 	{
-		if (this != &v)
+		if(this!=&v)
 		{
-			if (mas != NULL)
+			if(mas!=NULL)
 			{
 				delete[]mas;
-				n = v.n;
-				mas = new int[n];
+				n=v.n;
+				mas= new int[n];
 				for (int i = 0; i < n; i++)
 				{
-					mas[i] = v.mas[i];
+					mas[i]=v.mas[i];
 				}
 			}
 		}
 		return *this;
-		//cout<<"Спрацював конструктор присвоєння\n";
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїСЂРёСЃРІРѕС”РЅРЅСЏ\n";
 	}
-	//перевантажені оператори
+	//РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅС– РѕРїРµСЂР°С‚РѕСЂРё
 	vector operator+(const vector&V)
 	{
-		if (n != V.n)
+		if(n!= V.n)
 		{
-			cout << "Вектори рiзної довжини\n";
+			cout<<"Р’РµРєС‚РѕСЂРё СЂiР·РЅРѕС— РґРѕРІР¶РёРЅРё\n";
 			return 0;
 		}
 		else
@@ -144,26 +148,26 @@ public:
 	}
 	vector operator+=(const vector&V)const
 	{
-		if (n != V.n)
+		if(n!= V.n)
 		{
-			cout << "Вектори рiзної довжини\n";
+			cout<<"Р’РµРєС‚РѕСЂРё СЂiР·РЅРѕС— РґРѕРІР¶РёРЅРё\n";
 			return 0;
 		}
 		else
 		{
-			for (int i = 0; i < n; i++)
+			for (int i = 0; i < n; i++) 
 			{
 				V.mas[i] = mas[i] + V.mas[i];
 			}
 			return V;
 		}
 	}
-
+	
 	vector operator-(const vector&V)const
 	{
-		if (n != V.n)
+		if(n!= V.n)
 		{
-			cout << "Вектори рiзної довжини\n";
+			cout<<"Р’РµРєС‚РѕСЂРё СЂiР·РЅРѕС— РґРѕРІР¶РёРЅРё\n";
 			return 0;
 		}
 		else
@@ -178,26 +182,26 @@ public:
 	}
 	vector operator-=(const vector&V)const
 	{
-		if (n != V.n)
+		if(n!= V.n)
 		{
-			cout << "Вектори рiзної довжини\n";
+			cout<<"Р’РµРєС‚РѕСЂРё СЂiР·РЅРѕС— РґРѕРІР¶РёРЅРё\n";
 			return 0;
 		}
 		else
 		{
-			for (int i = 0; i < n; i++)
+			for (int i = 0; i < n; i++) 
 			{
 				V.mas[i] = mas[i] - V.mas[i];
 			}
 			return V;
 		}
 	}
-
+	
 	vector operator*(const vector&V)const
 	{
-		if (n != V.n)
+		if(n!= V.n)
 		{
-			cout << "Вектори рiзної довжини\n";
+			cout<<"Р’РµРєС‚РѕСЂРё СЂiР·РЅРѕС— РґРѕРІР¶РёРЅРё\n";
 			return 0;
 		}
 		else
@@ -212,14 +216,14 @@ public:
 	}
 	vector operator*=(const vector&V)const
 	{
-		if (n != V.n)
+		if(n!= V.n)
 		{
-			cout << "Вектори рiзної довжини\n";
+			cout<<"Р’РµРєС‚РѕСЂРё СЂiР·РЅРѕС— РґРѕРІР¶РёРЅРё\n";
 			return 0;
 		}
 		else
 		{
-			for (int i = 0; i < n; i++)
+			for (int i = 0; i < n; i++) 
 			{
 				V.mas[i] = mas[i] * V.mas[i];
 			}
@@ -239,9 +243,9 @@ public:
 
 	vector operator/(const vector&V)const
 	{
-		if (n != V.n)
+		if(n!= V.n)
 		{
-			cout << "Вектори рiзної довжини\n";
+			cout<<"Р’РµРєС‚РѕСЂРё СЂiР·РЅРѕС— РґРѕРІР¶РёРЅРё\n";
 			return 0;
 		}
 		else
@@ -256,14 +260,14 @@ public:
 	}
 	vector operator/=(const vector&V)const
 	{
-		if (n != V.n)
+		if(n!= V.n)
 		{
-			cout << "Вектори рiзної довжини\n";
+			cout<<"Р’РµРєС‚РѕСЂРё СЂiР·РЅРѕС— РґРѕРІР¶РёРЅРё\n";
 			return 0;
 		}
 		else
 		{
-			for (int i = 0; i < n; i++)
+			for (int i = 0; i < n; i++) 
 			{
 				V.mas[i] = mas[i] / V.mas[i];
 			}
@@ -279,26 +283,26 @@ public:
 			result.mas[ix] = mas[ix] / d;
 		}
 		return result;
-	}
+	}	
 
 	int Suma(const vector&V)const
 	{
 		int s;
 		for (int i = 0; i < n; i++)
 		{
-			s += mas[i];
+			 s+=mas[i];
 		}
 		return s;
 	}
 
-	//деструктор
+	//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 	~vector()
 	{
-		if (mas != NULL)
+		if(mas!=NULL)
 		{
 			delete[] mas;
 		}
-		//cout<<"Спрацював деструктор\n";
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РґРµСЃС‚СЂСѓРєС‚РѕСЂ\n";
 	}
 
 private:
@@ -311,9 +315,9 @@ class theMatrix
 public:
 	theMatrix()
 	{
-		arr = 0;
-		size = -1;
-		//cout<<"Спрацював конструктор за замовчуванням\n";
+		arr=0;
+		size=-1;
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р·Р° Р·Р°РјРѕРІС‡СѓРІР°РЅРЅСЏРј\n";
 	}
 
 	theMatrix(int n)
@@ -325,160 +329,160 @@ public:
 			arr[i] = new int[n];
 			for (int j = 0; j < n; ++j)
 			{
-				arr[i][j] = 0;
+				arr[i][j]=0;
 			}
-		}
+		}	
 	}
-	//методи
-	void print()
-	{
-		cout << "Матриця має вигляд\n";
+	//РјРµС‚РѕРґРё
+	void print() 
+    {
+		cout<<"РњР°С‚СЂРёС†СЏ РјР°С” РІРёРіР»СЏРґ\n";
 		for (int i = 0; i < size; i++)
 		{
 			for (int j = 0; j < size; j++)
 			{
-				cout << arr[i][j] << " ";
+				cout<<arr[i][j]<<" ";
 			}
-			cout << endl;
+			cout<<endl;
 		}
-		cout << endl;
-	}
+		cout<<endl;	
+    }
 	void resize(int _n)
 	{
-		if (_n >= size)
+		if(_n>=size)
 		{
 			for (int i = size; i < _n; i++)
 			{
 				for (int j = size; j < _n; j++)
 				{
-					arr[i][j] = 0;
+					arr[i][j]=0;
 				}
 			}
-			size = _n;
+			size=_n;
 		}
-		else if (_n>0 && _n<size)
+		else if(_n>0 && _n<size)
 		{
 			for (int i = size; i < _n; i++)
 			{
 				for (int j = size; j < _n; j++)
 				{
-					arr[i][j] = arr[i][j];
+					arr[i][j]=arr[i][j];
 				}
 			}
-			size = _n;
+			size=_n;
 		}
 	}
 	void enter(int _n)
 	{
-		if (_n != size)
+		if(_n!=size)
 		{
-			cout << "Розмiр матрицi неправильний\n";
+			cout<<"Р РѕР·РјiСЂ РјР°С‚СЂРёС†i РЅРµРїСЂР°РІРёР»СЊРЅРёР№\n";
 		}
 		else
 		{
-			cout << "Заповнiть матрицю розмiром " << _n << endl;
+			cout<<"Р—Р°РїРѕРІРЅiС‚СЊ РјР°С‚СЂРёС†СЋ СЂРѕР·РјiСЂРѕРј "<<_n<<endl;
 			for (int i = 0; i < _n; i++)
 			{
 				for (int j = 0; j < _n; j++)
 				{
-					cin >> arr[i][j];
+					cin>>arr[i][j];
 				}
 			}
 		}
 	}
 	void insert(int v, int In, int Jn)
 	{
-		if ((In<0 || In >= size) && (Jn<0 || Jn >= size))
+		if((In<0 || In>=size) && (Jn<0 || Jn>=size))
 		{
 			return;
 		}
-		arr[In][Jn] = v;
-		//cout<<"Спрацював конструктор вставлення\n";
+		arr[In][Jn]=v;
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РІСЃС‚Р°РІР»РµРЅРЅСЏ\n";
 	}
 	int getSize()
 	{
-		cout << "Розмiр квадратної матрицi\n";
+		cout<<"Р РѕР·РјiСЂ РєРІР°РґСЂР°С‚РЅРѕС— РјР°С‚СЂРёС†i\n";
 		return size;
 	}
-	void getElementByIndex(int N, int M)
-	{
-		if ((N <= size - 1 && N >= 0) && (M <= size - 1 && M >= 0))
+	void getElementByIndex(int N, int M) 
+    {
+		if((N<=size-1 && N>=0) && (M<=size-1 && M>=0))
 		{
-			cout << "Елемент за iндексами " << N << endl;
-			cout << arr[N][M] << endl;
+			cout<<"Р•Р»РµРјРµРЅС‚ Р·Р° iРЅРґРµРєСЃР°РјРё "<<N<<endl;
+			cout<<arr[N][M]<<endl;
 		}
 		else
 		{
-			cout << "Взяти елемент за iндексами не вдалось." << endl;
+			cout<<"Р’Р·СЏС‚Рё РµР»РµРјРµРЅС‚ Р·Р° iРЅРґРµРєСЃР°РјРё РЅРµ РІРґР°Р»РѕСЃСЊ."<<endl;
 		}
-	}
-	void getHorizontalLineByIndex(int N)
+    }
+	void getHorizontalLineByIndex(int N) 
 	{
-		if (N <= size - 1 && N >= 0)
+		if(N<=size-1 && N>=0)
 		{
-			cout << "Рядок за iндексом " << N << endl;
+			cout<<"Р СЏРґРѕРє Р·Р° iРЅРґРµРєСЃРѕРј "<<N<<endl;
 
-			for (int j = 0; j < size; j++)
-			{
-				cout << arr[N][j] << " ";
-			}
-			cout << endl;
-
+				for (int j = 0; j < size; j++)
+				{
+					cout<<arr[N][j]<<" ";
+				}
+				cout<<endl;
+			
 		}
 		else
 		{
-			cout << "Взяти рядок за iндексом не вдалось." << endl;
+			cout<<"Р’Р·СЏС‚Рё СЂСЏРґРѕРє Р·Р° iРЅРґРµРєСЃРѕРј РЅРµ РІРґР°Р»РѕСЃСЊ."<<endl;
 		}
-	}
-	void getVerticalLineByIndex(int N)
+    }
+	void getVerticalLineByIndex(int N) 
 	{
-		if (N <= size - 1 && N >= 0)
+		if(N<=size-1 && N>=0)
 		{
-			cout << "Рядок за iндексом " << N << endl;
+			cout<<"Р СЏРґРѕРє Р·Р° iРЅРґРµРєСЃРѕРј "<<N<<endl;
 
-			for (int j = 0; j < size; j++)
-			{
-				cout << arr[j][N] << " ";
-			}
-			cout << endl;
+				for (int j = 0; j < size; j++)
+				{
+					cout<<arr[j][N]<<" ";
+				}
+				cout<<endl;	
 		}
 		else
 		{
-			cout << "Взяти рядок за iндексом не вдалось." << endl;
+			cout<<"Р’Р·СЏС‚Рё СЂСЏРґРѕРє Р·Р° iРЅРґРµРєСЃРѕРј РЅРµ РІРґР°Р»РѕСЃСЊ."<<endl;
 		}
-	}
+    }
 	void getDiagonalMain()
 	{
-		if (size != 0)
+		if(size!=0)
 		{
-			cout << "Головна дiагональ" << endl;
+			cout<<"Р“РѕР»РѕРІРЅР° РґiР°РіРѕРЅР°Р»СЊ"<<endl;
 
-			for (int j = 0; j < size; j++)
-			{
-				cout << arr[j][j] << " ";
-			}
-			cout << endl;
-
+				for (int j = 0; j < size; j++)
+				{
+					cout<<arr[j][j]<<" ";
+				}
+				cout<<endl;
+			
 		}
 		else
 		{
-			cout << "Взяти дiагональ не вдалось." << endl;
+			cout<<"Р’Р·СЏС‚Рё РґiР°РіРѕРЅР°Р»СЊ РЅРµ РІРґР°Р»РѕСЃСЊ."<<endl;
 		}
 	}
 	void getDiagonalSide()
 	{
-		if (size != 0)
+		if(size!=0)
 		{
-			cout << "Побiчна дiагональ" << endl;
-			for (int i = 0, j = size - 1; j >= 0, i<size; i++, j--)
+			cout<<"РџРѕР±iС‡РЅР° РґiР°РіРѕРЅР°Р»СЊ"<<endl;
+			for(int i= 0, j = size - 1;j >= 0, i<size;i++,j--)
 			{
-				cout << arr[i][j] << " ";
+				cout<<arr[i][j]<<" ";	
 			}
-			cout << endl;
+			cout<<endl;
 		}
 		else
 		{
-			cout << "Взяти дiагональ не вдалось." << endl;
+			cout<<"Р’Р·СЏС‚Рё РґiР°РіРѕРЅР°Р»СЊ РЅРµ РІРґР°Р»РѕСЃСЊ."<<endl;
 		}
 	}
 	int Suma()
@@ -488,59 +492,59 @@ public:
 		{
 			for (int j = 0; j < size; j++)
 			{
-				s += arr[i][j];
+				s+=arr[i][j];
 			}
 		}
 		return s;
 	}
-	//копіювання
+	//РєРѕРїС–СЋРІР°РЅРЅСЏ
 	theMatrix(const theMatrix&v)
 	{
-		this->size = v.size;
-		arr = new int*[this->size];
+		this->size=v.size;
+		arr=new int*[this->size];
 		for (int i = 0; i < size; i++)
 		{
-			arr[i] = new int[size];
-			for (int j = 0; j < size; j++)
+			arr[i]= new int [size];
+			for (int j = 0; j < size;j++)
 			{
-				arr[i][j] = v.arr[i][j];
+				arr[i][j]=v.arr[i][j];
 			}
 		}
-		//cout<<"Спрацював конструктор копiювання\n";
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїiСЋРІР°РЅРЅСЏ\n";
 	}
 	theMatrix& operator=(const theMatrix&v)
 	{
-		if (this != &v)
+		if(this!=&v)
 		{
-			if (arr != NULL)
+			if(arr!=NULL)
 			{
 				for (int i = 0; i < size; i++)
 				{
 					delete[] arr[i];
 				}
 				delete[] arr;
-
-				size = v.size;
-				arr = new int*[size];
+				
+				size=v.size;
+				arr= new int*[size];
 				for (int i = 0; i < size; i++)
 				{
-					arr[i] = new int[size];
-					for (int j = 0; j < size; j++)
+					arr[i]= new int [size];
+					for (int j = 0; j < size;j++)
 					{
-						arr[i][j] = v.arr[i][j];
+						arr[i][j]=v.arr[i][j];
 					}
 				}
 			}
 		}
 		return *this;
-		//cout<<"Спрацював конструктор присвоєння\n";
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїСЂРёСЃРІРѕС”РЅРЅСЏ\n";
 	}
-	//перевантажені оператори
+	//РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅС– РѕРїРµСЂР°С‚РѕСЂРё
 	theMatrix operator+(const theMatrix&V)
 	{
-		if (size != V.size)
+		if(size!= V.size)
 		{
-			cout << "Матрицi рiзних розмiрiв\n";
+			cout<<"РњР°С‚СЂРёС†i СЂiР·РЅРёС… СЂРѕР·РјiСЂiРІ\n";
 			return 0;
 		}
 		else
@@ -558,28 +562,28 @@ public:
 	}
 	theMatrix operator+=(const theMatrix&V)const
 	{
-		if (size != V.size)
+		if(size!= V.size)
 		{
-			cout << "Матрицi рiзних розмiрiв\n";
+			cout<<"РњР°С‚СЂРёС†i СЂiР·РЅРёС… СЂРѕР·РјiСЂiРІ\n";
 			return 0;
 		}
 		else
 		{
-			for (int i = 0; i < size; i++)
+			for (int i = 0; i < size; i++) 
 			{
 				for (int j = 0; j < size; j++)
 				{
 					V.arr[i][j] = arr[i][j] + V.arr[i][j];
-				}
+				}	
 			}
 			return V;
 		}
-	}
+	}	
 	theMatrix operator-(const theMatrix&V)
 	{
-		if (size != V.size)
+		if(size!= V.size)
 		{
-			cout << "Матрицi рiзних розмiрiв\n";
+			cout<<"РњР°С‚СЂРёС†i СЂiР·РЅРёС… СЂРѕР·РјiСЂiРІ\n";
 			return 0;
 		}
 		else
@@ -597,28 +601,28 @@ public:
 	}
 	theMatrix operator-=(const theMatrix&V)const
 	{
-		if (size != V.size)
+		if(size!= V.size)
 		{
-			cout << "Матрицi рiзних розмiрiв\n";
+			cout<<"РњР°С‚СЂРёС†i СЂiР·РЅРёС… СЂРѕР·РјiСЂiРІ\n";
 			return 0;
 		}
 		else
 		{
-			for (int i = 0; i < size; i++)
+			for (int i = 0; i < size; i++) 
 			{
 				for (int j = 0; j < size; j++)
 				{
 					V.arr[i][j] = arr[i][j] - V.arr[i][j];
-				}
+				}	
 			}
 			return V;
 		}
 	}
 	theMatrix operator*(const theMatrix&V)
 	{
-		if (size != V.size)
+		if(size!= V.size)
 		{
-			cout << "Матрицi рiзних розмiрiв\n";
+			cout<<"РњР°С‚СЂРёС†i СЂiР·РЅРёС… СЂРѕР·РјiСЂiРІ\n";
 			return 0;
 		}
 		else
@@ -636,19 +640,19 @@ public:
 	}
 	theMatrix operator*=(const theMatrix&V)const
 	{
-		if (size != V.size)
+		if(size!= V.size)
 		{
-			cout << "Матрицi рiзних розмiрiв\n";
+			cout<<"РњР°С‚СЂРёС†i СЂiР·РЅРёС… СЂРѕР·РјiСЂiРІ\n";
 			return 0;
 		}
 		else
 		{
-			for (int i = 0; i < size; i++)
+			for (int i = 0; i < size; i++) 
 			{
 				for (int j = 0; j < size; j++)
 				{
 					V.arr[i][j] += arr[i][j] * V.arr[j][i];
-				}
+				}	
 			}
 			return V;
 		}
@@ -677,22 +681,30 @@ public:
 			}
 		}
 		return result;
-	}
-
+	}	
 	theMatrix transposition(const theMatrix&T)
-	{
-		theMatrix matrix = T;
-
-		for (int i = 0; i < size; ++i)
 		{
-			for (int j = i; j < size; ++j)
+			theMatrix matrix=T;
+
+			for(int i = 0; i < size; ++i)
 			{
-				T.arr[i][j] = matrix.arr[i][j];
-				matrix.arr[i][j] = matrix.arr[j][i];
-				matrix.arr[j][i] = T.arr[i][j];
+				for(int j = i; j < size; ++j)
+				{
+					T.arr[i][j] = matrix.arr[i][j];
+					matrix.arr[i][j] = matrix.arr[j][i];
+					matrix.arr[j][i] = T.arr[i][j];
+				}
 			}
+			return matrix;
 		}
-		return matrix;
+
+	theMatrix modufication(int l,FunType* op)
+	{
+		for (int i = 0; i < l; i++)
+		{
+			op[i](size,arr);
+		}
+		return 0;
 	}
 
 	~theMatrix()
@@ -702,66 +714,100 @@ public:
 			delete[] arr[i];
 		}
 		delete[] arr;
-		//cout<<"Спрацював деструктор\n";
+		//cout<<"РЎРїСЂР°С†СЋРІР°РІ РґРµСЃС‚СЂСѓРєС‚РѕСЂ\n";
 	}
-
+		
 private:
 	int **arr;
 	int size;
 };
 
+	int** mod_1(int size, int **arr)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				arr[i][j] *= 20;
+			}
+		}
+		return arr;
+	}
+	int** mod_2(int size, int **arr)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				 arr[i][j] += 20;
+			}
+		}
+		return arr;
+	}
+	int** mod_3(int size, int **arr)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				arr[i][j] -= 20;
+			}
+		}
+		return arr;
+	}
+
 void main()
 {
-	setlocale(0, "");
+	setlocale(0,"");
+	FunType op[3]={mod_1,mod_2,mod_3};
 
-	cout << "-------------Вектори-------------\n";
+	cout<<"-------------Р’РµРєС‚РѕСЂРё-------------\n";
 
 	vector a(3);
 	vector b(4);
-	vector c = a;
+	vector c=a;
 	vector d;
-	cout << "---------------------------------\n";
+	cout<<"---------------------------------\n";
 	a.enter(3);
-	c = a;
+	c=a;
 	a.resize(2);
 	a.print();
-	cout << "Вставлення" << endl;
-	a.insert(10, 2);
+	cout<<"Р’СЃС‚Р°РІР»РµРЅРЅСЏ"<<endl;
+	a.insert(10,2);
 	a.getElementByIndex(2);
-	cout << "---------------------------------\n";
+	cout<<"---------------------------------\n";
 	a.print();
 	b.print();
 	c.print();
 	d.print();
-	cout << "---------------------------------\n";
-	cout << "Сума" << endl;
-	(a + c).print();
-	c = a;
-	cout << "Сума" << endl;
-	(a += c).print();
-	cout << "---------------------------------\n";
+	cout<<"---------------------------------\n";
+	cout<<"РЎСѓРјР°"<<endl;
+	(a+c).print();
+	c=a;
+	cout<<"РЎСѓРјР°"<<endl;
+	(a+=c).print();
+	cout<<"---------------------------------\n";
 	c.enter(3);
-	cout << "Рiзниця" << endl;
-	(a - c).print();
-	cout << "Рiзниця" << endl;
-	(a -= c).print();
-	cout << "---------------------------------\n";
-	cout << "Добуток" << endl;
+	cout<<"Р iР·РЅРёС†СЏ"<<endl;
+	(a-c).print();
+	cout<<"Р iР·РЅРёС†СЏ"<<endl;
+	(a-=c).print();
+	cout<<"---------------------------------\n";
+	cout<<"Р”РѕР±СѓС‚РѕРє"<<endl;
 	(a*c).print();
-	cout << "Добуток" << endl;
-	(a *= c).print();
-	cout << "---------------------------------\n";
-	cout << "Добуток на число" << endl;
-	(a * 4).print();
+	cout<<"Р”РѕР±СѓС‚РѕРє"<<endl;
+	(a*=c).print();
+	cout<<"---------------------------------\n";
+	cout<<"Р”РѕР±СѓС‚РѕРє РЅР° С‡РёСЃР»Рѕ"<<endl;
+	(a*4).print();
 
-
-	cout << "\n\n-------------Матриця-------------\n";
+	cout<<"\n\n-------------РњР°С‚СЂРёС†СЏ-------------\n";
 
 	theMatrix A(3);
-	theMatrix В(4);
-	theMatrix C = A;
+	theMatrix Р’(4);
+	theMatrix C=A;
 	theMatrix D(2);
-	cout << "-------------------------------------\n";
+	cout<<"---------------------------------\n";
 	A.print();
 	C.print();
 	A.enter(3);
@@ -770,35 +816,39 @@ void main()
 	A.getVerticalLineByIndex(2);
 	A.getDiagonalMain();
 	A.getDiagonalSide();
-	cout << "-------------------------------------\n";
-	C = A;
+	cout<<"---------------------------------\n";
+	C=A;
 	C.print();
-	(A + A).print();
-	cout << "Транспонована матриця" << endl;
+	(A+A).print();
+	cout<<"РўСЂР°РЅСЃРїРѕРЅРѕРІР°РЅР° РјР°С‚СЂРёС†СЏ"<<endl;
 	A.transposition(A).print();
-	cout << "-------------------------------------\n";
-	cout << "Сума" << endl;
-	(A + C).print();
-	C = A;
-	cout << "Сума" << endl;
-	(A += C).print();
-	cout << "---------------------------------\n";
+	cout<<"---------------------------------\n";
+	cout<<"РЎСѓРјР°"<<endl;
+	(A+C).print();
+	C=A;
+	cout<<"РЎСѓРјР°"<<endl;
+	(A+=C).print();
+	cout<<"---------------------------------\n";
 	D.enter(2);
 	D.print();
-	cout << "Рiзниця" << endl;
-	(A - C).print();
-	cout << "Рiзниця" << endl;
-	(A -= C).print();
-	cout << "---------------------------------\n";
-	cout << "Добуток" << endl;
+	cout<<"Р iР·РЅРёС†СЏ"<<endl;
+	(A-C).print();
+	cout<<"Р iР·РЅРёС†СЏ"<<endl;
+	(A-=C).print();
+	cout<<"---------------------------------\n";
+	cout<<"Р”РѕР±СѓС‚РѕРє"<<endl;
 	(A*C).print();
-	cout << "Добуток" << endl;
-	(A *= C).print();
-	cout << "---------------------------------\n";
-	cout << "Добуток на число" << endl;
-	(A * 2).print();
-	cout << "Сума на число" << endl;
-	(A + 2).print();
+	cout<<"Р”РѕР±СѓС‚РѕРє"<<endl;
+	(A*=C).print();
+	cout<<"---------------------------------\n";
+	cout<<"Р”РѕР±СѓС‚РѕРє РЅР° С‡РёСЃР»Рѕ"<<endl;
+	(A*2).print();
+	cout<<"РЎСѓРјР° РЅР° С‡РёСЃР»Рѕ"<<endl;
+	(A+2).print();
+	cout<<"---------------------------------\n";
+	cout<<"РћРїРµСЂР°С†iСЏ Р· РјР°СЃРёРІСѓ С„СѓРЅРєС†iР№"<<endl;
+	A.modufication(2,op);
+	A.print();
 
 	system("pause");
 }
