@@ -6,11 +6,11 @@ using namespace std;
 
 void display_equation(int n, int m, double **R);
 void theMatrix(int n, int m, double **M);
-void permutation(double **P, int n, int k, int maxI);
+void permutation(double **P, int n,int k, int maxI);
 void null(int n, double **ZeroCondition);
-void maximal_element(int n, int k, int m, double max, double **Max);
+void maximal_element(int n, int k, int m,double max, double **Max);
 void deduct_rows(double **V, int m, int r1, int r2);
-void normalize(double **L, int n, int m, int k, double index);
+void normalize(double **L, int n, int m,int k, double index);
 void answer(int n, double **xx);
 double enterS(int n, int m, double **entS);
 double enterR(int n, int m, double **entR);
@@ -19,98 +19,98 @@ double enterR(int n, int m, double **entR);
 int main()
 {
 	setlocale(LC_ALL, "Ukr");
-
-	int n, m, k = 0, P = 0;
+	
+	int n, m, k=0, P=0;
 	double max = 0, index = 0;
 
-	cout << "\t\tПокроковий алгоритм Гаусса\n";
-	cout << "Введiть число рiвнянь: ";
+	cout << "\t\tРџРѕРєСЂРѕРєРѕРІРёР№ Р°Р»РіРѕСЂРёС‚Рј Р“Р°СѓСЃСЃР°\n";
+	cout << "Р’РІРµРґiС‚СЊ С‡РёСЃР»Рѕ СЂiРІРЅСЏРЅСЊ: ";
 	cin >> n;
-	cout << "Введiть число невiдомих: ";
+	cout << "Р’РІРµРґiС‚СЊ С‡РёСЃР»Рѕ РЅРµРІiРґРѕРјРёС…: ";
 	cin >> m;
 
-	if (n>0 && m>0 && n == m)
+	if(n>0 && m>0 && n==m)
 	{
-		m += 1;
-		double *X = new double[m];
-		double **matrix = new double *[n];
-		for (int i = 0; i<n; i++)
-		{
-			matrix[i] = new double[m];
-		}
-		cin.get();
-		//вести масив
-		int a;
+	m += 1;
+	double *X = new double [m];
+	double **matrix = new double *[n];
+	for (int i = 0; i<n; i++)
+	{
+		matrix[i] = new double [m];
+	}
+	cin.get();
+	//РІРµСЃС‚Рё РјР°СЃРёРІ
+	int a;
 	again:
-		cout << "Виберiть спосiб вводу данних:\n"
-			<< "Для ручного вводу нажмiть : 1\n"
-			<< "Для автоматичного вводу нажмiть : 2\n";
-		cin >> a;
-		if (a != 1 && a != 2)
-		{
-			cout << "Спробуйте ще раз\n";
-			goto again;
-		}
-		if (a == 1)
-		{
-			enterS(n, m, matrix);
-			cin.get();
-		}
-		else
-			if (a == 2)
-			{
-				enterR(n, m, matrix);
-				cin.get();
-			}
+	cout <<"Р’РёР±РµСЂiС‚СЊ СЃРїРѕСЃiР± РІРІРѕРґСѓ РґР°РЅРЅРёС…:\n"
+		 <<"Р”Р»СЏ СЂСѓС‡РЅРѕРіРѕ РІРІРѕРґСѓ РЅР°Р¶РјiС‚СЊ : 1\n"
+		 <<"Р”Р»СЏ Р°РІС‚РѕРјР°С‚РёС‡РЅРѕРіРѕ РІРІРѕРґСѓ РЅР°Р¶РјiС‚СЊ : 2\n";
+	cin >> a;
+	if(a!=1 && a!=2)
+	{
+		cout <<"РЎРїСЂРѕР±СѓР№С‚Рµ С‰Рµ СЂР°Р·\n";
+		goto again;
+	}
+	if(a==1)
+	{
+		enterS(n, m, matrix);
 		cin.get();
-		display_equation(n, m, matrix);
-		theMatrix(n, m, matrix);
-		null(n, matrix);
-		//алгоритм Гаусса
-		do
-		{
-			maximal_element(n, k, m, max, matrix);
-			theMatrix(n, m, matrix);
-			normalize(matrix, n, m, k, index);
-			theMatrix(n, m, matrix);
-			cout << "Вираховуємо найвищий рядок рiвняння iз наступних\n\n";
-			cin.get();
-			for (int k = P + 1; k < n; k++)
-			{
-				deduct_rows(matrix, n, k, P);
-			}
-			theMatrix(n, m, matrix);
-			P++;
-			k++;
-		} while (k<m - 1 || P < n - 1);
-		answer(n, matrix);
 	}
 	else
-	{
-		if (n <= 0 || m <= 0)
+		if(a==2)
 		{
-			cout << "\n\t\tTакого рiвняння не iснує.\n";
+			enterR(n, m, matrix);
+			cin.get();
+		}
+	cin.get();
+	display_equation(n,m,matrix);
+	theMatrix(n,m,matrix);
+	null(n, matrix);
+	//Р°Р»РіРѕСЂРёС‚Рј Р“Р°СѓСЃСЃР°
+	do
+	{
+	maximal_element(n,k,m,max,matrix);
+	theMatrix(n,m,matrix);
+	normalize(matrix, n, m,k, index);
+	theMatrix(n,m,matrix);
+	cout<<"Р’РёСЂР°С…РѕРІСѓС”РјРѕ РЅР°Р№РІРёС‰РёР№ СЂСЏРґРѕРє СЂiРІРЅСЏРЅРЅСЏ iР· РЅР°СЃС‚СѓРїРЅРёС…\n\n";
+	cin.get();
+	for(int k = P + 1; k < n; k++)
+	{
+		deduct_rows(matrix,n,k,P);
+	}
+	theMatrix(n,m,matrix);
+	P++;
+	k++;
+	} while (k<m-1 || P < n-1);
+	answer(n, matrix);		
+	}
+else
+	{
+		if (n<=0 || m<=0)
+		{
+			cout<<"\n\t\tTР°РєРѕРіРѕ СЂiРІРЅСЏРЅРЅСЏ РЅРµ iСЃРЅСѓС”.\n";
 		}
 		else
 		{
-			if (m != n)
+		if(m != n)
 			{
-				cout << "\n\t\tРiшення отримати неможливо.\n";
+				cout << "\n\t\tР iС€РµРЅРЅСЏ РѕС‚СЂРёРјР°С‚Рё РЅРµРјРѕР¶Р»РёРІРѕ.\n";
 			}
 		}
 	}
 	system("pause");
 }
 
-//вивід рівняння
+//РІРёРІС–Рґ СЂС–РІРЅСЏРЅРЅСЏ
 void display_equation(int n, int m, double **R)
 {
-	cout << "\nРiвняння має вигляд:\n\n";
+	cout << "\nР iРІРЅСЏРЅРЅСЏ РјР°С” РІРёРіР»СЏРґ:\n\n";
 	for (int i = 0; i<n; ++i)
 	{
 		for (int j = 0; j<m - 1; ++j)
 		{
-			cout << R[i][j] << " * " << "X [" << j + 1 << "]";
+			cout << R[i][j] << " * " << "X [" << j + 1<<"]";
 			if (j<m - 2)
 			{
 				cout << " + ";
@@ -125,10 +125,10 @@ void display_equation(int n, int m, double **R)
 	cout << endl;
 	cin.get();
 }
-//вивід матриці
+//РІРёРІС–Рґ РјР°С‚СЂРёС†С–
 void theMatrix(int n, int m, double **M)
 {
-	cout << "Матриця має вигляд:\n\n";
+	cout << "РњР°С‚СЂРёС†СЏ РјР°С” РІРёРіР»СЏРґ:\n\n";
 	cout.precision(4);
 	for (int i = 0; i<n; ++i)
 	{
@@ -138,7 +138,7 @@ void theMatrix(int n, int m, double **M)
 		}
 		for (int j = 0; j<1; ++j)
 		{
-			cout << "\tХ [" << i + 1 << "]";
+			cout << "\tРҐ [" << i + 1 <<"]";
 		}
 		for (int j = m - 1; j<m; ++j)
 		{
@@ -148,13 +148,13 @@ void theMatrix(int n, int m, double **M)
 	}
 	cin.get();
 }
-//перестановка
-void permutation(double **P, int n, int k, int maxI)
+//РїРµСЂРµСЃС‚Р°РЅРѕРІРєР°
+void permutation(double **P, int n,int k, int maxI)
 {
-	double *temp = new double[n];
-	for (int i = k; i<n + 1; i++)
+	double *temp = new double [n];
+	for (int i = k; i<n+1; i++)
 	{
-		for (int j = k; j<k + 1; ++j)
+		for (int j=k; j<k+1; ++j)
 		{
 			temp[i] = P[j][i];
 			P[j][i] = P[maxI][i];
@@ -162,179 +162,179 @@ void permutation(double **P, int n, int k, int maxI)
 		}
 	}
 }
-//пошук нуля
+//РїРѕС€СѓРє РЅСѓР»СЏ
 void null(int n, double **ZeroCondition)
 {
-	int findZero = 0;
-	for (int zero = 0; zero<n; zero++)
+	int findZero=0;
+	for(int zero=0; zero<n ;zero++)
 	{
-		//cтовпчики
-		for (int j = zero; j<n; j++)
+		//cС‚РѕРІРїС‡РёРєРё
+		for (int j=zero; j<n; j++)
 		{
 			for (int i = 0; i<n; ++i)
 			{
 				if (ZeroCondition[i][j] == 0)
 				{
 					findZero++;
-					if (findZero >= n)
+					if(findZero >= n)
 					{
-						cout << "\n\t\tРiшення отримати неможливо.\n";
+						cout << "\n\t\tР iС€РµРЅРЅСЏ РѕС‚СЂРёРјР°С‚Рё РЅРµРјРѕР¶Р»РёРІРѕ.\n";
 						system("pause");
 						exit(1);
-					}
+					}	
 				}
-			}
-			findZero = 0;
+			}	
+			findZero=0;
 		}
-		//рядки
+		//СЂСЏРґРєРё
 		for (int i = 0; i<n; ++i)
-		{
-			for (int j = zero; j<n; j++)
 			{
-				if (ZeroCondition[i][j] == 0)
-				{
-					findZero++;
-					if (findZero >= n)
+				for (int j=zero; j<n; j++)
+				{	
+					if (ZeroCondition[i][j] == 0)
 					{
-						cout << "\n\t\tРiшення отримати неможливо.\n";
-						system("pause");
-						exit(1);
+						findZero++;
+						if(findZero >= n)
+						{
+							cout << "\n\t\tР iС€РµРЅРЅСЏ РѕС‚СЂРёРјР°С‚Рё РЅРµРјРѕР¶Р»РёРІРѕ.\n";
+							system("pause");
+							exit(1);
+						}	
 					}
-				}
+				}	
+				findZero=0;
 			}
-			findZero = 0;
-		}
 	}
 }
-//пошук максимального
-void maximal_element(int n, int k, int m, double max, double **Max)
+//РїРѕС€СѓРє РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ
+void maximal_element(int n, int k, int m,double max, double **Max)
 {
-	int N = 0;
-	int max_i = 0;
-	cout << "Вибираємо рядок з максимальним елементом Ai i мiняємо його з попереднiм.\n\n";
+	int N=0;
+	int max_i=0;
+	cout << "Р’РёР±РёСЂР°С”РјРѕ СЂСЏРґРѕРє Р· РјР°РєСЃРёРјР°Р»СЊРЅРёРј РµР»РµРјРµРЅС‚РѕРј Ai i РјiРЅСЏС”РјРѕ Р№РѕРіРѕ Р· РїРѕРїРµСЂРµРґРЅiРј.\n\n";
 	for (int i = k; i<n; i++)
 	{
-		for (int j = k; j<k + 1; ++j)
+		for (int j=k; j<k+1; ++j)
 		{
 			if (Max[i][j] > max)
 			{
 				max = Max[i][j];
 				max_i = i;
-			}
-		}
+			}	
+		}		
 	}
-	for (int i = 0; i<k + 1; i++)
+	for (int i = 0; i<k+1; i++)
 	{
-		N++;
+	N++;
 	}
-	cout << "Максимальний елемент " << N << " стовпчика: " << max << endl;
-	max = 0;
+	cout << "РњР°РєСЃРёРјР°Р»СЊРЅРёР№ РµР»РµРјРµРЅС‚ " << N  << " СЃС‚РѕРІРїС‡РёРєР°: " << max <<endl;
+	max = 0;	
 	cin.get();
-	permutation(Max, n, k, max_i);
+	permutation(Max,n,k,max_i);
 }
-//віднімання
+//РІС–РґРЅС–РјР°РЅРЅСЏ
 void deduct_rows(double **V, int m, int r1, int r2)
 {
-	for (int i = 0; i<m + 1; ++i)
+	for(int i=0;i<m+1;++i)
 	{
-		if (r1 == r2)
+		if (r1 == r2)  
 		{
 			continue;
 		}
 		else
-		{
-			V[r1][i] = V[r1][i] - V[r2][i];
+		{			
+			V[r1][i]=V[r1][i] - V[r2][i];
 		}
 	}
 }
-//нормування
-void normalize(double **L, int n, int m, int k, double index)
+//РЅРѕСЂРјСѓРІР°РЅРЅСЏ
+void normalize(double **L, int n, int m,int k, double index)
 {
 	for (int i = k; i<n; i++)
 	{
-		for (int j = k; j<k + 1; ++j)
+		for (int j=k; j<k+1; ++j)
 		{
-
+			
 			index = L[i][j];
-
-		}
+			
+		}		
 		for (int j = k; j<m; j++)
 		{
 			if (L[i][j] == k) continue;
 			else L[i][j] /= index;
 		}
 	}
-	cout << "Нормуємо кожне рiвняння вiдносно коефiцiєнта при Xi\n";
+	cout << "РќРѕСЂРјСѓС”РјРѕ РєРѕР¶РЅРµ СЂiРІРЅСЏРЅРЅСЏ РІiРґРЅРѕСЃРЅРѕ РєРѕРµС„iС†iС”РЅС‚Р° РїСЂРё Xi\n";
 	cin.get();
 }
-//вивід відповіді
+//РІРёРІС–Рґ РІС–РґРїРѕРІС–РґС–
 void answer(int n, double **xx)
 {
-	double s = 0, d;
-	double *x = new double[n];
-	for (int i = n - 1; i >= 0; --i)
+	double s=0,d;
+	double *x=new double[n];
+	for (int i = n-1; i>=0; --i)
 	{
-		for (int j = n; j>n - 1; --j)
+		for (int j =n; j>n-1; --j)
 		{
-			d = xx[i][j];//++
-		}
-		for (int j = n - 1; j > i; j--)
+			d= xx[i][j];//++
+		}	
+		for(int j = n - 1; j > i; j--)
 		{
 			s += x[j] * xx[i][j];
 		}
 		x[i] = d - s;
-		cout << "x [" << i + 1 << "]: " << x[i] << endl;
+		cout << "x [" << i+1 <<"]: " <<x[i] <<endl;
 	}
 }
-//ввід матриці самостійно
+//РІРІС–Рґ РјР°С‚СЂРёС†С– СЃР°РјРѕСЃС‚С–Р№РЅРѕ
 double enterS(int n, int m, double **entS)
 {
 	for (int i = 0; i<n; i++)
 	{
 		for (int j = 0; j<m - 1; j++)
 		{
-			cout << "Невiдомий елемент рiвняння " << "[" << i + 1 << " , " << j + 1 << "]: ";
+			cout << "РќРµРІiРґРѕРјРёР№ РµР»РµРјРµРЅС‚ СЂiРІРЅСЏРЅРЅСЏ " << "[" << i + 1 << " , " << j + 1 << "]: ";
 			cin >> entS[i][j];
 		}
 		for (int j = m - 1; j<m; j++)
 		{
-			cout << "Pезультат рiвняння " << "[" << i + 1 << "]: ";
+			cout << "PРµР·СѓР»СЊС‚Р°С‚ СЂiРІРЅСЏРЅРЅСЏ " << "[" << i + 1 << "]: ";
 			cin >> entS[i][j];
 		}
 	}
 	return **entS;
 }
-//ввід матриці рандомом
+//РІРІС–Рґ РјР°С‚СЂРёС†С– СЂР°РЅРґРѕРјРѕРј
 double enterR(int n, int m, double **entR)
 {
 	int vid, dia;
-again2:
-	cout << "Оберiть дiапазон значень чисел:\n"
-		<< "вiд ";
+	again2:
+	cout << "РћР±РµСЂiС‚СЊ РґiР°РїР°Р·РѕРЅ Р·РЅР°С‡РµРЅСЊ С‡РёСЃРµР»:\n"
+		 << "РІiРґ ";
 	cin >> vid;
-	cout << "до ";
+	cout << "РґРѕ ";
 	cin >> dia;
-	if (dia<vid)
+	if(dia<vid)
 	{
-		cout << "Значення \"до\" не може бути меншим за значення \"вiд\"!\n";
+		cout << "Р—РЅР°С‡РµРЅРЅСЏ \"РґРѕ\" РЅРµ РјРѕР¶Рµ Р±СѓС‚Рё РјРµРЅС€РёРј Р·Р° Р·РЅР°С‡РµРЅРЅСЏ \"РІiРґ\"!\n";
 		goto again2;
 	}
-	dia -= vid;
+	dia-=vid;
 	srand(time(NULL));
 	for (int i = 0; i<n; i++)
 	{
 		for (int j = 0; j<m - 1; j++)
 		{
-			cout << "Невiдомий елемент рiвняння " << "[" << i + 1 << " , " << j + 1 << "]: ";
-			entR[i][j] = rand() % (dia + 1) + vid;
+			cout << "РќРµРІiРґРѕРјРёР№ РµР»РµРјРµРЅС‚ СЂiРІРЅСЏРЅРЅСЏ " << "[" << i + 1 << " , " << j + 1 << "]: ";
+			entR[i][j]=rand()% (dia + 1) + vid; 
 			cout << entR[i][j] << endl;
 		}
 		for (int j = m - 1; j<m; j++)
 		{
-			cout << "Pезультат рiвняння " << "[" << i + 1 << "]: ";
-			entR[i][j] = rand() % (dia + 1) + vid;
+			cout << "PРµР·СѓР»СЊС‚Р°С‚ СЂiРІРЅСЏРЅРЅСЏ " << "[" << i + 1 << "]: ";
+			entR[i][j]=rand()%(dia + 1) + vid; 
 			cout << entR[i][j] << endl;
-		}
+		}	
 	}
 	return **entR;
 }
