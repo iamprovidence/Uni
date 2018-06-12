@@ -1,11 +1,6 @@
 #pragma once
 #include <iostream>
-#include <iomanip> 
 #include <queue>
-#include <string>
-#include <fstream>
-#include <iomanip>
-#include <sstream>
 
 using namespace std;
 typedef void(*funcPtr) (int&);
@@ -20,21 +15,23 @@ public:
 	{
 		int data;
 		Link * next;
+		Link * prev;
 
 		Link()
 		{
 			data = NULL;
-			next = nullptr;
+			prev = next = nullptr;
 		}
 
-		Link(int x, Link * n = nullptr)
+		Link(int x, Link * n = nullptr, Link * p = nullptr)
 		{
 			data = x;
 			next = n;
+			prev = p;
 		}
 	};
 private:
-	
+
 	Link * head;
 	Link * tail;
 	int length;
@@ -47,9 +44,28 @@ public:
 	int find(int x)const;
 	int get_size()const;
 	ostream& prettyPrint(ostream& os)const;
-	int get_element_by_index(int i);
+	int& operator[](int i);
 	Link * getNode();
+public:
+	class iterator
+	{
+	private:
+		Link * ptr;
+	public:
+		iterator(Link * L = nullptr);
+		iterator& operator++();
+		iterator& operator--();
+		int operator*();
+		bool operator!=(const iterator &p);
+		bool operator==(const iterator &p);
 
+		iterator& operator+(int step);
+		iterator& operator-(int step);
+
+	};
+
+	iterator begin();
+	iterator end();
 };
 
 class BinaryTree
@@ -60,22 +76,24 @@ public:
 		int data;
 		Node * left;
 		Node * right;
+		Node * father;
+		bool checked;
 
 		Node();
 
-		Node(int x, Node * l, Node * r);
+		Node(int x, Node * f, Node * l, Node * r);
 	};
+
 private:
 	Node * T;
 	int amount;
 private:
-	void addPrivate(int x, Node*&tree);
+	void addPrivate(int x, Node*&tree, Node *parrent = nullptr);
 	bool removePrivate(int x, Node *&tree);
 	Node * find_minimum(Node * min) const;
 	bool findPrivate(int x, Node*tree)const;
 	void print_tree(Node * T, int k, ostream & os)const;
-	int calculate_high(Node * tree) const;
-	
+
 public:
 	BinaryTree();
 	~BinaryTree();
@@ -85,22 +103,55 @@ public:
 	bool find(int x)const;
 	void printPretty(ostream & os)const;
 	int get_size()const;
-	int get_element_by_index(int i);
+	int& operator[](int i);
 	Node * getNode();
+public:
+	class iterator
+	{
+	private:
+		Node * ptr;
+	public:
+		iterator(Node * L = nullptr);
+		/*
+			return mixed:: iterator || nullptr
+		*/
+		iterator& operator++();// ARB
+		iterator& operator--();
+		int& operator*();
+		bool operator!=(const iterator &p);
+		bool operator==(const iterator &p);
+
+		iterator& operator+(int step);
+		iterator& operator-(int step);
+	};
+
+	iterator begin();
+	iterator end();
 };
 
 void forEach(LinkedList & L, funcPtr F);
 void forEach(BinaryTree & T, funcPtr F);
+template <typename Iter, typename Func>
+void forEach(Iter start, Iter end, Func F)
+{
+	while (start != end)
+	{
+
+		F(*start);
+		++start;
+	}
+
+}
 
 template <typename T, typename V>
 bool Compare(T &first, V &second)
 {
 	int step;
-	if (  (step = first.get_size() ) == second.get_size())
+	if ((step = first.get_size()) == second.get_size())
 	{
 		for (int i = 0; i < step; ++i)
 		{
-			if (first.get_element_by_index(i) != second.get_element_by_index(i))
+			if (first[i] != second[i])
 			{
 				return false;
 			}
@@ -108,4 +159,21 @@ bool Compare(T &first, V &second)
 		return true;
 	}
 	return false;
+}
+
+template <typename Iter1, typename Iter2>
+bool Compare(Iter1 firstStart, Iter1 firstEnd, Iter2 secondStart, Iter2 secondEnd)
+{
+	while(firstStart != firstEnd && (*firstStart) == (*secondStart) )
+	{
+		++ firstStart;
+		++ secondStart; 
+	}
+	if (firstStart != firstEnd)
+	{
+		
+		return false;
+	}
+	return true;
+	
 }
