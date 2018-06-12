@@ -20,11 +20,11 @@ bool LinkedList::add(int x, bool add_to_start)
 {
 	if (add_to_start)
 	{
-		head->next = new Link(x, head->next);
+		head->next = new Link(x, head->next,head);
 	}
 	else
 	{
-		tail = tail->next = new Link(x);
+		tail = tail->next = new Link(x, nullptr, tail);
 	}
 
 	++length;
@@ -33,7 +33,7 @@ bool LinkedList::add(int x, bool add_to_start)
 }
 bool LinkedList::remove(int index)
 {
-	if (index < length && index >= 0)// âèéøëè çà ìåæ³ ñïèñêó
+	if (index < length && index >= 0)// Ğ²Ğ¸Ğ¹ÑˆĞ»Ğ¸ Ğ·Ğ° Ğ¼ĞµĞ¶Ñ– ÑĞ¿Ğ¸ÑĞºÑƒ
 	{
 
 		Link * finder = head;
@@ -48,13 +48,14 @@ bool LinkedList::remove(int index)
 			finder = finder->next;
 		}
 
-		if (finder->next != tail)//ÿêùî âèäàëÿºòüñÿ ëàíêà ³ç ñåğåäèíè
+		if (finder->next != tail)//ÑĞºÑ‰Ğ¾ Ğ²Ğ¸Ğ´Ğ°Ğ»ÑÑ”Ñ‚ÑŒÑÑ Ğ»Ğ°Ğ½ĞºĞ° Ñ–Ğ· ÑĞµÑ€ĞµĞ´Ğ¸Ğ½Ğ¸
 		{
 			Link * victim = finder->next;
 			finder->next = finder->next->next;
+			finder->next->prev = finder;
 			delete victim;
 		}
-		else //ÿêùî âèäàëÿºòüñÿ îñòàííÿ ëàíêà
+		else //ÑĞºÑ‰Ğ¾ Ğ²Ğ¸Ğ´Ğ°Ğ»ÑÑ”Ñ‚ÑŒÑÑ Ğ¾ÑÑ‚Ğ°Ğ½Ğ½Ñ Ğ»Ğ°Ğ½ĞºĞ°
 		{
 			tail = finder;
 			delete finder->next;
@@ -98,11 +99,15 @@ ostream& LinkedList::prettyPrint(ostream& os)const
 	return os;
 
 }
-int LinkedList::get_element_by_index(int i)
+int& LinkedList:: operator[](int i)
 {
 	if (i == get_size() - 1)
 	{
 		return tail->data;
+	}
+	if (i == get_size() || i  < 0)
+	{
+		throw "out of range";
 	}
 	Link * finder = head;
 	int inner_index = 0;
@@ -115,9 +120,68 @@ int LinkedList::get_element_by_index(int i)
 		++inner_index;
 		finder = finder->next;
 	}
-	throw "out of range";
+
 }
 LinkedList::Link * LinkedList::getNode()
 {
 	return head->next;
+}
+
+LinkedList::iterator LinkedList::begin()
+{
+	return iterator(this->getNode());
+}
+
+LinkedList::iterator LinkedList::end()
+{
+	return iterator();
+}
+
+LinkedList::iterator::iterator(Link * L)
+{
+	ptr = L;
+}
+int LinkedList::iterator::operator*()
+{
+	return ptr->data;
+}
+LinkedList::iterator& LinkedList::iterator::operator++()
+{
+	ptr = ptr->next;
+	return *this;
+}
+LinkedList::iterator& LinkedList::iterator::operator--()
+{
+	ptr = ptr->prev;
+	// ÑĞºÑ‰Ğ¾ Ğ¿Ğ¾Ñ‚Ñ€Ğ°Ğ¿Ğ¸Ğ»Ğ¸ Ğ½Ğ° Ğ·Ğ°Ğ³Ğ¾Ğ»Ğ¾Ğ²Ğ½Ñƒ Ğ»Ğ°Ğ½ĞºÑƒ
+	if (ptr->prev == nullptr)
+	{
+		ptr = nullptr;
+	}
+	return *this;
+}
+
+LinkedList::iterator& LinkedList::iterator::operator+(int step)
+{
+	for (int i = 0; i < step; ++i)
+	{
+		++ *this;
+	}
+	return *this;
+}
+LinkedList::iterator& LinkedList::iterator::operator-(int step)
+{
+	for (int i = 0; i < step; ++i)
+	{
+		-- *this;
+	}
+	return *this;
+}
+bool LinkedList::iterator::operator!=(const iterator &p)
+{
+	return this->ptr != p.ptr;
+}
+bool LinkedList::iterator::operator==(const iterator &p)
+{
+	return this->ptr != p.ptr;
 }
