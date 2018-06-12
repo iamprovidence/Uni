@@ -1,0 +1,8 @@
+P*Ivan 52
+S*Vasya 22 52
+P*Roman 15
+S*Oleg 12 52
+P*Max 14
+S*Petro 13 52
+P*Taras 18
+P*Igor 40

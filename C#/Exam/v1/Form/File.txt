@@ -1,0 +1,8 @@
+﻿B*Name 125 18
+SB*Science 320 Hawking
+B*HiWilly 100
+SB*Space 500 Hawking
+B*WinnyThePooh 90
+SB*Weapon 500 NotHawking
+B*IndianBook 200
+B*Bible 666
