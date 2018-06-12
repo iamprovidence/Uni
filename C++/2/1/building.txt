@@ -1,0 +1,16 @@
+15
+1 BakerSt 2 1999 15 90
+2 DisneySt 5 1978 Agriculture 5
+1 WaltSt 1 1998 10 40
+2 DSTSt 8 1979 Wood 6
+1 RoolingSt 12 1974 4 16
+2 BeatlesSt 55 1992 Metal 7
+1 MccartneySt 12 1996 9 46
+2 LennonSt 9 1997 Silver 4
+1 HarrisonSt 6 1999 2 8
+2 StarSt 8 1949 Agriculture 8
+1 WeakSt 3 1999 46 26
+2 MartinSt 1 1984 Wood 10
+1 MoggySt 22 1998 14 40
+2 MirorySt 4 1912 Agriculture 4
+1 ChopenSt 20 1996 5 20

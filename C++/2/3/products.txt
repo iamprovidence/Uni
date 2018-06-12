@@ -1,0 +1,21 @@
+6
+0014 Soad BreakinDevelop 15.99 500
+0597 Beer RockNRoll 10.99 42
+0659 Cube NotANumber 4.8 23
+0647 Toys Mysterio 45 806
+0647 Toys Secret 42 500
+6580 Car BWM 1500.99 1
+3
+0015 Varnish Coco 0.15 200
+0014 Soad BreakinDevelop 12 200
+0001 Powder NotForJunk 89.99 600
+2
+0666 Chicken_Leg Colonel_Sanders 1.0 666
+6660 Beverage Colonel_Sanders 0.99 500
+2
+0065 Hamburger Ronald_Macdonald 12.5 700
+0058 Milk Ronald_Macdonald 0.5 700
+3
+4658 Vanish Colg_Production 15.9 458
+7876 Colg Colg_Production 46.5 523
+4532 Fairy Colg_Production 16.05 400

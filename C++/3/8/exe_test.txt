@@ -1,0 +1,9 @@
+read> x;
+eps=125;
+a = 1;
+while[eps]
+{
+	a=0.5*(a+x/a);
+	eps = eps-1;
+}
+write>a;

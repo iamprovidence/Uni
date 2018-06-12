@@ -1,0 +1,10 @@
+READ x
+COPY eps 125 
+COPY a 1 
+GOTOIFNOT eps 9       
+DIV x a t1
+ADD a t1 t2
+MUL 0.5 t2 a
+SUB eps 1 eps
+GOTO 3
+WRITE a
