@@ -5,7 +5,7 @@ using namespace std;
 double funct(double x);
 double rectangle(double a, double b, double h);
 double trapeze(double a, double b, double h);
-double parabola(double a, double b, double h, double n);
+double parabola(double a,double b,double h, double n);
 
 void main()
 {
@@ -16,14 +16,14 @@ void main()
 	double S1, S2, S3, S4;
 	bool exit = false;
 
-	cout << "Задайте межi iнтервалу:\n";
+	cout << "Р—Р°РґР°Р№С‚Рµ РјРµР¶i iРЅС‚РµСЂРІР°Р»Сѓ:\n";
 	cout << "a = ";
 	cin >> a;
 	cout << "b = ";
 	cin >> b;
-	cout << "Кiлькiсть вiдрiзкiв = ";
+	cout << "РљiР»СЊРєiСЃС‚СЊ РІiРґСЂiР·РєiРІ = ";
 	cin >> n;
-	cout << "Задайте точнiсть епсилон = ";
+	cout << "Р—Р°РґР°Р№С‚Рµ С‚РѕС‡РЅiСЃС‚СЊ РµРїСЃРёР»РѕРЅ = ";
 	cin >> eps;
 
 	h = (b - a) / n;
@@ -38,61 +38,61 @@ void main()
 	do
 	{
 		S3 = trapeze(a, b, h);
-		S4 = trapeze(a, b, h / 2);
+		S4 = trapeze(a, b, h/2);
 		h /= 2;
 	} while (abs(S3 - S4) >= eps);
 	h = (b - a) / n;
-again:
-	cout << "Виберiть спосiб розрахунку:\n"
-		<< "1. прямокутник\n"
-		<< "2. трапецiя\n"
-		<< "3. парабола\n";
+	again:
+	cout << "Р’РёР±РµСЂiС‚СЊ СЃРїРѕСЃiР± СЂРѕР·СЂР°С…СѓРЅРєСѓ:\n"
+		<< "1. РїСЂСЏРјРѕРєСѓС‚РЅРёРє\n"
+		<< "2. С‚СЂР°РїРµС†iСЏ\n"
+		<< "3. РїР°СЂР°Р±РѕР»Р°\n";
 
 	while (!exit)
 	{
 		cin >> choice;
 		switch (choice)
 		{
-		case 1:cout << S2; break;
-		case 2:cout << S4; break;
-		case 3:cout << parabola(a, b, h, n); break;
-		default: goto again;
+			case 1:cout<<S2;break;
+			case 2:cout<<S4;break;
+			case 3:cout<<parabola(a, b, h, n);break;
+			default: goto again;
 		}
-		cout << "\nЩоб вибрати знову нажмiть 0, 1 - для виходу:";
-		cin >> exit;
+		cout<< "\nР©РѕР± РІРёР±СЂР°С‚Рё Р·РЅРѕРІСѓ РЅР°Р¶РјiС‚СЊ 0, 1 - РґР»СЏ РІРёС…РѕРґСѓ:";
+		cin>>exit;
 	}
 }
 
-double rectangle(double a, double b, double h)//метод прямокутника
+double rectangle(double a, double b, double h)//РјРµС‚РѕРґ РїСЂСЏРјРѕРєСѓС‚РЅРёРєР°
 {
 	double S = 0;
-	for (double i = a; i < b; i += h)
-	{
+	for (double i = a;i < b;i += h)
+	{	
 		S += h*funct(i);
 	}
 	return S;
 }
 
-double trapeze(double a, double b, double h)//метод трапецій
+double trapeze(double a, double b, double h)//РјРµС‚РѕРґ С‚СЂР°РїРµС†С–Р№
 {
 	double S = 0;
-	for (double i = a; i < b; i += h)
+	for (double i = a;i < b;i += h)
 	{
-		S += ((funct(i) + funct(i + h)) / 2)*h;
+		S += ((funct(i)+funct(i+h))/2)*h;
 	}
 	return S;
 }
 
-double parabola(double a, double b, double h, double n)//метод парабол
+double parabola(double a,double b,double h, double n)//РјРµС‚РѕРґ РїР°СЂР°Р±РѕР»
 {
-	double FXk = 0, fxk = 0;
-	for (int k = 1; k <= n - 1; k++)
+	double FXk=0, fxk=0;
+	for(int k=1;k<=n-1;k++)
 	{
 		double xk = a + h * k;
 		fxk += funct(xk);
 	}
 
-	for (int k = 1; k <= n; k++)
+	for(int k=1;k<=n;k++)
 	{
 		double xk = a + h * k;
 		double xk_1 = a + h * k - h;
@@ -101,11 +101,11 @@ double parabola(double a, double b, double h, double n)//метод парабол
 	}
 
 	double S;
-	S = (h / 3)*(0.5*funct(a) + fxk + 2 * FXk + 0.5*funct(b));
+	S= (h/3)*(0.5*funct(a) + fxk + 2*FXk  + 0.5*funct(b));
 	return S;
 }
 
-//задати функцію
+//Р·Р°РґР°С‚Рё С„СѓРЅРєС†С–СЋ
 double funct(double x)
 {
 	return x;
