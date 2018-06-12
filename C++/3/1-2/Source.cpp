@@ -1,6 +1,14 @@
 #include "template_classes.h"
-//8 4 10 2 6 9 11 5 7
-
+//8 -> 4 -> 10 -> 2 -> 6 -> 9 -> 11 -> 5 -> 7
+/*
+					8
+		/---------------------\
+	   4					  10
+	/-----\                 /-----\
+2		6				9		11
+/-----\
+5		7
+*/
 
 void main()
 {
@@ -18,15 +26,28 @@ void main()
 	//forEach(myList, make_bigger);
 	myList.prettyPrint(cout);
 	cout << endl;
-	
+
+	cout << "\tLIST ITERATOR\n";
+	LinkedList::iterator listIterator(myList.getNode());
+	while (*listIterator != 7)
+	{
+		cout << *listIterator << ' ';
+		++listIterator;
+	}
+	while (listIterator != nullptr)
+	{
+		cout << *listIterator << ' ';
+		--listIterator;
+	}
+	/*
 	myList.remove(8);
 	myList.remove(0);
 	myList.remove(3);
 	myList.remove(2);
 	myList.prettyPrint(cout);
 	cout << endl;
-	
-
+	*/
+	cout << endl;
 
 	BinaryTree myTree;
 	myTree.add(8);
@@ -43,6 +64,20 @@ void main()
 	myTree.printPretty(cout);
 	cout << endl;
 
+	cout << "\tTREE ITERATOR\n";
+	BinaryTree::iterator treeIterator(myTree.getNode());
+
+	while (*treeIterator != 10)
+	{
+		cout << *treeIterator << ' ';
+		++treeIterator;
+	}
+	while (treeIterator != nullptr)
+	{
+		cout << *treeIterator << ' ';
+		--treeIterator;
+	}
+	
 	//myTree.remove(8);
 	//myTree.printPretty(cout);
 	//cout << endl;
@@ -90,6 +125,21 @@ void main()
 	cout << "2 Tree and List - " << (Compare(myTree, myList) ? "the same" : "not the same") << endl;
 	cout << "2 List - " << (Compare(myList, myListNum2) ? "the same" : "not the same") << endl;
 	cout << "2 List - " << (Compare(myList, myList) ? "the same" : "not the same") << endl;
+
+	system("pause");
+	system("cls");
+	
+
+	cout << "\tSECOND TASK\n";
+	myTree.printPretty(cout);
+
+	forEach(myTree.begin(), myTree.end(), make_bigger);
+	myTree.printPretty(cout);
+
+	cout << "2 Tree - " << (Compare(myTree.begin(), myTree.end(), myTreeNum2.begin(), myTreeNum2.end()) ? "the same" : "not the same") << endl;
+	cout << "2 Tree and List - " << (Compare(myTree.begin(), myTree.end(), myList.begin(), myList.end()) ? "the same" : "not the same") << endl;
+	cout << "2 List - " << (Compare(myList.begin(), myList.end(), myListNum2.begin(), myListNum2.end()) ? "the same" : "not the same") << endl;
+	cout << "2 List - " << (Compare(myList.begin(), myList.end(), myList.begin(), myList.end()) ? "the same" : "not the same") << endl;
 
 	system("pause");
 }
