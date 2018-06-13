@@ -1,0 +1,4 @@
+DesignPatern Bydai
+Patern Freeman
+C++ Prata
+MetaProgramming Superman

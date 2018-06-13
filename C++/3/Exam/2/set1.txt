@@ -1,0 +1,4 @@
+StartWithC Stroustrup
+C++ Prata
+Java Eckel
+newprogramminglanguage DontCallMeBaby

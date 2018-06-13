@@ -1,0 +1,6 @@
+milk 21.10
+bread 10
+fish 15
+roap 2
+good_stuff 151.2
+super_stuff 384
