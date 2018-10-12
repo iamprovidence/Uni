@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "﻿FloydWarshallAlgorithm", "﻿FloydWarshallAlgorithm\﻿FloydWarshallAlgorithm.csproj", "{E081FEC9-FCDB-417D-B0C3-1D4EE46A7B62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{4694B2CD-C36D-4D6C-AFA5-FE50F10A916F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E081FEC9-FCDB-417D-B0C3-1D4EE46A7B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E081FEC9-FCDB-417D-B0C3-1D4EE46A7B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E081FEC9-FCDB-417D-B0C3-1D4EE46A7B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E081FEC9-FCDB-417D-B0C3-1D4EE46A7B62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4694B2CD-C36D-4D6C-AFA5-FE50F10A916F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4694B2CD-C36D-4D6C-AFA5-FE50F10A916F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4694B2CD-C36D-4D6C-AFA5-FE50F10A916F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4694B2CD-C36D-4D6C-AFA5-FE50F10A916F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12353089-22F6-4F80-B983-24052037F76D}
+	EndGlobalSection
+EndGlobal
