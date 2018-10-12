@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dijkstra’sAlgorithm", "Dijkstra’sAlgorithm\Dijkstra’sAlgorithm.csproj", "{7AD562B7-C54D-4285-BB66-9A664A5E4983}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{61800020-6E1C-404F-9362-61FD540B4BFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AD562B7-C54D-4285-BB66-9A664A5E4983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD562B7-C54D-4285-BB66-9A664A5E4983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD562B7-C54D-4285-BB66-9A664A5E4983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD562B7-C54D-4285-BB66-9A664A5E4983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61800020-6E1C-404F-9362-61FD540B4BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61800020-6E1C-404F-9362-61FD540B4BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61800020-6E1C-404F-9362-61FD540B4BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61800020-6E1C-404F-9362-61FD540B4BFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E0329C6-2A77-4190-ACD2-9592BB625678}
+	EndGlobalSection
+EndGlobal
