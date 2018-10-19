@@ -18,6 +18,7 @@ namespace Statistics
         private void DataBox_Executed(object sender, EventArgs e)
         {
             Reset();
+            discreteVariable = dataBox.DiscreteVariable;
             // charting
             dataChartBox.IsDiscrete = dataBox.IsDiscrete;
             dataChartBox.DiscreteVariable = dataBox.DiscreteVariable;
