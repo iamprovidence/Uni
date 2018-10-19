@@ -1,4 +1,4 @@
-﻿-- GENERAL
+-- GENERAL
 
 -- select book by author name
 SELECT * FROM "Books"
@@ -45,6 +45,13 @@ FROM
 	"BookPublishingHouse" AS BPH,
 	"Publishing house" AS PH
 WHERE B.isbn = BPH.isbn AND BPH."publishing house id" = PH.id;
+-- same
+SELECT 
+	B."id", B."name", PH."name" AS "Publishing house name"
+FROM 
+	"Books" AS B
+JOIN "BookPublishingHouse" AS BPH ON BPH."isbn" = B."isbn"
+JOIN "Publishing house" AS PH ON BPH."publishing house id" = PH."id";
 
 /*
  select author name, book name, publishing house name 
@@ -84,7 +91,9 @@ WHERE
 
 -- select book name and their author
 SELECT
-	B."name", A."name", A."surname"
+	B."name", 
+	A."name", 
+	A."surname"
 FROM 
 	"Books" AS B
 JOIN
@@ -95,7 +104,7 @@ JOIN
 	"Authors" AS A
 ON
 	A."id" = BA."author id";
--- select book name on publishing house
+-- select book name and publishing house
 SELECT	B."name", PH."name"
 FROM	"Books" AS B
 JOIN	"BookPublishingHouse" AS BPH
@@ -104,10 +113,20 @@ JOIN	"Publishing house" AS PH
 ON	BPH."publishing house id" = PH."id";
 -- select author name, and the number of their taken book
 -- order by book taken
-SELECT A."name", A."surname", Sum(AB."book amount") AS "Book taken"
+SELECT A."name", A."surname", Sum(AB."book amount")::int AS "Book taken"
 FROM "Authors" AS A
 JOIN "BookAuthor" AS BA ON BA."author id" = A."id"
 JOIN "Books" AS B ON BA."isbn" = B."isbn"
 JOIN "Abonnement" AS AB ON AB."isbn" = B."isbn"
 GROUP BY A."name", A."surname"
 ORDER BY "Book taken" DESC;
+-- select publishing house name and their book released amount
+SELECT 
+	PH."name", 
+	Count(PH."name") AS "Book variety", 
+	Sum(B."total amount") AS "Total book released"
+FROM "Publishing house" AS PH
+JOIN "BookPublishingHouse" AS BPH ON PH."id" = BPH."publishing house id"
+JOIN "Books" AS B ON BPH."isbn" = B."isbn"
+GROUP BY PH."name"
+ORDER BY PH."name";
