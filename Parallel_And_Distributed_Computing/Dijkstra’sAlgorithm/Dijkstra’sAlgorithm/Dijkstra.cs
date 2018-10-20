@@ -5,7 +5,6 @@ namespace Dijkstras_Algorithm
     public class Dijkstra
     {
         // FIELDS
-        readonly object obj = new object();// sync root
         Graph graph;
         System.Collections.Generic.SortedDictionary<int, int> openSet;
         System.Collections.Generic.SortedDictionary<int, int> closedSet;
