@@ -1,4 +1,4 @@
-﻿namespace Prims_Algorithm
+namespace Prims_Algorithm
 {
     public class Prims
     {
@@ -59,7 +59,7 @@
         {
             for (int i = 0; i < graph.Size; i++)
             {
-                for (int j = 0; j < graph.Size; j++)
+                for (int j = from; j < to; j++)
                 {
                     if (visited[j] == false && graph[i,j] < minEdgeValue)
                     {
@@ -102,7 +102,7 @@
             System.Threading.Thread[] threads = null;
 
             int rowAmountForEachThread = graph.Size / threadAmount;
-            int lastFrom = graph.Size - rowAmountForEachThread - 1;
+            int lastFrom = graph.Size - rowAmountForEachThread - graph.Size%threadAmount;
             int lastTo = graph.Size;
 
             while (nextVertexIndex < graph.Size)
