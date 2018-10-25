@@ -1,10 +1,10 @@
-﻿-- DROP TABLE "BookAuthor";
+-- DROP TABLE "BookAuthor";
 
 CREATE TABLE "BookAuthor"
 (
-	id SERIAL PRIMARY KEY,
-	"isbn" VARCHAR(17),
-	"author id" INTEGER,
+	"id" SERIAL PRIMARY KEY,
+	"isbn" ISBN_DATA NOT NULL,
+	"author id" INTEGER NOT NULL,
 	
 	FOREIGN KEY ("isbn") 
 	REFERENCES "Books" ("isbn") ON DELETE CASCADE ON UPDATE CASCADE,
