@@ -1,21 +1,21 @@
-﻿-- DROP TABLE "Readers";
+-- DROP TABLE "Readers";
 
 CREATE TABLE "Readers"
 (
-	id SERIAL PRIMARY KEY,
+	"id" SERIAL PRIMARY KEY,
 	
-	"name" CHARACTER VARYING(30) NOT NULL,
-	surname CHARACTER VARYING(30) NOT NULL,
-	age INTEGER  CHECK (Age > 7 AND Age < 18) DEFAULT 8 NOT NULL,
+	"name" NAME_DATA,
+	"surname" NAME_DATA,
+	"age" INTEGER  CHECK (Age > 7 AND Age < 18) DEFAULT 8 NOT NULL,
 	
-	"city name" CHARACTER VARYING(30) NULL,
+	"city name" NAME_DATA,
 	"phone number" CHARACTER VARYING(12) NULL UNIQUE,
-	code CHARACTER VARYING(12) NOT NULL UNIQUE	 
+	"code" CODE_DATA UNIQUE	 
 );
 
 
 INSERT INTO "Readers" 
-	("name", surname, age, "city name", "phone number", code)
+	("name", "surname", "age", "city name", "phone number", "code")
 VALUES  ('Sophia', 'Smith', 12, 'Lviv', '380928547663', '1a2d-adas-d2'),
 	('Mia', 'Johnson', 9, 'Lviv' , '380964235864', '1234-asdq-6a'),
 	('Isabella', 'Williams', 12, 'Kyiv' , '380965235864', '1964-asdq-6a'),
@@ -33,10 +33,10 @@ VALUES  ('Sophia', 'Smith', 12, 'Lviv', '380928547663', '1a2d-adas-d2'),
 	('Logan', 'Thompson', 8, 'Lviv' , '380964235336', '1as4-asdq-6a'),
 	('Elijah', 'Garcia', 9, 'Lviv' , '380969235123', '1zc4-asdq-6a'),
 	('Zoey', 'Clarck', 12, 'Kyiv' , '380989235321', '12a4-a5dq-6a');
-# test insert
+-- test insert
 INSERT INTO "Readers"
-	("name", surname, age, "city name", "phone number", code)
-VALUES  ('', '', , '', '', '');
+	("name", "surname", "age", "city name", "phone number", "code")
+VALUES  ('', '', 8, '', '', '');
 
 SELECT * FROM "Readers";
 
@@ -44,16 +44,16 @@ SELECT "name" FROM "Readers"
 WHERE "city name" = 'Lviv';
 
 SELECT * FROM "Readers"
-WHERE age > 12
+WHERE "age" > 12
 ORDER BY "name";
 
 SELECT COUNT (DISTINCT age) FROM "Readers";
 
-SELECT "name", surname, age FROM "Readers"
-WHERE age BETWEEN 10 AND 12
-ORDER BY "name", surname;
+SELECT "name", "surname", "age" FROM "Readers"
+WHERE "age" BETWEEN 10 AND 12
+ORDER BY "name", "surname";
 
-SELECT Avg(age) AS "Average readers age" FROM "Readers";
+SELECT Avg("age") AS "Average readers age" FROM "Readers";
 
 SELECT CONCAT ("name", ' ' , "city name", ' ', "phone number" )
 AS "contact" FROM "Readers"
