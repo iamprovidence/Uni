@@ -1,10 +1,10 @@
-﻿-- DROP TABLE "Abonnement";
+-- DROP TABLE "Abonnement";
 
 CREATE TABLE "Abonnement"
 (
-	id SERIAL PRIMARY KEY,
-	"reader code" VARCHAR(12) NOT NULL,
-	"isbn" VARCHAR(17) NOT NULL,
+	"id" SERIAL PRIMARY KEY,
+	"reader code" CODE_DATA,
+	"isbn" ISBN_DATA,
 	"book amount" INTEGER NOT NULL DEFAULT 1,
 	"take book date" DATE NOT NULL,
 	"return book date" DATE NULL CHECK ("return book date" >= "take book date"),
@@ -37,7 +37,7 @@ WHERE "return book date" IS NOT NULL;
 
 UPDATE "Abonnement"
 SET "return book date" = '11/6/2018'
-WHERE id = 15;
+WHERE "id" = 15;
 
 DELETE FROM "Abonnement"
-WHERE id= 16;
+WHERE "id" = 16;
