@@ -1,10 +1,10 @@
-﻿-- DELETE TABLE "BookPublishingHouse";
+-- DROP TABLE "BookPublishingHouse";
 
 CREATE TABLE "BookPublishingHouse"
 (
-	id SERIAL PRIMARY KEY,
-	"isbn" VARCHAR(17),
-	"publishing house id" INTEGER,
+	"id" SERIAL PRIMARY KEY,
+	"isbn" ISBN_DATA NOT NULL,
+	"publishing house id" INTEGER NOT NULL,
 
 	
 	FOREIGN KEY ("isbn") 
@@ -12,8 +12,8 @@ CREATE TABLE "BookPublishingHouse"
 	ON DELETE CASCADE ON UPDATE CASCADE,
 	
 	FOREIGN KEY ("publishing house id") 
-	REFERENCES "Publishing house" (id)
-	 ON DELETE CASCADE ON UPDATE CASCADE
+	REFERENCES "Publishing house" ("id")
+	ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
