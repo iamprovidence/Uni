@@ -1,10 +1,10 @@
-﻿-- DROP TABLE "Books";
+-- DROP TABLE "Books";
 
 CREATE TABLE "Books"
 (
-	id SERIAL UNIQUE,
-	isbn VARCHAR(17) PRIMARY KEY,
-	"name" VARCHAR(30) NOT NULL,
+	"id" SERIAL UNIQUE,
+	"isbn" ISBN_DATA PRIMARY KEY,
+	"name" NAME_DATA,
 	"year" SMALLINT NULL,
 	"total amount" INTEGER NOT NULL CHECK ("total amount" > 0),
 	"amount to read home" INTEGER NOT NULL CHECK ("amount to read home" <= "total amount"),
@@ -13,7 +13,7 @@ CREATE TABLE "Books"
 
 
 INSERT INTO "Books"
-	(isbn, "name", "year", "total amount", "amount to read home", "amount to repair")
+	("isbn", "name", "year", "total amount", "amount to read home", "amount to repair")
 VALUES 	('978-666-14-6279-1', 'The Call of Cthulhu', 1826, 30, 23, 1),
 	('952-966-14-2279-2', 'Dracula', 1897, 50, 40, 3),
 	('932-966-14-6229-3', 'The Picture of Dorian Gray', 1891, 80, 12, 1),
