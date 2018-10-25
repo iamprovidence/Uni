@@ -1,14 +1,14 @@
-﻿-- DROP TABLE "Authors";
+-- DROP TABLE "Authors";
 
 CREATE TABLE "Authors"
 (
-	id SERIAL PRIMARY KEY,
-	"name" VARCHAR(30) NOT NULL,
-	surname VARCHAR(30) NOT NULL
+	"id" SERIAL PRIMARY KEY,
+	"name" NAME_DATA,
+	"surname" NAME_DATA
 );
 
 INSERT INTO "Authors" 
-	("name", surname)
+	("name", "surname")
 VALUES  ('Howard', 'Lovecraft'),
 	('Edgar', 'Poe'),
 	('Abraham', 'Stoker'),
