@@ -96,14 +96,10 @@ SELECT
 	A."surname"
 FROM 
 	"Books" AS B
-JOIN
-	"BookAuthor" AS BA 	
-ON
-	BA."isbn" = B."isbn"
-JOIN 
-	"Authors" AS A
-ON
-	A."id" = BA."author id";
+JOIN	"BookAuthor" AS BA 	
+ON	BA."isbn" = B."isbn"
+JOIN 	"Authors" AS A
+ON	A."id" = BA."author id";
 -- select book name and publishing house
 SELECT	B."name", PH."name"
 FROM	"Books" AS B
