@@ -1,12 +1,14 @@
-﻿CREATE TABLE "Publishing house"
+-- DROP TABLE "Publishing house";
+
+CREATE TABLE "Publishing house"
 (
-	id SERIAL PRIMARY KEY,
-	"name" VARCHAR(30) NOT NULL UNIQUE,
-	country VARCHAR(30)
+	"id" SERIAL PRIMARY KEY,
+	"name" NAME_DATA UNIQUE,
+	"country" VARCHAR(30) NOT NULL
 );
 
 INSERT INTO "Publishing house"
-	("name", country)
+	("name", "country")
 VALUES  ('One Day Night','UK'),
 	('4Square','USA'),
 	('Morning','Ukraine'),
@@ -15,4 +17,4 @@ VALUES  ('One Day Night','UK'),
 SELECT * FROM "Publishing house";
 
 SELECT "name" FROM "Publishing house"
-WHERE country = 'Ukraine';
+WHERE "country" = 'Ukraine';
