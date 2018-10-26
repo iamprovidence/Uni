@@ -5,7 +5,7 @@ CREATE TABLE "Abonnement"
 	"id" SERIAL PRIMARY KEY,
 	"reader code" CODE_DATA,
 	"isbn" ISBN_DATA,
-	"book amount" INTEGER NOT NULL DEFAULT 1,
+	"book amount" INTEGER NOT NULL DEFAULT 1 CHECK ("book amount" > 0),
 	"take book date" DATE NOT NULL,
 	"return book date" DATE NULL CHECK ("return book date" >= "take book date"),
 
