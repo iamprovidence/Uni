@@ -118,7 +118,7 @@ namespace FunctionInterpolation
                 if (i % 2 == 0)
                 {
                     num = -num;
-                    c--;
+                    --c;
                 }
 
                 accumulateT *= t + num;
