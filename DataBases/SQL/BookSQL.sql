@@ -4,7 +4,7 @@ CREATE TABLE "Books"
 (
 	"id" SERIAL UNIQUE,
 	"isbn" ISBN_DATA PRIMARY KEY,
-	"name" NAME_DATA,
+	"name" BOOK_TITLE,
 	"year" SMALLINT NULL,
 	"total amount" INTEGER NOT NULL CHECK ("total amount" > 0),
 	"amount to read home" INTEGER NOT NULL CHECK ("amount to read home" <= "total amount"),
@@ -24,6 +24,8 @@ VALUES 	('978-666-14-6279-1', 'The Call of Cthulhu', 1826, 30, 23, 1),
 	('968-966-14-4289-8', 'Collection 2', 2018, 30, 23, 1);
 
 SELECT * FROM "Books";
+
+SELECT COUNT("id") FROM "Books";
 
 SELECT SUM("total amount") AS "total book amount" FROM "Books";
 
