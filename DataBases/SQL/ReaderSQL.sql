@@ -33,10 +33,6 @@ VALUES  ('Sophia', 'Smith', 12, 'Lviv', '380928547663', '1a2d-adas-d2'),
 	('Logan', 'Thompson', 8, 'Lviv' , '380964235336', '1as4-asdq-6a'),
 	('Elijah', 'Garcia', 9, 'Lviv' , '380969235123', '1zc4-asdq-6a'),
 	('Zoey', 'Clarck', 12, 'Kyiv' , '380989235321', '12a4-a5dq-6a');
--- test insert
-INSERT INTO "Readers"
-	("name", "surname", "age", "city name", "phone number", "code")
-VALUES  ('', '', 8, '', '', '');
 
 SELECT * FROM "Readers";
 
