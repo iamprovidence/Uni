@@ -22,7 +22,7 @@ namespace NumericalIntegration.Models
             this.b = b;
             this.Gauss4 = new GaussPoly[4]
             {
-                new GaussPoly { t = -0.8611363, C = 0.3478548 },
+                new GaussPoly { t = -0.861136,  C = 0.3478548 },
                 new GaussPoly { t= -0.339981,   C = 0.6521452 },
                 new GaussPoly { t = 0.339981,   C = 0.6521452 },
                 new GaussPoly { t = 0.861136,   C = 0.3478548 }
