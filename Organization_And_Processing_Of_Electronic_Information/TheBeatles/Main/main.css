@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+a {
+	margin:0;
+	text-decoration:none;
+}
+* {
+  margin: -2px;
+  padding: 0px;
+  outline:none;
+}
+/*фон*/
+body
+{
+	overflow:  hidden; 
+	background:#000000;
+	background-image:url(main.jpg);
+	background-position-y: -20px;
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+/*меню*/
+ul.hr, li {
+	margin: 0px;
+    display: inline;
+}
+/*розміщення меню*/
+.footer {
+	position: absolute;
+	left: 0px;
+	bottom: 0;
+	width: 100%;
+	height: 80px;
+}
+/*кнопки*/
+.main-css,.history-css,.member-css,.albums-css,.galery-css,.piano-css {
+  box-sizing: content-box;
+  cursor: pointer;
+  padding: 5px 25px 25px 25px;
+  border: none;
+  height:60px;
+  font: normal 26px sans-serif;
+  color: white;
+  border-top: 3px solid rgba(255,255,255,0);
+  text-overflow: clip;  
+  transition: 200ms;
+  animation:exit 1s;
+}
+/*головна*/
+.main-css {
+  width: 180px;
+  background: linear-gradient(90deg, rgba(242,41,64,1) 0, rgba(124,188,10,1) 100%);
+}
+/*історія*/
+.history-css {
+  width: 184px;
+  background: linear-gradient(90deg, rgba(124,188,10,1) 0, rgba(124,188,10,1) 28%, rgba(239,239,40,1) 98%, rgba(239,239,40,1) 100%);
+}
+/*склад*/
+.member-css {
+  width: 150px;
+  background: linear-gradient(90deg, #EFEF28 0, rgba(234,14,109,1) 100%);
+}
+/*альбоми*/
+.albums-css {
+  width: 180px;
+  background: linear-gradient(90deg, rgba(234,14,109,1) 0, rgba(234,14,109,1) 1%, #66045F 100%);
+}
+/*галерея*/
+.galery-css {
+  width: 180px;
+  background: linear-gradient(90deg, rgba(102,4,95,1) 0, rgba(102,4,95,1) 16%, rgba(46,39,234,1) 100%);
+}
+/*піаніно*/
+.piano-css {
+  width: 195px;
+  background: linear-gradient(90deg, #2F26E7 0, #2F26E7 1%, #040766 100%);
+}
+/*кнопки при наведенні*/
+.main-css:hover , .history-css:hover, .member-css:hover, .albums-css:hover ,.galery-css:hover,.piano-css:hover {
+  color:#e20b5d;
+  border-top: 3px solid #e20b5d;
+  transform:   translateY(15px) ;
+}
+/*активні кнопки*/
+.main-css:active,.history-css:active ,.member-css:active,.albums-css:active,.galery-css:active,.piano-css:active {
+  border: none;
+  transition: 50ms;
+  transform: none;
+}
+/* анімації появи */
+@keyframes exit{
+	from
+	{
+		  transform:   translateY(80px) ;
+	}
+	to
+	{
+		  transform:   none ;
+	}
+}

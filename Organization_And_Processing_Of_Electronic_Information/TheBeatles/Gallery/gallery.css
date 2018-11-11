@@ -1,0 +1,207 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+  outline:none;
+}
+a {
+	margin:0;
+	padding:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+	outline:none;
+	text-decoration:none;
+}
+* {
+  margin: -2px;
+  padding: 0px;
+}
+body {
+  overflow:  hidden; 
+}
+/*фон*/
+body
+{
+	background-color:#08091E;
+	background-image:url(background.png);
+	background-position-y: -118px;
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+/*меню*/
+ul.hr, li {
+	margin: 0px;
+    display: inline;
+}
+/*розміщення меню*/
+.footer {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 80px;
+}
+/*кнопки*/
+.main-css,.history-css,.member-css,.albums-css,.galery-css,.piano-css {
+  box-sizing: content-box;
+  cursor: pointer;
+  padding: 5px 25px 25px 25px;
+  border: none;
+  height:60px;
+  font: normal 26px sans-serif;
+  color: white;
+  border-top: 3px solid rgba(255,255,255,0);
+  text-overflow: clip;  
+  transition: 200ms;
+  animation: exit 1s;
+}
+/*головна*/
+.main-css {
+  width: 180px;
+  background: repeating-linear-gradient(270deg, #5691ad 0, #2d7a9e 100%);
+}
+/*історія*/
+.history-css {
+  width: 184px;
+  background: repeating-linear-gradient(90deg, #5691ad 0, #5691ad 9%, #72A8C2 100%);
+}
+/*склад*/
+.member-css {
+  width: 150px;
+  background: repeating-linear-gradient(270deg, #1F35A5 0, #1F35A5 53%, #72A8C2 100%); 
+}
+/*альбом*/
+.albums-css {
+  width: 180px;
+  background: repeating-linear-gradient(270deg, #A080B2 0, #A080B2 50%, #1f35a3 100%);
+}
+/*галерея*/
+.galery-css {
+  width: 180px;
+  background: repeating-linear-gradient(270deg, #097D62 0, #097D62 1%, #A080B2 69%, #A080B2 100%);  
+}
+/*піаніно*/
+.piano-css {
+  width: 195px;
+  background: repeating-linear-gradient(270deg, #07664f 0, #07664f 1%, #097D62 91%, #097D62 100%);  
+}
+/*кнопки при наведенні*/
+.main-css:hover , .history-css:hover, .member-css:hover, .albums-css:hover ,.galery-css:hover,.piano-css:hover {
+  color:#e20b5d;
+  border-top: 3px solid #e20b5d;
+  transform:   translateY(15px) ;
+}
+/*активні кнопки*/
+.main-css:active,.history-css:active ,.member-css:active,.albums-css:active,.galery-css:active,.piano-css:active {
+  border: none;
+  transition:50ms;
+  transform: none;
+}
+/*блоки зображень*/
+.all_picture
+{
+	position:fixed;
+	width:100%;
+	height:85%;
+}
+.john, .george, .paul, .ringo
+{
+	display:block;
+	position: absolute;
+	height:280px;
+	width:500px;
+}
+.john
+{
+	right: -40px;
+	bottom: -40px;
+}
+.george
+{
+	left: 20px;
+	bottom: -40px;
+}
+.paul
+{
+	left: 20px;
+	top: 20px;
+}
+.ringo
+{
+	right: -40px;
+	top: 20px;
+}
+/*зображення*/
+img
+{
+	width:225px;
+	height:120px;
+	border:#000000 solid;
+}
+img:hover
+{
+	border:#e20b5d solid;
+	cursor:pointer;
+}
+/*модальне вікно*/
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	margin:auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	display: none;
+}
+.modalDialog:target {
+	display: block;
+}
+/*закрити*/
+.close {
+	color:#666;
+	font-size:36px;
+	position: absolute;
+	right: 0px;
+	text-align:right ;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
+	font-weight: bold;
+}
+.close:hover h1:hover 
+{ 
+	color:#CCC;
+}
+h1
+{
+	margin-right:10px;
+	width: 52px;
+    margin-left: 1295px;
+}
+/*фото у модальному вікні*/
+.origin
+{
+	display: block; 
+	width:auto;
+	height:auto;
+	border:none;
+	margin:auto;
+    margin-top: 100px;
+	border:2px solid black;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+/* анімації появи */
+@keyframes exit{
+	from
+	{
+		  transform:   translateY(80px) ;
+	}
+	to
+	{
+		  transform:   none ;
+	}
+}

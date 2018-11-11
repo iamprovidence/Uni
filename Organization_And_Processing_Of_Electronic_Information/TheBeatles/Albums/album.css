@@ -1,0 +1,431 @@
+@charset "utf-8";
+/* CSS Document */
+/*фон*/
+* {
+	outline:none;
+}
+body
+{
+	background: url(background/background.gif);
+	background-size:cover;
+}
+html,
+body {
+  height: 100%;
+  overflow:  hidden; 
+}
+a {
+	margin:0;
+	padding:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+	outline:none;
+	text-decoration:none;
+	color:inherit;
+}
+/*альбом*/
+.post
+{
+	height:480px;
+	width:480px;
+	display: block;
+    margin: 0; 
+	margin-left:271.5px;
+	margin-right:271.5px;
+}
+/*картинка альбому*/
+img
+{
+	height:480px;
+	width:480px;
+	border:	solid #000;
+	display: block;
+    margin: 0; 
+	position:fixed;
+    transition: all 1s ease;
+}
+.post:hover img
+{
+  border-color:#ff0072;  
+  -webkit-filter: grayscale(75%) sepia(25%) blur(2px);
+  -moz-filter: grayscale(75%) sepia(25%) blur(2px);
+  -mb-filter: grayscale(75%) sepia(25%) blur(2px);
+  -o-filter: grayscale(75%) sepia(25%) blur(2px);
+  filter: grayscale(75%) sepia(25%) blur(2px);
+  transition: all 1s ease;
+  opacity: 0.75;
+}
+/*список композицій*/
+h1
+{
+	color:#3366CC;
+	padding-left:30px;
+	width:420px;
+	cursor:default;
+	text-align:center;
+	padding:0;
+	margin-top:5px;
+}
+/*сторона диску*/
+h2
+{
+	color:#00F;
+	margin:auto;
+	cursor:default;
+}
+/*назва альбому*/
+h6
+{
+	margin:auto;
+	font-family: 'Coiny', cursive;
+	font-size:36px;
+	cursor:default;
+	text-align:center;
+	width: 420px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+h6:hover
+{
+	color:#ff0072;
+}
+/*опис альбому*/
+p
+{
+	 font-size:0px;
+	 transition: all 0.5s ease;
+	 color:#fff;
+	 padding-left:10px;
+}
+.description:hover p
+{
+	font-size:19px;
+	margin-bottom:1000px;
+}
+/*назва альбому в описі*/
+span
+{
+	color:#ff0072;
+}
+/*дата в описі*/
+.date
+{
+	color:#09C;
+}
+/*список пісень*/
+ol
+{
+	position: absolute; 
+	top: 0%;
+	left: 30%;
+	width: 400px;
+	height:480px;
+	padding:0;
+	opacity:0;
+	transition:1s;
+}
+li
+{
+	font-size:16px;
+	font-weight: bold;
+	color:#09C;
+	width: 400px;
+	font-family: 'Roboto', sans-serif;
+}
+li:hover
+{
+	color:#ff0072;
+	font-weight:normal;
+	cursor:pointer;
+}
+li:active
+{
+	font-size:15px;
+}
+.post:hover ol
+{
+	opacity:1;
+}
+
+ 
+/*карусель*/
+
+.carousel {
+  position: relative;
+}
+.carousel	input {
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  margin: 0;
+}
+.carousel input:before {
+  position: absolute;
+  content: "<";
+}
+input:checked ~ input:before {
+  content: ">";
+}
+input:checked {
+  display: none;
+}
+input:checked ~ input {
+  right: 0;
+  left: auto;		
+}
+input:checked + div + input {
+  z-index: 4;
+}
+input + div {
+  position: absolute;
+  z-index: 1;
+}  
+input:checked + div {
+  z-index: 2;
+}  
+
+
+/*розміщення альбому*/
+.carousel {
+  width: 80%;
+  height: 488px;
+  margin: 50px auto;
+  overflow:hidden;
+  transform: translateZ(0px);
+}
+/*розміщення кнопок*/
+.carousel	input {
+  top: 200px;
+  width: 60px;
+  height: 60px;
+  left: 10px;
+}
+/*права кнопка*/
+input:checked ~ input {
+  right: 47px;	
+}
+
+.carousel input:before {
+  background: #888;
+  border-radius: 50%;
+  color: #000;
+  font-family: 'Copse', serif;
+  font-size: 35px;
+  font-weight:bold;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border: 5px solid #ff0066;
+  cursor:pointer;
+}
+
+.carousel input:hover::before {
+	transition: all 200ms cubic-bezier(0.19, 1, 0.22, 1);
+	font-size:40px;
+}
+
+.carousel input:active::before {
+	font-size:35px;
+	border: 4px solid #ff0066;
+}
+
+/* плавне переміщення */
+
+input + div {
+  transform: translate3d(-100%,0,0);
+  transition: transform .9s ease-in-out;
+}
+input:checked + div {
+  transform: translate3d(0,0,0);
+}
+input:checked + div ~ div {
+  transform: translate3d(100%,0,0);
+}
+
+
+
+
+
+
+
+
+
+/*розміщення плеєра*/
+.header{
+	position: absolute;
+	left: 0px;
+	top: 0;
+	width: 100%;
+	height: 50px; 
+}
+.audio-player,
+.audio-player div,
+.audio-player h1 {
+ margin: 0;
+ padding: 0;
+ border: none;
+ outline: none;
+}
+/*грати/пауза*/
+.audio-player .pp
+{
+	border-right:solid 1px #9D9D9D;
+	width:50px;
+	height:50px;
+	float:left;
+}
+
+
+.audio-player .pause
+{
+	color:#999;
+	left:12px;
+	top:12px;
+	position:absolute;
+	opacity:0;
+	z-index:9998;
+}
+.audio-player .play
+{
+	color:#999;
+	font-size:36px;
+	position:absolute;
+	left:7px;
+	top:4px;
+	z-index:9999;
+}
+.play:hover {
+	color:#CCCCCC;
+	cursor:pointer;
+}
+.play:active {
+	opacity:0;
+}
+
+
+/*фон плеєра*/
+div.audio-player {
+	  position: relative;
+	  width: 100%;
+	  height: 50px;
+	  background: linear-gradient(180deg, rgba(0,0,0,0.49) 0, rgba(0,0,0,0.49) 100%);
+	  border-bottom:solid 1px #9D9D9D;
+}
+/*назва пісні*/
+.audio-player h1 {
+	 position: absolute;
+	 top: 17px;
+	 left: -100px;
+	 font-family: Helvetica, Arial, sans-serif;
+	 font-weight: bold;
+	 font-size: 15px;
+	 color: #9D9D9D;
+}
+.audio-player h1.time
+{
+	  position: absolute;
+	  top: 17px;
+	  left: 1100px;
+}
+/*полоса загрузки*/
+.bar, .blackbar
+{
+	cursor:pointer;
+	position:absolute;
+	background-color:#9D9D9D;
+	height: 4px;
+	top:0px;
+	width:100%
+}
+.loadbar
+{
+	position:absolute;
+	height: 4px;
+	background-color:#D1135B;
+	top:0px;
+	width:77%
+}
+/*розміщення меню*/
+.footer {
+	position: absolute;
+	left: 0px;
+	bottom: 0;
+	width: 100%;
+	height: 80px; 
+}
+/*меню*/
+ul.hr, li.menu {
+	width:100%;
+    display: inline;
+	margin: -2px;
+  	padding: 0px;	
+}
+/*кнопки*/
+.main-css,.history-css,.member-css,.albums-css,.galery-css,.piano-css {
+  box-sizing: content-box;
+  cursor: pointer;
+  padding: 5px 25px 25px 25px;
+  border: none;
+  height:60px;
+  font: normal 26px sans-serif;
+  color: white;
+  border-top: 3px solid rgba(255,255,255,0);
+  text-overflow: clip;  
+  transition: 200ms;
+  animation: exit 1s;
+}
+/*головна*/
+.main-css {
+  width: 180px;
+  background: linear-gradient(270deg, rgba(160,153,8,1) 0, rgba(207,4,4,1) 100%);
+}
+/*історія*/
+.history-css {
+  width: 184px;
+  background: linear-gradient(90deg, rgba(160,153,8,1) 0, rgba(10,163,4,1) 100%);
+}
+/*склад*/
+.member-css {
+  width: 150px;
+  background: linear-gradient(270deg, rgba(7,80,158,1) 0, rgba(10,163,4,1) 100%);
+}
+/*альбоми*/
+.albums-css {
+  width: 180px;
+  background: linear-gradient(90deg, rgba(7,80,158,1) 0, rgba(126,3,160,1) 100%);
+}
+/*галерея*/
+.galery-css {
+  width: 180px;
+  background: linear-gradient(270deg, rgba(155,7,140,1) 0, rgba(126,3,160,1) 100%);
+}
+/*піаніно*/
+.piano-css {
+  width: 196px;
+  background: linear-gradient(90deg, rgba(155,7,140,1) 0, rgba(206,4,58,1) 100%);
+}
+/*кнопки при наведенні*/
+.main-css:hover , .history-css:hover, .member-css:hover, .albums-css:hover ,.galery-css:hover,.piano-css:hover {
+  color:#e20b5d;
+  border-top: 3px solid #e20b5d;
+  transform:   translateY(15px) ;
+}
+/*активні кнопки*/
+.main-css:active,.history-css:active ,.member-css:active,.albums-css:active,.galery-css:active,.piano-css:active {
+  border: none;
+  transition: 50ms;
+  transform: none;
+}
+/* анімації появи */
+@keyframes exit{
+	from
+	{
+		  transform:   translateY(80px) ;
+	}
+	to
+	{
+		  transform:   none ;
+	}
+}

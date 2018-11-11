@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Beatles | Піаніно</title>
+    <link href="../bug.png" rel="shortcut icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link  href="piano.css" rel="stylesheet" >
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!--піаніно-->
+<section class="keyboard">
+    <div id="p-wrapper"> 
+        <ul id="piano"> 
+            <li><div class="anchor" id="f1-key"></div></li>      
+            <li><div class="anchor" id="g1-key"></div><span id="f1s-key"></span></li> 
+            <li><div class="anchor" id="a2-key"></div><span id="g1s-key"></span></li> 
+            <li><div class="anchor" id="b2-key"></div><span id="a2s-key"></span></li> 
+            <li><div class="anchor" id="c2-key"></div></li> 
+            <li><div class="anchor" id="d2-key"></div><span id="c2s-key"></span></li> 
+            <li><div class="anchor" id="e2-key"></div><span id="d2s-key"></span></li> 
+            <li><div class="anchor" id="f2-key"></div></li> 
+            <li><div class="anchor" id="g2-key"></div><span id="f2s-key"></span></li> 
+            <li><div class="anchor" id="a3-key"></div><span id="g2s-key"></span></li> 
+            <li><div class="anchor" id="b3-key"></div><span id="a3s-key"></span></li> 
+            <li><div class="anchor" id="c3-key"></div></li> 
+            <li><div class="anchor" id="d3-key"></div><span id="c3s-key"></span></li> 
+            <li><div class="anchor" id="e3-key"></div><span  id="d3s-key"></span></li> 
+            <li><div class="anchor" id="f3-key"></div></li> 
+            <li><div class="anchor" id="g3-key"></div><span id="f3s-key"></span></li> 
+            <li><div class="anchor" id="a4-key"></div><span id="g3s-key"></span></li> 
+            <li><div class="anchor" id="b4-key"></div><span id="a4s-key"></span></li> 
+        </ul> 
+    </div>  
+</section>
+<!--звуки нот-->
+  <audio src="sound/a2.ogg" id="a2"></audio>
+  <audio src="sound/a1s.ogg" id="a2s"></audio>
+  <audio src="sound/a3.ogg" id="a3"></audio>
+  <audio src="sound/a3s.ogg" id="a3s"></audio>
+  <audio src="sound/a4.ogg" id="a4"></audio>
+  <audio src="sound/a4s.ogg" id="a4s"></audio>
+  <audio src="sound/b2.ogg" id="b2"></audio>
+  <audio src="sound/b3.ogg" id="b3"></audio>
+  <audio src="sound/b4.ogg" id="b4"></audio>
+  <audio src="sound/c2.ogg" id="c2"></audio>
+  <audio src="sound/c2s.ogg" id="c2s"></audio>
+  <audio src="sound/c3.ogg" id="c3"></audio>
+  <audio src="sound/c3s.ogg" id="c3s"></audio>
+  <audio src="sound/d2.ogg" id="d2"></audio>
+  <audio src="sound/d2s.ogg" id="d2s"></audio>
+  <audio src="sound/d3.ogg" id="d3"></audio>
+  <audio src="sound/d3s.ogg" id="d3s"></audio>
+  <audio src="sound/e2.ogg" id="e2"></audio>
+  <audio src="sound/e3.ogg" id="e3"></audio>
+  <audio src="sound/f1.ogg" id="f1"></audio>
+  <audio src="sound/f1s.ogg" id="f1s"></audio>
+  <audio src="sound/f2.ogg" id="f2"></audio>
+  <audio src="sound/f2s.ogg" id="f2s"></audio>
+  <audio src="sound/f3.ogg" id="f3"></audio>
+  <audio src="sound/f3s.ogg" id="f3s"></audio>
+  <audio src="sound/g1.ogg" id="g1"></audio>
+  <audio src="sound/g1s.ogg" id="g1s"></audio>  
+  <audio src="sound/g2.ogg" id="g2"></audio>
+  <audio src="sound/g2s.ogg" id="g2s"></audio>
+  <audio src="sound/g3.ogg" id="g3"></audio>
+  <audio src="sound/g3s.ogg" id="g3s"></audio>
+<script src="my_piano.js"></script>
+<!-- список пісень-->
+<div class="list">
+    <h1>Оберіть пісню:</h1>
+    <div id="column-1">
+        <div class="sequence" data-sequence="g2-key,f2-key,f2-key,a3-key,b3-key,c3s-key,d3-key,e3-key,f3-key,e3-key,d3-key,d3-key,d3-key,d3-key,c3-key,a3s-key,a3-key,g2-key,a3s-key,a3-key,a3-key,g2-key,f2-key,a3-key,g2-key,d2-key,f2-key,a3-key,a3-key,g2-key,f2-key,f2-key,a3-key,b3-key,c3s-key,d3-key,e3-key,f3-key,e3-key,d3-key,d3-key,d3-key,d3-key,c3-key,a3s-key,a3-key,g2-key,a3s-key,a3-key,a3-key,g2-key,f2-key,a3-key,g2-key,d2-key,f2-key,a3-key,a3-key,a3-key,a3-key,d3-key,e3-key,f3-key,e3-key,d3-key,e3-key,d3-key,c3-key,d3-key,a3-key,a3-key,a3-key,d3-key,e3-key,f3-key,e3-key,d3-key,e3-key,d3-key,c3-key,e3-key,f3-key">
+        	<p class="left">Yesterday</p>
+        </div>
+        <div class="sequence" data-sequence="c2s-key,g2s-key,c3s-key,e3-key,c3s-key,g2s-key,e2-key,g2s-key,c2s-key,g2s-key,c3s-key,e3-key,c3s-key,g2s-key,e2-key,g2s-key,d2s-key,a3-key,c3s-key,d3s-key,c3s-key,a3-key,e2-key,f2s-key,d2s-key,g2s-key,c3-key,d3s-key,c3s-key,gs-key,g2s-key,g2s-key,a3-key,c3s-key,e3-key,c3s-key,a3-key,e2-key,a3-key,c2s-key,g2s-key,c3s-key,e3-key,c3s-key,g2-key,e2-key,g2-key,a2-key,a3-key,c3s-key,f3s-key">
+        	<p class="left">Because</p>
+        </div>
+        <div class="sequence" data-sequence="g2s-key,c3-key,d3s-key,c3s-key,gs-key,g2s-key,g2s-key,a3-key,c3s-key,e3-key,c3s-key,a3-key,e2-key,a3-key,c2s-key,g2s-key,c3s-key,e3-key,c3s-key,g2-key,e2-key,g2-key,a2-key,a3-key,c3s-key,f3s-key,a2-key,b2-key,a2-key,b2-key,a2-key,b2-key,a2-key,g1-key,a2-key,g1-key,a2-key,g1-key,a2-key,g1-key,a2-key,c3-key,c3-key,c3-key,c3-key,b3-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,f2-key,g2-key,f2-key,g2-key,f2-key,g2-key,f2-key,g2-key,g2-key,a3-key,g2-key,g2-key,a3-key,b3-key,c3-key,c3-key,c3-key,c3-key,b3-key,a3-key">
+        	<p class="left">Something</p>
+        </div>
+    </div>
+    <div id="column-2">
+        <div class="sequence" data-sequence="c2-key,c3-key,b3-key,a3-key,g2-key,e2-key,b2-key,a2-key,b2-key,a2-key,b2-key,a2-key,b2-key,a2-key,g1-key,a2-key,g1-key,a2-key,g1-key,a2-key,g1-key,a2-key,c3-key,c3-key,c3-key,c3-key,b3-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,f2-key,g2-key,f2-key,g2-key,f2-key,g2-key,f2-key,g2-key,g2-key,a3-key,g2-key,g2-key,a3-key,b3-key,c3-key,c3-key,c3-key,c3-key,b3-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,f2-key,e2-key,d2-key,c2-key,g2-key,e2-key,g2-key,c3-key,b3-key,d3-key,c3-key,c3-key,g2-key,d3-key,d3-key,d3-key,d3-key,c3-key,d3-key,f2-key,c3-key,c3-key,c3-key,c3-key,b3-key,c3-key,e2-key,d3-key,d3-key,d3-key,d3-key,c3-key,d3-key,f2-key,c3-key,c3-key,c3-key,c3-key,b3-key,c3-key,e2-key">
+        	<p class="center">Strawberry Fields Forever</p>
+        </div>
+        <div class="sequence" data-sequence="c2s-key,g2s-key,c3s-key,e3-key,c3s-key,g2s-key,e2-key,g2s-key,c2s-key,g2s-key,c3s-key,e3-key,c3s-key,g2s-key,e2-key,g2s-key,d2s-key,a3-key,c3s-key,d3s-key,c3s-key,a3-key,e2-key,f2s-key,d2s-key,g2s-key,c3-key,d3s-key,c3s-key,gs-key,g2s-key,g2s-key,a3-key,c3s-key,e3-key,c3s-key,a3-key,e2-key,a3-key,c2s-key,g2s-key,c3s-key,e3-key,c3s-key,g2-key,e2-key,g2-key,a2-key,a3-key,c3s-key,f3s-key">
+        	<p class="center">Here Comes the Sun</p>
+        </div>
+        <div class="sequence" data-sequence="c2-key,c3-key,b3-key,a3-key,g2-key,e2-key,b2-key,a2-key,b2-key,a2-key,b2-key,a2-key,b2-key,a2-key,g1-key,a2-key,g1-key,a2-key,g1-key,a2-key,g1-key,a2-key,c3-key,c3-key,c3-key,c3-key,b3-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,f2-key,g2-key,f2-key,g2-key,f2-key,g2-key,f2-key,g2-key,g2-key,a3-key,g2-key,g2-key,a3-key,b3-key,c3-key,c3-key,c3-key,c3-key,b3-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,g2-key,a3-key,f2-key,e2-key,d2-key,c2-key,g2-key,e2-key,g2-key,c3-key,b3-key,d3-key,c3-key,c3-key,g2-key,d3-key,d3-key,d3-key,d3-key,c3-key,d3-key,f2-key,c3-key,c3-key,c3-key,c3-key,b3-key,c3-key,e2-key,d3-key,d3-key,d3-key,d3-key,c3-key,d3-key,f2-key,c3-key,c3-key,c3-key,c3-key,b3-key,c3-key,e2-key">
+        	<p class="center">Across the Universe </p>
+        </div>
+    </div>
+    <div id="column-3">
+        <div class="sequence" data-sequence="c3-key,a3-key,a3-key,c3-key,d3-key,g2-key,g2-key,a3-key,a3s-key,f3-key,f3-key,e3-key,c3-key,d3-key,c3-key,a3s-key,a3-key,c3-key,d3-key,d3-key,d3-key,g3-key,f3-key,e3-key,f3-key,d3-key,c3-key,f2-key,g2-key,a3-key,d3-key,c3-key,c3-key,a3s-key,a3-key,e2-key,f2-key">
+        	<p class="right">Hey Jude</p>
+        </div>
+        <div class="sequence" data-sequence="g2-key,g2-key,g2-key,g2-key,a3-key,e2-key,g2-key,g2-key,c3-key,d3-key,e3-key,e3-key,e3-key,d3-key,d3-key,c3-key,c3-key,e3-key,e3-key,f3-key,e3-key,e3-key,d3-key,e3-key,d3-key,c3-key,a2-key,g1-key,f1-key,g2-key,g2-key,g2-key,a3-key,c3-key,g2-key,g2-key,c3-key,d3-key,e3-key,e3-key,e3-key,d3-key,d3-key,c3-key,c3-key,e3-key,e3-key,f3-key,e3-key,e3-key,d3-key,e3-key,d3-key,c3-key,a2-key,g1-key,f1-key,e3-key,d3-key,c3-key,e3-key,g3-key,a4-key,g3-key,g3-key,e3-key,d3-key,c3-key,a3-key,g2-key,e3-key,e3-key,e3-key,f3-key,e3-key,e3-key,d3-key,e3-key,d3-key,c3-key,a2-key,g1-key,f1-key">
+        	<p class="right">Let it Be</p>
+        </div>
+        <div class="sequence" data-sequence="b2-key,e2-key,d2s-key,c2s-key,b2-key,e2-key,d2s-key,c2s-key,b2-key,e2-key,d2s-key,c2s-key,f2s-key,g2s-key,a3-key,d3s-key,c3s-key,e3-key,f2s-key,g2s-key,a3-key,d3s-key,c3s-key,f2s-key,g2s-key,a3-key,d3s-key,c3s-key,e3-key,e3-key,c3s-key,a3-key,g2s-key,f2s-key,c2s-key,b2-key,c2s-key,g2s-key,g2s-key,g2s-key,g2s-key,b3-key,e3-key,b3-key,g2s-key,b3-key,e3-key,c3s-key,g2s-key,b3-key,g2s-key,b3-key,g2s-key,f2s-key">
+        	<p class="right">And I Love Her </p>
+        </div>
+    </div>
+</div>
+
+<!-- меню-->
+<div class="footer">
+    <ul class="hr">
+        <li class="menu"><a href="../Main/main.html"><input type="button" class="main-css" value="Головна" /></a></li>
+        <li class="menu"><a href="../History/history.html"><input type="button" class="history-css" value="Історія групи" /></a></li>
+        <li class="menu"><a href="../Band/members.html"><input type="button" class="member-css" value="Склад" /></a></li>
+        <li class="menu"><a href="../Albums/album.html"><input type="button" class="albums-css" value="Дискографія" /></a></li>
+        <li class="menu"><a href="../Gallery/gallery.html"><input type="button" class="galery-css" value="Галерея" /></a></li>
+        <li class="menu"><a href="../Piano/piano.html"><input type="button" class="piano-css" value="Піаніно" /></a></li>
+    </ul>
+</div>
+<!--скріпт підказка-->
+<script>
+  var Tutorial = function (params) {
+  var params = params || {};
+  var el = document.querySelector(params.id);
+  var teaching = false;
+  var currentStep = 0;
+  var sequence;
+
+  var $ = function (selector) {
+    return el.querySelector(selector);
+  };
+
+  el.onclick = function (e) {
+    if(!teaching || e.target.id != sequence[currentStep]) return;
+
+    e.target.classList.remove('next');
+    currentStep++;
+    if(sequence.length == currentStep) currentStep = 0;
+    setTimeout(function () {
+    	$('#' + sequence[currentStep]).classList.add('next');
+    }, 20);
+  };
+
+  this.setSequence = function (s) {
+    sequence = s.split(",");
+    if(teaching) $('.next').classList.remove('next');
+    teaching = true;
+    currentStep = 0;
+    $('#' + sequence[currentStep]).classList.add('next');
+  }
+};
+
+var tutor = new Tutorial({id: '#piano'});
+
+var sequences = document.querySelectorAll('.sequence');
+for(var i = 0, l = sequences.length; i < l; i++) {
+  sequences[i].onclick = function () {
+    tutor.setSequence(this.dataset.sequence);
+  }
+};
+</script>
+</body>
+</html>
