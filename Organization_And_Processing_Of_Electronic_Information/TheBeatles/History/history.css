@@ -1,0 +1,154 @@
+@charset "utf-8";
+/* CSS Document */
+/*фон*/
+body {
+  height: 100%;
+  overflow:  hidden; 
+  background:url(back.jpg);
+  background-position:center;
+  background-size:cover;
+  background-position-y: -225px;
+  cursor:default;
+}
+*
+{
+	margin:0px;
+	outline:none;	
+}
+/*розміщення меню*/
+.footer {
+	position: absolute;
+	left: 0px;
+	bottom: 0;
+	width: 100%;
+	height: 80px; 
+}
+/*меню*/
+ul.hr, li.menu 
+{
+    display: inline;
+	margin: -2px;
+  	padding: 0px;	
+}
+/*кнопки*/
+.main-css,.history-css,.member-css,.albums-css,.galery-css,.piano-css {
+  box-sizing: content-box;
+  cursor: pointer;
+  padding: 5px 25px 25px 25px;
+  border: none;
+  height:60px;
+  font: normal 26px sans-serif;
+  color: white;
+  border-top: 3px solid rgba(255,255,255,0);
+  text-overflow: clip;  
+  transition: 200ms;
+  animation:exit 1s;
+}
+/*головна*/
+.main-css {
+  width: 180px;
+  background: radial-gradient(circle farthest-side at 22% 190%, rgba(175,221,214,1) 0, rgba(175,221,214,1) 2%, rgba(0,0,0,1) 100%);
+}
+/*історія*/
+.history-css {
+  width: 184px;
+  background: black;
+}
+/*склад*/
+.member-css {
+  width: 150px;
+  background: #000;
+}
+/*альбоми*/
+.albums-css {
+  width: 180px;
+  background: radial-gradient(circle farthest-side at 50% 130%, rgba(255,255,255,1) 0, rgba(255,255,255,1) 12%, rgba(175,221,214,1) 15%, rgba(0,0,0,1) 100%);
+}
+/*галерея*/
+.galery-css {
+  width: 180px;
+  background: black;
+}
+/*піаніно*/
+.piano-css {
+  width: 196px;
+  background: rgb(0,0,0);
+}
+/*кнопки при наведені*/
+.main-css:hover , .history-css:hover, .member-css:hover, .albums-css:hover ,.galery-css:hover,.piano-css:hover {
+  color:#e20b5d;
+  border-top: 3px solid #e20b5d;
+  transform:   translateY(15px) ;
+}
+/*кнопки при нажиманні*/
+.main-css:active,.history-css:active ,.member-css:active,.albums-css:active,.galery-css:active,.piano-css:active {
+  border: none;
+  transition:50ms;
+  transform: none;
+}
+/*історія групи*/ 
+.history
+ {
+	position: absolute;
+	left: 50px;
+	top: 15px;
+	width: 50%;
+	height: 50%; 
+}
+p,li,dl,dd
+{
+	color:#FFFFFF;
+}
+h3,h2,dt
+{
+	color:silver;
+}
+p, li
+{
+	font-family: 'Pattaya', sans-serif;
+	font-size:13px;
+}
+dt, h2
+{
+	font-family: 'Pattaya', sans-serif;
+ 	font-size:36px;
+}
+dd
+{
+	font-family: 'Marck Script', cursive;
+	font-size:15px;
+	left:5px;
+	margin-left: 50px;
+    margin-bottom: 5px;
+}
+h2
+{
+	font-size:20px;
+	margin-bottom:3px;
+	text-align:center;
+}
+a {
+	outline:none;
+	color:inherit;
+	text-decoration:none;
+}
+a:hover
+{
+	color:#e20b5d;
+}
+.broken:hover
+{
+	color:#FFCC33;
+	cursor:not-allowed;
+}
+/* анімації появи */
+@keyframes exit{
+	from
+	{
+		  transform:   translateY(80px) ;
+	}
+	to
+	{
+		  transform:   none ;
+	}
+}
