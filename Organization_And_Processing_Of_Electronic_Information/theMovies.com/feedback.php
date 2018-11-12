@@ -1,6 +1,6 @@
 <?php
     $name = test_input($_POST["name"]);
-    $to = "kizlo.taras@mail.ru";
+    $to = "whosyourdaddy@gmail.com";
     $from = test_input($_POST["email"]);
     $subject = "Повідомлення від сайту theMovies";
     $message = "Повідомлення від — ".$name.". Вміст повідомлення — ".test_input($_POST["message"]);     
