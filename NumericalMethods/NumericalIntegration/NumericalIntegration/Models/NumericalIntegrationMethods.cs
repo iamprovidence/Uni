@@ -1,4 +1,4 @@
-﻿using MathFunc = System.Func<double, double>;
+using MathFunc = System.Func<double, double>;
 using static System.Math;
 
 namespace NumericalIntegration.Models
@@ -13,8 +13,6 @@ namespace NumericalIntegration.Models
 
         private GaussPoly[] Gauss4;
         private GaussPoly[] Gauss5;
-        private double bPaDiv2;
-        private double bMaDiv2;
         // CONSTRUCTORS
         public NumericalIntegrationMethods(double a, double b)
         {
@@ -36,8 +34,6 @@ namespace NumericalIntegration.Models
                 new GaussPoly { t = 0.5384693,   C = 0.4786287 },
                 new GaussPoly { t = 0.9061798,   C = 0.2369269 }
             };
-            this.bPaDiv2 = (b + a) / 2;
-            this.bMaDiv2 = (b - a) / 2;
 
         }
         // PROPERTIES
@@ -89,18 +85,6 @@ namespace NumericalIntegration.Models
                 IterationAmount = iteration
             };
         }
-        public NumericMethodResult TestMethod(GaussMethod gaussMethod)
-        {
-            int iteration = 0;            
-            double curS = gaussMethod(ref iteration);
-
-            return new NumericMethodResult()
-            {
-                S = curS,
-                CallAmount = 1,
-                IterationAmount = iteration
-            };
-        }
         public double Rectangle(double h, ref int iteration)
         {
             double sum = 0;
@@ -144,31 +128,47 @@ namespace NumericalIntegration.Models
 
             return (h / 3) * (0.5 * f(a) + S1 + 2 * S2 + 0.5 * f(b));
         }
-        public double GaussFour(ref int iteration)
+        public double GaussFour(double h, ref int iteration)
         {
             double sum = 0;
             iteration = 0;
 
-            for (int i = 0; i < Gauss4.Length; ++i)
+            for (double x = a; x < b; x += h)
             {
-                sum += Gauss4[i].C * f(bPaDiv2 + bMaDiv2 * Gauss4[i].t);
-                ++iteration;
+                double bPaDiv2 = (x + h + x) / 2; // (b + a)/2
+                double bMaDiv2 = h / 2; // (b - a)/2
+                double curS = 0;
+                for (int i = 0; i < Gauss4.Length; ++i)
+                {
+                    curS += Gauss4[i].C * f(bPaDiv2 + bMaDiv2 * Gauss4[i].t);
+                    ++iteration;
+                }
+                curS *= bMaDiv2;
+                sum += curS;
             }
 
-            return bMaDiv2 * sum;
+            return sum;
         }
-        public double GaussFifth(ref int iteration)
+        public double GaussFifth(double h, ref int iteration)
         {
             double sum = 0;
             iteration = 0;
 
-            for (int i = 0; i < Gauss5.Length; ++i)
+            for (double x = a; x < b; x += h)
             {
-                sum += Gauss5[i].C * f(bPaDiv2 + bMaDiv2 * Gauss5[i].t);
-                ++iteration;
+                double bPaDiv2 = (x + h + x) / 2; // (b + a)/2
+                double bMaDiv2 = h  / 2; // (b - a)/2
+                double curS = 0;
+                for (int i = 0; i < Gauss5.Length; ++i)
+                {
+                    curS += Gauss5[i].C * f(bPaDiv2 + bMaDiv2 * Gauss5[i].t);
+                    ++iteration;
+                }
+                curS *= bMaDiv2;
+                sum += curS;
             }
 
-            return bMaDiv2 * sum;
+            return sum;
         }
     }
 }
