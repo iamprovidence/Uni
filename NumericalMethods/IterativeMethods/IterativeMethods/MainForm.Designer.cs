@@ -493,9 +493,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 291);
+            this.ClientSize = new System.Drawing.Size(644, 292);
             this.Controls.Add(this.tabs);
             this.Name = "MainForm";
+            this.MinimumSize = new System.Drawing.Size(660, 330);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IterativeMethods";
             this.tabs.ResumeLayout(false);
