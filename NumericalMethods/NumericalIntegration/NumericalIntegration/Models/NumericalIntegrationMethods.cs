@@ -21,7 +21,7 @@ namespace NumericalIntegration.Models
             this.Gauss4 = new GaussPoly[4]
             {
                 new GaussPoly { t = -0.861136,  C = 0.3478548 },
-                new GaussPoly { t= -0.339981,   C = 0.6521452 },
+                new GaussPoly { t = -0.339981,  C = 0.6521452 },
                 new GaussPoly { t = 0.339981,   C = 0.6521452 },
                 new GaussPoly { t = 0.861136,   C = 0.3478548 }
             };
@@ -29,7 +29,7 @@ namespace NumericalIntegration.Models
             this.Gauss5 = new GaussPoly[5]
             {
                 new GaussPoly { t = -0.9061798,  C = 0.2369269 },
-                new GaussPoly { t= -0.5384693,   C = 0.4786287 },
+                new GaussPoly { t = -0.5384693,  C = 0.4786287 },
                 new GaussPoly { t = 0,           C = 0.5688889 },
                 new GaussPoly { t = 0.5384693,   C = 0.4786287 },
                 new GaussPoly { t = 0.9061798,   C = 0.2369269 }
