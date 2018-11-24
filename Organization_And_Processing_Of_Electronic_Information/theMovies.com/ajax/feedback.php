@@ -14,7 +14,7 @@
     $headers = "From: $email\r\n
                 Reply-to: $email\r\n
                 Content-type: text\html; charset: utf-8\r\n";
-    if( mail("kizlo.taras@mail.ru", $subject, $message, $headers) )
+    if( mail("i.see@dead.peoples", $subject, $message, $headers) )
     {
         echo "Відправлено";
     }
