@@ -120,7 +120,7 @@ void sum_matrix_OpenCL(int* first_matrix, int* second_matrix, int* sum_matrix_re
 	// BUILD IT
 	if (clBuildProgram(program, 0, NULL, NULL, NULL, NULL) != CL_SUCCESS)
 	{
-		printf("Error building program\n");
+		std::cout << "Error building program\n" << std::endl;
 	}
 
 	cl_kernel kernel = clCreateKernel(program, "matrix_sum_openCL", &err);
@@ -171,8 +171,7 @@ void main()
 {
 	// INITIALIZE VALUES
 	std::cout << "Show Matrixes?(Yes)" << std::endl;
-	std::string answer;	std::cin >> answer;
-	bool show_matrix_user = answer == "Yes";
+	std::string show_matrix_user_answer;	std::cin >> show_matrix_user_answer;
 
 	std::cout << "Input size of matrices: ";
 	size_t size;	std::cin >> size;
@@ -204,7 +203,7 @@ void main()
 	sum_matrix_OpenCL(first_matrix[0], second_matrix[0], opencl_sum_matrix_result[0], size);
 
 	// SHOW MATRIXES
-	if (show_matrix_user)
+	if (show_matrix_user_answer == "Yes")
 	{
 		std::cout << std::endl << "First matrix: " << std::endl;
 		show_matrix(first_matrix, size);
