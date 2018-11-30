@@ -45,6 +45,13 @@ FROM
 	"BookPublishingHouse" AS BPH,
 	"Publishing house" AS PH
 WHERE B.isbn = BPH.isbn AND BPH."publishing house id" = PH.id;
+-- select book name and publishing house
+SELECT	B."name", PH."name"
+FROM	"Books" AS B
+JOIN	"BookPublishingHouse" AS BPH
+ON 	BPH."isbn" = B."isbn"
+JOIN	"Publishing house" AS PH
+ON	BPH."publishing house id" = PH."id";
 -- same
 SELECT 
 	B."id", B."name", PH."name" AS "Publishing house name"
@@ -58,6 +65,8 @@ JOIN "Publishing house" AS PH ON BPH."publishing house id" = PH."id";
  published in Ukraine
  ordered by author name
 */
+-- 15408 ms without index
+-- 500 ms with index
 SELECT 
 	CONCAT(a.name, ' ', a.surname) AS "author name",
 	B.name AS "book name",
@@ -77,6 +86,7 @@ WHERE
 ORDER BY A.name;
 
 -- select readear contact which has not return book and delay in day
+-- 12684 ms without index
 SELECT 
 	CONCAT("name", ' ' ,"phone number", ' ', "city name") AS "Reader contact",
 	A."take book date" AS "book taken",
@@ -91,7 +101,7 @@ WHERE
 
 -- select book name and their author
 SELECT
-	B."name", 
+	B."name" AS "Book name", 
 	A."name", 
 	A."surname"
 FROM 
@@ -100,15 +110,11 @@ JOIN	"BookAuthor" AS BA
 ON	BA."isbn" = B."isbn"
 JOIN 	"Authors" AS A
 ON	A."id" = BA."author id";
--- select book name and publishing house
-SELECT	B."name", PH."name"
-FROM	"Books" AS B
-JOIN	"BookPublishingHouse" AS BPH
-ON 	BPH."isbn" = B."isbn"
-JOIN	"Publishing house" AS PH
-ON	BPH."publishing house id" = PH."id";
+
 -- select author name, and the number of their taken book
 -- order by book taken
+-- 5582 ms without index
+-- 2337 ms with index
 SELECT A."name", A."surname", Sum(AB."book amount")::int AS "Book taken"
 FROM "Authors" AS A
 JOIN "BookAuthor" AS BA ON BA."author id" = A."id"
