@@ -31,18 +31,18 @@ Our task is **Taxi order (for taxi driver)**.
 ## Icon
 
 <p align="center">
-  <img src="/Images/Task3/ico.png" width="200" height="200">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task3/ico.png" width="200" height="200">
 </p>
 
 ## Folders diagram
 
 <p align="center">
-  <img src="/Images/Task3/files.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task3/files.png">
 </p>
 
 ## UML diagram
 
 <p align="center">
-  <img src="/Images/Task3/uml.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task3/uml.png">
 </p>
  
