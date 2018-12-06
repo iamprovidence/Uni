@@ -33,17 +33,17 @@
 ## Icon
 
 <p align="center">
-  <img src="/Images/Task1/ico.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task1/ico.png">
 </p>
 
 ## Folders diagram
 
 <p align="center">
-  <img src="/Images/Task1/files.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task1/files.png">
 </p>
 
 ## UML diagram
 
 <p align="center">
-  <img src="/Images/Task1/uml.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task1/uml.png">
 </p>
