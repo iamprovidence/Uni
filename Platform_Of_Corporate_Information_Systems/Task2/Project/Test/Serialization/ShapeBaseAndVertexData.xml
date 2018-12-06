@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ShapeBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Vertex">
+  <Radius>5</Radius>
+  <Location>
+    <X>2</X>
+    <Y>7</Y>
+  </Location>
+</ShapeBase>
