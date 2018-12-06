@@ -134,8 +134,8 @@ Each task's folder should have a folder **"Project"** and **README** file with
 Uml diagram has special colors for objects and relations between them:
 
 <p align="center">
-  <img src="Platform_Of_Corporate_Information_Systems/Images/umlExamples.png">
-  <img src="Platform_Of_Corporate_Information_Systems/Images/explanation.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/umlExamples.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/explanation.png">
 </p>
 
 Uml diagram and the code may differ.
@@ -143,7 +143,7 @@ Uml diagram and the code may differ.
 File hierarchy images looks like:
 
 <p align="center">
-  <img src="/Images/filesExamples.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/filesExamples.png">
 </p>
 
 #### File Hierarchy
@@ -183,7 +183,7 @@ All unit-tests should be reworked in 2 days after project complete.
 After work has been done we sum up what was done right and what was not.
 
 <p align="center">
-  <img src="Platform_Of_Corporate_Information_Systems/Images/plan.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/plan.png">
 </p>
 
 ### Coding Convention
