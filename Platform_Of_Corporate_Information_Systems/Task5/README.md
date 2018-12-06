@@ -32,18 +32,18 @@ Rework **Task 3**
 ## Icon
 
 <p align="center">
-  <img src="/Images/Task5/ico.png" width="200" height="200">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task5/ico.png" width="200" height="200">
 </p>
 
 ## Folders diagram
 
 <p align="center">
-  <img src="/Images/Task5/files.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task5/files.png">
 </p>
 
 ## UML diagram
 
 <p align="center">
-  <img src="/Images/Task5/uml.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task5/uml.png">
 </p>
  
