@@ -45,18 +45,18 @@ We are working with **pentagon**.
 ## Icon
 
 <p align="center">
-  <img src="/Images/Task2/ico.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task2/ico.png">
 </p>
 
 ## Folders diagram
 
 <p align="center">
-  <img src="/Images/Task2/files.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task2/files.png">
 </p>
 
 ## UML diagram
 
 <p align="center">
-  <img src="/Images/Task2/uml.png">
+  <img src="/Platform_Of_Corporate_Information_Systems/Images/Task2/uml.png">
 </p>
  
