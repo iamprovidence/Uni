@@ -39,8 +39,9 @@ namespace TaxiDriver.Services
         /// <param name="orderBy">The order of the received items</param>
         /// <param name="includeProperties">Included properties</param>
         /// <returns>Queried entities collection</returns>
-        public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>,
-                                                IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "")
+        public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, 
+                                                Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, 
+                                                string includeProperties = "")
         {
             IQueryable<TEntity> query = dbSet;
             if (filter != null)
