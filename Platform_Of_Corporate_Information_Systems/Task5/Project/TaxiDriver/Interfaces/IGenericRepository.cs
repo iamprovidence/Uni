@@ -25,8 +25,7 @@ namespace TaxiDriver.Interfaces
         /// <returns>Queried entities collection</returns>
         IEnumerable<TEntity> Get(
                                     Expression<Func<TEntity, bool>> filter = null, 
-                                    Func<IQueryable<TEntity>,
-                                    IOrderedQueryable<TEntity>> orderBy = null, 
+                                    Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, 
                                     string includeProperties = "");
         /// <summary>
         /// Method that enable to get entity by id
