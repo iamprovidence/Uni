@@ -31,7 +31,7 @@ void draw()
     {
       currentState[i][j] = (previousState[i-1][j] +// add the neighbour 
                             previousState[i+1][j] +// of previous
-                            previousState[i][j-1] + // and subtract current cell
+                            previousState[i][j-1] +// and subtract current cell
                             previousState[i][j+1])/2 - currentState[i][j];
                             
       currentState[i][j] *= damping;
@@ -48,13 +48,6 @@ void draw()
   float[][] temp = previousState;
   previousState = currentState;
   currentState = temp;
-}
-
-void swap(float[][] buffer1, float[][] buffer2)
-{
-  float[][] temp = buffer1;
-  buffer1 = buffer2;
-  buffer2 = temp;
 }
 
 void mousePressed()
