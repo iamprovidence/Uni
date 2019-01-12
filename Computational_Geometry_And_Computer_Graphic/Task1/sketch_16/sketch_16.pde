@@ -14,7 +14,6 @@ void setup()
 void draw()
 {
   background(240);
-  // background(130, 240, 200);
   for (DropWave dropWave: waves)
   {
     dropWave.update();
