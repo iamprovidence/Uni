@@ -17,8 +17,7 @@ class Wave
     this.speed = speed;
     this.alpha = 255;
     this.weight = 4;
-    this.fillColor = color(random(255), random(255), random(255));
-    // this.fillColor = color(0, 0, 255);
+    this.fillColor = color(0, 0, 255);
   }
   // METHODS
   void show()
