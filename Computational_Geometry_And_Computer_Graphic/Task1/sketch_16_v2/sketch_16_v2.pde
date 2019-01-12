@@ -23,7 +23,6 @@ void setup()
 
 void draw()
 {
-  background(51);
   loadPixels();
   for(int i = 1; i < rows - 1; ++i)
   {
