@@ -1,6 +1,6 @@
 ﻿namespace FunWithData.Model
 {
-    // обшортка над People, підтримує фільтрацію, сортування
+    // обгортка над People, підтримує фільтрацію, сортування
     class PeopleView
     {
         // FIELDS
