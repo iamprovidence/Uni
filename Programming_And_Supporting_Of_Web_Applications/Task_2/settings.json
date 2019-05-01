@@ -1,0 +1,13 @@
+{
+    "LANDING_PAGE_PRODUCT_AMOUNT" : 6,
+    "PAGINATION_PAGE_SHOWN" : 6,
+    
+    "USER_SHOWN_ITEM_PER_PAGE" : 6,
+    
+    "MODERATOR_SHOWN_ITEM_PER_PAGE" : 10,
+    
+    "SERVER_ADD_MESSAGE": "Successfully added",
+    "SERVER_UPDATE_MESSAGE": "Successfully updated",
+    "SERVER_DELETE_MESSAGE": "Successfully deleted",
+    "SERVER_ERROR_MESSAGE": "Something went wrong"
+}
