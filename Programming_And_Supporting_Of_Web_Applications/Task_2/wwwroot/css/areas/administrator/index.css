@@ -1,0 +1,97 @@
+/*COLORS*/
+:root 
+{
+    --dark_v1: #343a40;
+    --dark_v2: #212529;
+    --dark_v3: slategray;
+    --dark_v4: silver;
+    
+    --dark_v1_a: rgba(0,0,0,0.75);
+    
+    --white_v1: white;
+    --white_v2: whitesmoke;
+    --white_v3: aliceblue;
+    
+    --red_v1: red;
+}
+
+
+/*BODY*/
+body
+{
+    background-color: var(--white_v2, whitesmoke);
+}
+
+/*HEADER*/
+header
+{
+    background-color: var(--dark_v1, #343a40) !important;
+    color: var(--white_v3, aliceblue);
+    
+    -webkit-box-shadow: 0px 10px 20px 0px  var(--dark_v1_a, rgba(0,0,0,0.75));
+    -moz-box-shadow: 0px 10px 20px 0px var(--dark_v1_a, rgba(0,0,0,0.75));
+    box-shadow: 0px 10px 20px 0px var(--dark_v1_a, rgba(0,0,0,0.75));
+    
+    height: 65px;
+    padding: 5px 2px;
+    margin-bottom: 25px;
+    font-size: 22px;
+    
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+}
+
+header > a
+{
+    display: contents;
+}
+span.lnr
+{
+    color: var(--white_v1, white);
+}
+/*buttons*/
+header > a > span
+{
+    font-size: -webkit-xxx-large;
+    position: absolute;
+    right: 20px;
+}
+header > a > span:hover
+{
+    color: var(--red_v1, red);
+    cursor: pointer;
+}
+header > a > span.lnr-user
+{
+    right: 80px;
+}
+
+/*TABLE*/
+#table-data
+{
+    min-height: 650px;
+}
+table
+{
+    border: var(--dark_v2, #212529) 2px solid;
+}
+th:nth-last-child(1),
+th:nth-last-child(2)
+{
+    text-align: center;
+    width: 50px;
+}
+tr.disabled
+{
+    background: var(--dark_v3, slategray) !important;
+}
+tr:hover:not(.disabled)
+{
+    background: var(--dark_v4, silver) !important;
+}   
+tr.disabled img
+{
+    filter: opacity(50%);
+}

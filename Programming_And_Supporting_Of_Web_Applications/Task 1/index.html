@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Red Block</title>
+    
+    <!--META-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Kizlo Taras"/>
+    <meta name="description" content="This site was created as first task for the 'Programming And Supporting Of Web Applications' subject"/>
+    <meta name="keywords" content="music, guitar, shop"/>
+    <meta name="copyright" content="Red Block"/>
+    <meta name="document-state" content="Static"/>
+    <meta name="generator" content="Brackets" />
+    <meta name="resource-type" content="document"/> 
+    <meta name="robots" content="all"/>
+    
+    <!--LINK-->
+    <link rel="shortcut icon" type="image/x-icon" href="images/ico/guitar.ico">   
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/animation.css"/>    
+</head>
+<body onload="stopLoading(3000)">
+
+    <!--BRAND MARK-->
+    <header id="bg-text" class="text-uppercase animated fadeIn">red block</header>
+        
+    <!--PRELOADER-->
+    <div id="preloader" class="spinner-grow text-dark"></div>
+
+    <!--MAIN WRAPPER-->
+    <div id="main-wrapper" class="container-fluid animated fadeInUp">
+       
+        <!--PRESENTATION-->
+        <div id="presentation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Lorem ipsum</h2>
+                        <ul>
+                            <li>Dolor sit amet</li>
+                            <li>Consectetur adipiscing elit</li>
+                            <li>Curabitur rhoncus</li>
+                            <li>Lorem ut ornare</li>
+                        </ul>
+                        <p>Aenean malesuada eleifend malesuada. Donec aliquet nisl sed convallis blandit. Sed auctor urna sed magna sagittis, quis dignissim libero gravida. 
+                        Morbi orci metus, rhoncus efficitur mi sit amet, pulvinar vehicula elit. Cras suscipit, arcu hendrerit euismod venenatis, orci tortor egestas turpis, nec congue arcu 
+                        turpis nec lacus. Ut facilisis euismod leo quis pharetra. Pellentesque eu pellentesque lectus, nec mollis lorem. Nullam ut massa mattis, tempor nulla tempus, malesuada lacus.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="img-thumbnail" src="images/images/guitars/TB500.jpg" alt="Preview image. Travis Bean 500.">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--PLUSES-->
+        <div id="pluses">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <h2>Phasellus porta accumsan feugiat</h2>
+                    <!--comments-->
+                </div>
+                <!--row-->
+                <div class="row">                
+                    <script id="pluses-comment-template" type="text/x-handlebars-template">
+                       {{#each comments}}
+                            <div class="col-md-6">
+                                <p>{{Text}}</p>
+                            </div>
+                        {{/each}}
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <!--TOP MOST-->
+        <div id="top-most">
+            <div class="container">
+                <div class="row">
+                    <h2>Top most</h2>
+                    <div class="grid">                        
+                        <script id="top-item-template" type="text/x-handlebars-template">
+                           {{#each top_items}}
+                                <div class="grid-item">
+                                    <p>{{Name}}</p>
+                                    <img src="images/images/guitars/{{Image}}" alt="{{AltImageText}}">
+                                </div>
+                            {{/each}}
+                        </script>
+                    </div>
+                    <h2>And other...</h2>
+                </div>
+            </div>
+        </div>
+
+
+        <!--REVIEWS-->
+        <div id="reviews">
+            <div class="container">
+                <!--row-->
+                <div class="row">
+                    <h2>Reviews</h2>
+                    <!--review-->
+                </div>
+                <!--row-->
+                <div class="row">                                         
+                    <script id="review-item-template" type="text/x-handlebars-template">
+                       {{#each review_items}}
+                            <div class="col-md-6">
+                                <div class="review-item">
+                                    <img src="{{Avatar}}" alt="Avatar image"/>
+                                    <div class="review-body">
+                                        <blockquote>{{Text}}</blockquote>
+                                        <p class="text-muted">{{AuthorName}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </script>
+                </div>
+            </div>
+        </div>
+
+
+        <!--BUY--> 
+        <div id="buy">
+            <div class="container">
+                <!--row-->
+                <div class="row">
+                    <h2>Buy items<br></h2>
+                    
+                    <script id="buy-item-template" type="text/x-handlebars-template">    
+                        {{#each buy_items}}
+                            <div class="col-md-4 col-xs-12">
+                                <div class="buy-item">
+                                    <div class="head">
+                                        <p>
+                                           {{Name}}
+                                           <br/>
+                                           <span>{{Price}} $</span>
+                                        </p>
+                                    </div>
+                                    <div class="body">
+                                        <img src="images/images/guitars/{{Image}}" alt="{{AltImageText}}">
+                                        <button type="button" class="btn btn-secondary text-uppercase">buy</button>
+                                    </div>
+                                </div>    
+                            </div>
+                        {{/each}}
+                    </script>                    
+                </div> 
+            </div> 
+        </div>
+
+        <!--ASK-->
+        <div id="ask">
+            <div class="container">
+                <div class="row">
+                    <h2>Ask</h2>                    
+                    <form class="col-md-12">                       
+                        <div class="form-group">
+                            <label for="lead_name">Your name</label>
+                            <input id="lead_name" type="text" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lead_email">Your email</label>
+                            <input id="lead_email" type="email" class="form-control" placeholder="Enter email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="lead_text">Your message</label>
+                            <textarea id="lead_text" class="form-control" placeholder="Enter your message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary form-control">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!--FOOTER-->
+        <footer>
+            <a href="#" class="btn btn-block btn-danger">UP</a>
+            <p class="text-center">Copyright &copy; 2019</p>
+        </footer>
+
+    </div>    
+
+    <!--SCRIPTS-->
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/lib/handlebars-v4.1.0.min.js"></script>
+    <script src="js/lib/jquery-ajax.min.js"></script>
+    <script src="js/lib/jquery.inview.js"></script>
+    <script src="js/lib/bootstrap-notify.min.js"></script>
+    
+    <script src="js/full-fill-with-data.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/notification.js"></script>
+</body>
+</html>
