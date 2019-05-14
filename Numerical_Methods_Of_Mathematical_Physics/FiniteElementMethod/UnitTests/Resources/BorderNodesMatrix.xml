@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BorderNodesMatrix>
+  <BorderMatrix N="1" M="1" BorderValue="BottomLeft Bottom BottomRight Left Right TopLeft Top TopRight"/>
+  <BorderMatrix N="2" M="1" BorderValue="BottomLeft Left TopLeft Bottom Top Bottom Middle Top Bottom Top BottomRight Right TopRight"/>
+  <BorderMatrix N="1" M="2" BorderValue="BottomLeft Bottom BottomRight Left Right Left Middle Right Left Right TopLeft Top TopRight"/>
+</BorderNodesMatrix>
