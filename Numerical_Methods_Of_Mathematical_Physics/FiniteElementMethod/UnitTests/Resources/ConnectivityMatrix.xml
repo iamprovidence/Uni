@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConnectivityMatrix>
+  <Matrix N="1" M="1" Rows="1" Cols="8" Values="0 1 2 4 7 6 5 3"/>
+  <Matrix N="2" M="1" Rows="2" Cols="8" Values="0 3 5 6 7 4 2 1, 5 8 10 11 12 9 7 6"/>
+  <Matrix N="1" M="2" Rows="2" Cols="8" Values="0 1 2 4 7 6 5 3, 5 6 7 9 12 11 10 8"/>
+</ConnectivityMatrix>

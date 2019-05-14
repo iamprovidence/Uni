@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SystemConfig>
+  <FiniteElements N="1" M="1" NodesAmount="8"/>
+  <FiniteElements N="1" M="2" NodesAmount="13"/>
+  <FiniteElements N="2" M="1" NodesAmount="13"/>
+  <FiniteElements N="2" M="3" NodesAmount="29"/>
+  <FiniteElements N="3" M="2" NodesAmount="29"/>
+  <FiniteElements N="3" M="3" NodesAmount="40"/>
+</SystemConfig>
