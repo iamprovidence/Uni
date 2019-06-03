@@ -119,7 +119,7 @@
                                         <div class="form-group row">
                                             <label for="product-buy-amount" class="col-sm-2 col-form-label">Amount:</label>
                                             <div class="col-sm-10">
-                                                <input type="number" step="1" min="0" value="1" class="form-control" id="product-buy-amount"/>
+                                                <input type="number" step="1" min="1" value="1" class="form-control" id="product-buy-amount"/>
                                             </div>
                                         </div>                                        
                                         
