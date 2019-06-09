@@ -1,0 +1,85 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    
+    <!--LABEL-->
+
+    <!--LABEL IN THE LEFT CORNER-->
+    <Style TargetType="Label" x:Key="TopLeftLabel">
+        <!--colors-->
+        <Setter Property="Background" Value="{StaticResource MainBrush_V1}"/>
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+        <!--sizes-->
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <!--config-->
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <!--Header-->
+    <Style TargetType="Label" x:Key="Header_Lbl">
+        <!--colors-->
+        <Setter Property="Foreground" Value="{StaticResource OppositeBrush_V3}"/>
+        <!--sizes-->
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="15, 0, 0, 0"/>
+        <!--config-->
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+    
+    <!--Text Label-->
+    <Style TargetType="Label" x:Key="TextItem_Lbl">
+        <!--colors-->
+        <Setter Property="Foreground" Value="{StaticResource BlackBrush_V1}"/>
+        <!--sizes-->
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <!--config-->
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    </Style>
+
+    <!--Important Label-->
+    <Style TargetType="Label" BasedOn="{StaticResource TextItem_Lbl}" x:Key="ImportantText_Lbl">
+        <!--colors-->
+        <Setter Property="Foreground" Value="{StaticResource RedBrush_V1}"/>
+    </Style>
+
+
+
+    <!--TEXT BOX-->
+    
+    <!--Item TextBox-->
+    <Style TargetType="TextBox" x:Key="MenuItem_TextBox">
+        <!--template-->
+        <Setter Property="Template" Value="{StaticResource TextBox_Template}"/>
+        <!--colors-->
+        <Setter Property="BorderBrush" Value="{StaticResource GrayColorBrush_V4}"/>
+        <!--sizes-->
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource GrayColorBrush_V5}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource GrayColorBrush_V3}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--TEXT BLOCK-->
+    <Style TargetType="TextBlock" x:Key="Default_TextBlock">
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+    </Style>
+
+</ResourceDictionary>

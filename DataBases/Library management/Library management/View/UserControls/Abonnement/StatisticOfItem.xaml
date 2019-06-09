@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="Library_management.View.UserControls.Abonnement.StatisticOfItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:oxy="http://oxyplot.org/wpf"
+             xmlns:dp="clr-namespace:Library_management.View.DependencyProperties"
+             mc:Ignorable="d" 
+             d:DesignHeight="1050" d:DesignWidth="800">
+    <ScrollViewer>
+
+        <Grid>
+            <!--SCALING-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/><!--abonnement info-->
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="50"/><!--abonnement date info-->
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="350"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--HEADER-->
+            <WrapPanel Grid.Row="0" Grid.Column="0" 
+                   VerticalAlignment="Center">
+                <Label
+                   Content="Abonnement" 
+                   Margin="0 0 15 0"
+                   Style="{StaticResource Header_Lbl}"/>
+
+                <!--STATISTIC-->
+                <dp:ImageButton Style="{StaticResource Data_Button}"
+                            Command="{Binding GoBackCommand}"/>
+            </WrapPanel>
+
+            <!--ABONNEMENT INFO-->
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        Content="Abonnement info"
+                        Style="{StaticResource Header_Lbl}"/>
+            <oxy:PlotView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                          Model="{Binding AbonnementInfoModel, Mode=OneTime}"/>
+
+
+            <!--ABONNEMENT PER DATE INFO-->
+            <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                        Content="Abonnement date info"
+                        Style="{StaticResource Header_Lbl}"/>
+            
+            <!--DATE-->
+            <UniformGrid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Columns="4">
+                <!--FROM-->
+                <Label 
+                        Content="from"
+                        Style="{StaticResource TextItem_Lbl}"/>
+                <DatePicker SelectedDate="{Binding FromPeriod}" />
+                <!--To-->
+                <Label 
+                        Content="to"
+                        Style="{StaticResource TextItem_Lbl}"/>
+                <DatePicker SelectedDate="{Binding ToPeriod}"/>
+            </UniformGrid>
+
+            <oxy:PlotView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                          Model="{Binding AbonnementDateInfoModel, 
+                                    Mode=OneWay, 
+                                    UpdateSourceTrigger=PropertyChanged}"/>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

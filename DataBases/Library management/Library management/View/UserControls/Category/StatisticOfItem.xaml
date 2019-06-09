@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Library_management.View.UserControls.Category.StatisticOfItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:oxy="http://oxyplot.org/wpf"
+             xmlns:dp="clr-namespace:Library_management.View.DependencyProperties"
+             mc:Ignorable="d" 
+             d:DesignHeight="1650" d:DesignWidth="800">
+
+    <ScrollViewer>
+
+        <Grid>
+            <!--SCALING-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/><!--category per book-->
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="50"/><!--percentage category per book-->
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="50"/><!--best category-->
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="50"/><!--best category percentage-->
+                <RowDefinition Height="350"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--HEADER-->
+            <WrapPanel Grid.Row="0" Grid.Column="0" 
+                   VerticalAlignment="Center">
+                <Label
+                   Content="Category" 
+                   Margin="0 0 15 0"
+                   Style="{StaticResource Header_Lbl}"/>
+
+                <!--DATA-->
+                <dp:ImageButton Style="{StaticResource Data_Button}"
+                            Command="{Binding GoBackCommand}"/>
+            </WrapPanel>
+
+            <!--CATEGORY PER BOOK-->
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        Content="Category per book"
+                        Style="{StaticResource Header_Lbl}"/>
+            <oxy:PlotView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                          Model="{Binding BookAmountModel, Mode=OneTime}"/>
+
+            <!--CATEGORY PER BOOK PERCENTAGE-->
+            <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                        Content="Percentage of category per book"
+                        Style="{StaticResource Header_Lbl}"/>
+            <oxy:PlotView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                          Model="{Binding BookAmountInPercentageModel, Mode=OneTime}"/>
+
+            <!--BEST CATEGORY-->
+            <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                        Content="Category popularity"
+                        Style="{StaticResource Header_Lbl}"/>
+            <oxy:PlotView Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                          Model="{Binding BestEntityPerBook, Mode=OneTime}"/>
+
+            <!--BEST CATEGORY PERCENTAGE-->
+            <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                        Content="Percentage category popularity"
+                        Style="{StaticResource Header_Lbl}"/>
+            <oxy:PlotView Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"
+                          Model="{Binding PercentageBestEntityPerBook, Mode=OneTime}"/>
+
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>
