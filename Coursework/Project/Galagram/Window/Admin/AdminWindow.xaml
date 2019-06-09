@@ -1,0 +1,69 @@
+﻿<Window x:Class="Galagram.Window.Admin.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="AdminWindow" 
+        Height="600" Width="1000"
+        MinHeight="600" MinWidth="1000"        
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource ModalWindowResizable}">
+    
+    <!--DATA CONTEXT-->
+    
+    <!--CONTENT-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--TOP LEFT HEAD-->
+        <Label Grid.Row="0" Grid.Column="0" 
+               Content="Galagram" 
+               Style="{StaticResource TopLeftLabel}"
+               MouseDown="MovingWindow"/>
+
+        <!--HEADER-->
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" 
+               Content="AdminPanel"
+               Style="{StaticResource HeaderLabelAdmin}"
+               MouseDown="MovingWindow"/>
+
+        <!--MENU-->
+        <ListBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="8"
+                 Style="{StaticResource ListBoxAdminMenu}"
+                 ItemsSource="{Binding MenuItems}"
+                 SelectedIndex="{Binding MenuItemIndex}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding ChangeContentCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+        <!--MAIN CONTENT-->
+        <Border Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="8"
+                Style="{StaticResource ContentBorder}">
+            <ContentControl x:Name="ContentControl"/>
+        </Border>
+
+
+    </Grid>
+</Window>
