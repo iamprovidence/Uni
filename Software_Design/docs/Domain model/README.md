@@ -3,5 +3,5 @@
 Contain domain model of the project
 
 <p align="center">
- <img alt="GitHub" src="/docs/Domain model/DOMAIN_MODEL.png">
+ <img alt="GitHub" src="/Software_Design/docs/Domain model/DOMAIN_MODEL.png">
 </p>
