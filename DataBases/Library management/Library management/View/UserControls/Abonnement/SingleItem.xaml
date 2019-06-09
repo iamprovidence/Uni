@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="Library_management.View.UserControls.Abonnement.SingleItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <!--SCALING-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--CONTENT-->
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                Content="Abonnement"
+                Style="{StaticResource Header_Lbl}"/>
+
+        <!--ID-->
+        <Label Grid.Row="2" Grid.Column="0" 
+                Content="ID"
+                Style="{StaticResource TextItem_Lbl}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" 
+                 IsReadOnly="True"
+                 IsEnabled="{Binding IsWritingEnabled}"
+                 Style="{StaticResource MenuItem_TextBox}"
+                 Text="{Binding ShownEntity.Id, Mode=OneTime}" />
+
+        <!--TAKE TIME-->
+        <Label Grid.Row="3" Grid.Column="0" 
+                Content="Take time"
+                Style="{StaticResource TextItem_Lbl}"/>
+        <DatePicker Grid.Row="3" Grid.Column="1" 
+                    IsEnabled="{Binding IsWritingEnabled}"
+                    SelectedDate="{Binding ShownEntity.TakeTime}"/>
+
+        <!--TAKEN PERIOD-->
+        <Label Grid.Row="4" Grid.Column="0" 
+                Content="Taken period"
+                Style="{StaticResource TextItem_Lbl}"/>
+        <DatePicker Grid.Row="4" Grid.Column="1" 
+                    IsEnabled="{Binding IsWritingEnabled}"
+                    SelectedDate="{Binding ShownEntity.TakenPeriod}"/>
+
+        <!--RETURN TIME-->
+        <Label Grid.Row="5" Grid.Column="0" 
+               Content="Return time"
+               Style="{StaticResource TextItem_Lbl}"/>
+
+        <DatePicker Grid.Row="5" Grid.Column="1"
+                    IsEnabled="{Binding IsWritingEnabled}"
+                    SelectedDate="{Binding ShownEntity.ReturnTime}"/>
+
+        <!--READER-->
+        <Label Grid.Row="6" Grid.Column="0" 
+               Content="Reader"
+               Style="{StaticResource TextItem_Lbl}"/>
+
+        <ComboBox Grid.Row="6" Grid.Column="1"
+                  Style="{StaticResource Interface_ComboBox}"
+                  IsEnabled="{Binding IsWritingEnabled}"
+                  ItemsSource="{Binding Readers}"
+                  SelectedItem="{Binding ShownEntity.Reader}"
+                  DisplayMemberPath="Name"/>
+
+        <!--BOOK-->
+        <Label Grid.Row="7" Grid.Column="0" 
+                Content="Book"
+                Style="{StaticResource TextItem_Lbl}"/>
+
+        <ComboBox Grid.Row="7" Grid.Column="1"
+                  Style="{StaticResource Interface_ComboBox}"
+                  IsEnabled="{Binding IsWritingEnabled}" 
+                  ItemsSource="{Binding Books}"
+                  SelectedItem="{Binding ShownEntity.Book}"
+                  DisplayMemberPath="Name"/>
+
+        <!--BUTTONS-->
+        <Button Grid.Row="9" Grid.Column="0"  
+                Style="{StaticResource BottomButton}"
+                IsCancel="True"
+                Content="Go Back"
+                Command="{Binding GoBackCommand}"
+                CommandParameter="{Binding ShownEntity}"/>
+        <Button Grid.Row="9" Grid.Column="1"  
+                IsDefault="True"
+                Style="{StaticResource BottomButton}"
+                Content="{Binding 
+                            Path=CrudOperationName,
+                            Mode=OneTime}"
+                Command="{Binding CrudOperation}"
+                CommandParameter="{Binding ShownEntity}"/>
+    </Grid>
+</UserControl>

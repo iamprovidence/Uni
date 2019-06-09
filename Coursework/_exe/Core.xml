@@ -1,0 +1,814 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Core</name>
+    </assembly>
+    <members>
+        <member name="T:Core.Configuration.AdminConfig">
+            <summary>
+            Consists of all configuration needed to admin panel
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AdminConfig.ADMIN_ITEMS">
+            <summary>
+            Menu items of the admin panel
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AdminConfig.EXIT_ITEM_INDEX">
+            <summary>
+            Index of exit button
+            </summary>
+        </member>
+        <member name="T:Core.Configuration.AppConfig">
+            <summary>
+            Consists of all important configuration to application.
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.APP_NAME">
+            <summary>
+            Name of the application.
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.DO_CLOSE_APP_ON_FATAL_ERROR">
+            <summary>
+            Determines if need to close application on fatal error
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.DIRECTORY_SEPARATOR_STR">
+            <summary>
+            A directory separator depending on environment
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.DIRECTORY_EXE_PATH">
+            <summary>
+            A path to executing file.
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.LOG_FILE">
+            <summary>
+            A path to a file with logs.
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.LOG_FILE_SIZE_LIMIT">
+            <summary>
+            The size limit of log file in bytes.
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.OFF_LOG_MODES">
+            <summary>
+            The log modes that have to be off.
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.LOG_TEMPLATE_FORMAT">
+            <summary>
+            Template for logs.
+            <para/>
+            Date, logMode, message.
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.AVATAR_FOLDER">
+            <summary>
+            Folder with avatars
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.AVATAR_FORMAT">
+            <summary>
+            A path to avatar image
+            <para/>
+            {0} — avatar name, user id <para/>
+            {1} — extension with . <para/>
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.AVATAR_FOLDER_ATTRIBUTES">
+            <summary>
+            Determines attributes for avatars folder
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.PHOTOS_SAVE_FOLDER">
+            <summary>
+            Folder with photos
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.PHOTOS_SAVE_PATH_FORMAT">
+            <summary>
+            A path to saved photos.
+            <para/>
+            ImageFolder/UserIdFolder/image.jpg
+            <para/>
+            {0} — user id   <para/>
+            {1} — photo name  <para/>
+            {2} — extension with . <para/>
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.PHOTOS_FOLDER_ATTRIBUTES">
+            <summary>
+            Determines attributes for photos folder
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.TEMP_FOLDER">
+            <summary>
+            Folder with temporary files
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.AppConfig.TEMP_FILE_FORMAT">
+            <summary>
+            A path to temporary file
+            <para/>
+            {0} — temp file name <para/>
+            {1} — extension with . <para/>
+            </summary>
+        </member>
+        <member name="T:Core.Configuration.Constants">
+            <summary>
+            Consists of all important canstant values
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.Constants.WRONG_INDEX">
+            <summary>
+            Used when index is not set, or has a wrong value
+            </summary>
+        </member>
+        <member name="T:Core.Configuration.DBConfig">
+            <summary>
+            Consists of all important configuration to DataBase.
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.COMMENT_TEXT_MIN_LENGTH">
+            <summary>
+            Comment text min length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.COMMENT_TEXT_MAX_LENGTH">
+            <summary>
+            Comment text max length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.ADMIN_MESSAGE_MIN_LENGTH">
+            <summary>
+            Admin message text min length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.ADMIN_MESSAGE_MAX_LENGTH">
+            <summary>
+            Admin message text max length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.ADMIN_MESSAGE_SUBJECT_MIN_LENGTH">
+            <summary>
+            Admin message subject text min length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.ADMIN_MESSAGE_SUBJECT_MAX_LENGTH">
+            <summary>
+            Admin message subject text max length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.PHOTO_PATH_MIN_LENGTH">
+            <summary>
+            Photo server path string min length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.PHOTO_PATH_MAX_LENGTH">
+            <summary>
+            Photo server path string max length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.PHOTO_EXTENSION">
+            <summary>
+            Allowed photo extension
+            <para/>
+            Should be comma separated and has no spaces
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.AVATAR_MIN_LENGTH">
+            <summary>
+            Avatar server path string min length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.AVATAR_MAX_LENGTH">
+            <summary>
+            Avatar server path string max length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.NICKNAME_MIN_LENGTH">
+            <summary>
+            User nickname text min length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.NICKNAME_MAX_LENGTH">
+            <summary>
+            User nickname text max length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.PASSWORD_MIN_LENGTH">
+            <summary>
+            Password text min length
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.DBConfig.PASSWORD_MAX_LENGTH">
+            <summary>
+            Password text max length
+            </summary>
+        </member>
+        <member name="T:Core.Configuration.TestConfig">
+            <summary>
+            Consists of all configuration needed in unit test
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.TestConfig.DO_DELETE_TEST_DATABASE">
+            <summary>
+            Determines if need to delete test database
+            </summary>
+        </member>
+        <member name="F:Core.Configuration.TestConfig.DATABASE_FILL_MODE">
+            <summary>
+            Specifies test mode for DataBase
+            </summary>
+        </member>
+        <member name="T:Core.Enums.DataBaseFillMode">
+            <summary>
+            Specify test mode fot DataBase
+            </summary>
+        </member>
+        <member name="F:Core.Enums.DataBaseFillMode.Regular">
+            <summary>
+            Low amount of known data 
+            </summary>
+        </member>
+        <member name="F:Core.Enums.DataBaseFillMode.Easy">
+            <summary>
+            Low amount of random data
+            </summary>
+        </member>
+        <member name="F:Core.Enums.DataBaseFillMode.Middle">
+            <summary>
+            Middle amount of random data
+            </summary>
+        </member>
+        <member name="F:Core.Enums.DataBaseFillMode.Hard">
+            <summary>
+            Big amount of random data
+            </summary>
+        </member>
+        <member name="T:Core.Enums.FileSizeMode">
+            <summary>
+            The kinds of file size.
+            </summary>
+        </member>
+        <member name="F:Core.Enums.FileSizeMode.KB">
+            <summary>
+            Represents kilobyte.
+            </summary>
+        </member>
+        <member name="F:Core.Enums.FileSizeMode.MB">
+            <summary>
+            Represents megabyte.
+            </summary>
+        </member>
+        <member name="F:Core.Enums.FileSizeMode.GB">
+            <summary>
+            Represents gigabyte.
+            </summary>
+        </member>
+        <member name="F:Core.Enums.FileSizeMode.TB">
+            <summary>
+            Represents terabyte.
+            </summary>
+        </member>
+        <member name="T:Core.Converters.FileSizeConverter">
+            <summary>
+            Uses for converting file size to bytes.
+            </summary>
+        </member>
+        <member name="M:Core.Converters.FileSizeConverter.GetSize(System.Int64,Core.Enums.FileSizeMode)">
+            <summary>
+            Converts file size in file size mode to bytes.
+            </summary>
+            <param name="size">The file size in file size mode.</param>
+            <param name="fileSizeMode">The kind of file size.</param>
+            <returns>
+            Returns file size in bytes.
+            </returns>
+            <exception cref="T:System.OverflowException">
+            Throws when returning value can not fit returning type
+            </exception>
+        </member>
+        <member name="T:Core.Exceptions.ComparingException">
+            <summary>
+            Has been used if comparing type if not allowed
+            </summary>
+        </member>
+        <member name="M:Core.Exceptions.ComparingException.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Core.Exceptions.ComparingException"/>
+            </summary>
+        </member>
+        <member name="M:Core.Exceptions.ComparingException.#ctor(System.String,System.String)">
+            <summary>
+            Initialize a new instance of <see cref="T:Core.Exceptions.ComparingException"/>
+            </summary>
+            <param name="compareType">
+            The name of comparing type which cause exception
+            </param>
+            <param name="entityType">
+            The name of entity for each comparing type is not allowed
+            </param>
+        </member>
+        <member name="M:Core.Exceptions.ComparingException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:Core.Exceptions.ComparingException"/> with error message
+            </summary>
+            <param name="message">
+            An error message
+            </param>
+        </member>
+        <member name="M:Core.Exceptions.ComparingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:Core.Exceptions.ComparingException"/> with error message and inner exception
+            </summary>
+            <param name="message">
+            An error message
+            </param>
+            <param name="inner">
+            An inner error
+            </param>
+        </member>
+        <member name="M:Core.Exceptions.ComparingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of <see cref="T:Core.Exceptions.ComparingException"/> with serialized data
+            </summary>
+            <param name="info">
+            Holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            Contains contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> is null
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0)
+            </exception>
+        </member>
+        <member name="T:Core.Interfaces.IFactory`3">
+            <summary>
+            Represents an interface for Factory Method patern
+            </summary>
+            <typeparam name="TKey">
+            A key type by which creator is registrated
+            </typeparam>
+            <typeparam name="TRegValue">
+            A creator type, which know how to create an instance of the object
+            </typeparam>
+            <typeparam name="TReturnValue">
+            An object type, which instance should be created
+            </typeparam>
+        </member>
+        <member name="M:Core.Interfaces.IFactory`3.Registrate(`0,`1)">
+            <summary>
+            Registrate creator by key
+            </summary>
+            <param name="key">
+            A key by creator is registered
+            </param>
+            <param name="value">
+            A concrete creator
+            </param>
+        </member>
+        <member name="M:Core.Interfaces.IFactory`3.UnRegistrate(`0)">
+            <summary>
+            Unregistrate creator by key
+            </summary>
+            <param name="key">
+            A key by which creator should be unregistered
+            </param>
+        </member>
+        <member name="M:Core.Interfaces.IFactory`3.MakeInstance(`0)">
+            <summary>
+            Returns an instance of the object by key
+            </summary>
+            <param name="key">
+            A key by which instance of the object should be created
+            </param>
+            <returns>
+            An instance of the object, which creator was registered by current key
+            </returns>
+        </member>
+        <member name="T:Core.Logger">
+            <summary>
+            Provides opportunities to log messages
+            <para/>
+            Implements a Singleton pattern
+            </summary>
+        </member>
+        <member name="M:Core.Logger.Finalize">
+            <summary>
+            Release unmanaged resources
+            </summary>
+        </member>
+        <member name="P:Core.Logger.GetLogger">
+            <summary>
+            Gets logger instance
+            </summary>
+        </member>
+        <member name="M:Core.Logger.Off(Core.LogMode)">
+            <summary>
+            Turns off log modes.
+            <para/>
+            For multiple off modes use "|" between them
+            <example>
+            <see cref="F:Core.LogMode.Debug"/> | <see cref="F:Core.LogMode.Info"/>
+            </example>
+            </summary>
+            <param name="logMode">The log mode(s) that will be off.</param>
+        </member>
+        <member name="M:Core.Logger.On(Core.LogMode)">
+            <summary>
+            Turns on log modes.
+            <para/>
+            For multiple on modes use "|" between them
+            <example>
+            <see cref="F:Core.LogMode.Debug"/> | <see cref="F:Core.LogMode.Info"/>
+            </example>
+            </summary>
+            <param name="logMode">The log mode(s) that will be on.</param>
+        </member>
+        <member name="M:Core.Logger.Log(Core.LogMode,System.String)">
+            <summary>
+            Writes a log to a file 
+            </summary>
+            <param name="logMode">
+            A log level
+            </param>
+            <param name="message">
+            Log message
+            </param>
+        </member>
+        <member name="M:Core.Logger.LogAsync(Core.LogMode,System.String)">
+            <summary>
+            Writes a log to a file asynchronously
+            </summary>
+            <param name="logMode">
+            A log level
+            </param>
+            <param name="message">
+            Log message
+            </param>
+        </member>
+        <member name="T:Core.LogMode">
+            <summary>
+            Log message level
+            </summary>
+        </member>
+        <member name="F:Core.LogMode.DataBase">
+            <summary>
+            Shows works in database
+            </summary>
+        </member>
+        <member name="F:Core.LogMode.Debug">
+            <summary>
+            Explain logic step by step
+            </summary>
+        </member>
+        <member name="F:Core.LogMode.Info">
+            <summary>
+            Information about work, its efficiency
+            </summary>
+        </member>
+        <member name="F:Core.LogMode.Warn">
+            <summary>
+            Something weird happen
+            <para/>
+            Caught exception known type 
+            </summary>
+        </member>
+        <member name="F:Core.LogMode.Error">
+            <summary>
+            Error has been occurred
+            <para/>
+            Caught exception unknown type 
+            </summary>
+        </member>
+        <member name="F:Core.LogMode.Fatal">
+            <summary>
+            Immediately help required
+            <para/>
+            The application has shout down with exception
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Error.Admin">
+            <summary>
+            Consists of messages happened in Admin section
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.Admin.ROW_MISSING_FORMAT">
+            <summary>
+            Can not get data from Data Base.
+            <para/>
+            {0} — entity's name
+            <para/>
+            {1} — entity's id
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.Admin.FACTORY_NO_SUCH_KEY_FORMAT">
+            <summary>
+            Current key has not been registered before.
+            <para/>
+            Takes key name.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.Admin.FACTORY_REGISTRATE_BY_THE_SAME_KEY_FORMAT">
+            <summary>
+            Current key has been already registered.
+            <para/>
+            Takes key name.
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Error.App">
+            <summary>
+            Consists of all important messages that can be thrown in project.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.App.FATAL_ERROR_CONTINUE">
+            <summary>
+            Used when program has been closed with fatal unhandled error
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.App.FATAL_ERROR_CLOSE">
+            <summary>
+            Used when program has been closed with fatal unhandled error
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Error.DataAccess">
+            <summary>
+             Consists of messages that can be thrown in DataAccess project.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.DataAccess.CAN_NOT_CONNECT_TO_DB_MESSAGE">
+            <summary>
+            The connection to Data Base has been failed
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.DataAccess.NO_FILE_MESSAGE_FORMAT">
+            <summary>
+            An DataBase file has been missed
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.DataAccess.NO_SUCH_PROFILE_MESSAGE_FORMAT">
+            <summary>
+            Current user has not been registered before
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Error.Exceptions">
+            <summary>
+            Consists of all messeges happen in based on <see cref="T:System.Exception"/> classes
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.Exceptions.WRONG_COMPARING_TYPE_FORMAT">
+            <summary>
+            Comparing type is not allowed for entity
+            <para/>
+            {0} — name of wrong comparing type
+            <para/>
+            {1} — name of entity for which current comparing type is not allowed
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Error.Repositories">
+            <summary>
+            Consists of messages that can be thrown in Repositories.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.Repositories.THERE_IS_NO_RECORD_WITH_SUCH_ID">
+            <summary>
+            Has been used if there is no record with such id in DataBase
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Error.View">
+            <summary>
+            Consists of messages that can be thrown in View project.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.DROP_WINDOW_WRONG_FILTER_STRING">
+            <summary>
+            The filter string for DropWindow is invalid.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.WINDOW_MANAGER_REGISTRATE_INTERFACE_FORMAT">
+            <summary>
+            Passed argument is an interface or abstract class type. WindowManager can not registrate this type. 
+            <para/>
+            Takes argument name.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.WINDOW_MANAGER_REGISTRATE_BY_THE_SAME_KEY_FORMAT">
+            <summary>
+            Current key has been already registered.
+            <para/>
+            Takes key name.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.WINDOW_MANAGER_NO_SUCH_KEY_FORMAT">
+            <summary>
+            Current key has not been registered before.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.WINDOW_MANAGER_MESSAGE_BOX_BUTTONS_WRONG_ENUM_VALUE">
+            <summary>
+            The behaviour for passed enum value is not implemented.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.WINDOW_MANAGER_WINDOW_IS_NOT_OPENED">
+            <summary>
+            The window is not shown.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.WINDOW_MANAGER_DIALOG_DOES_NOT_INHERIT_DEFAULT_INTERFACE_FORMAT">
+            <summary>
+            Dialog window does not inherit default interface
+            <para/>
+            {0} — interface name
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.WINDOW_MANAGER_MODAL_WINDOW_IS_NOT_OPENED">
+            <summary>
+            Modal window is not opened at all or is not opened as modal
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.NAVIGATION_MANAGER_NO_SUCH_KEY_FORMAT">
+            <summary>
+            Current key has not been registered before.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.View.NAVIGATION_MANAGER_REGISTRATE_BY_THE_SAME_KEY_FORMAT">
+            <summary>
+            Current key has been already registered.
+            <para/>
+            Takes key name.
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Error.ViewModel">
+            <summary>
+            Consists of messages that can be thrown in ViewModel project.
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Error.ViewModel.EVENT_OF_TYPE_IS_NOT_FOUND_FORMAT">
+            <summary>
+            The event of type is not found
+            <para/>
+            {0} — event name 
+            <para/>
+            {1} — event type 
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Info.Admin">
+            <summary>
+            Consists of all messages happened in Admin Panel
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.Admin.ADMIN_WRONG_SUBJECT_LENGTH">
+            <summary>
+            Wrong subject length
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.Admin.ADMIN_WRONG_USER_NICKNAME_LENGTH">
+            <summary>
+            Wrong user's nickname length
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.Admin.ADMIN_WRONG_USER_PASSWORD_LENGTH">
+            <summary>
+            Wrong user's password length
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.Admin.ADMIN_WRONG_USER_MAIN_PHOTO_PATH_LENGTH">
+            <summary>
+            Wrong user's main photo path length
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Info.MessageBoxHeader">
+            <summary>
+            Consists of all message box headers
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.MessageBoxHeader.WARNING">
+            <summary>
+            Warning header
+            </summary>
+        </member>
+        <member name="T:Core.Messages.Info.ViewModel">
+            <summary>
+            Consists of all messages thet happened in ViewModels
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.EMPTY_PASSWORD">
+            <summary>
+            Password is empty
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.PASSWORD_IS_NOT_THE_SAME">
+            <summary>
+            User's password and written one is different
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.NICKNAME_IS_NOT_FREE">
+            <summary>
+            User can not change nickname, it is occupied
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.NO_CHANGES">
+            <summary>
+            Any of the fields were not changed
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.CHANGES_APPLIED">
+            <summary>
+            All changes has been successfully applied
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.UNSAVED_CHANGES_MESSAGE">
+            <summary>
+            User try to exit but he has unsaved changes
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.DO_DELETE_ACCOUNT">
+            <summary>
+            Verify if user do want to delete his account
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.SUBJECT_IS_NOT_SELECTED">
+            <summary>
+            Subject to message is not selected
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.EMPTY_MESSAGE">
+            <summary>
+            Message text is empty
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.MESSAGE_TOO_SHORT">
+            <summary>
+            Message text is too short
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.MESSAGE_TOO_LONG">
+            <summary>
+            Message text is too long
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.MESSAGE_SENT">
+            <summary>
+            Message has been sent
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.IS_NEED_LOG_IN_AS_ADMIN">
+            <summary>
+            User is admin. Ask him do he want to log in regularly or as admin
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.NICKNAME_EMPTY">
+            <summary>
+            Nickname can not be empty
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.PASSWORD_EMPTY">
+            <summary>
+            Password can not be empty
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.NICKNAME_TOO_SHORT">
+            <summary>
+            Short nickname message
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.NICKNAME_TOO_LONG">
+            <summary>
+            Long nickname message
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.PASSWORD_TOO_SHORT">
+            <summary>
+            Short password message
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.PASSWORD_TOO_LONG">
+            <summary>
+            Long password message
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.NICKNAME_IS_WRONG">
+            <summary>
+            Nickname is wrong
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.PASSWORD_IS_WRONG">
+            <summary>
+            Password is wrong
+            </summary>
+        </member>
+        <member name="F:Core.Messages.Info.ViewModel.NICKNAME_IS_NOT_AVAILABLE">
+            <summary>
+            Nickname is not available message
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE0590CD-297E-4029-B63B-F6CF79F25560}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Library_management</RootNamespace>
+    <AssemblyName>Library management</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Ico\logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Core.1.0.0\lib\net45\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Wpf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Wpf.1.0.0\lib\net45\OxyPlot.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\NavigationManager.cs" />
+    <Compile Include="Services\NavigationManagerInitializer\DefaultNavigationManagerInitilizer.cs" />
+    <Compile Include="Services\NavigationManagerInitializer\NavigationManagerInitializerBase.cs" />
+    <Compile Include="Services\WindowManager.cs" />
+    <Compile Include="Services\WindowManagerInitializer\DefaultWindowInitializers.cs" />
+    <Compile Include="Services\WindowManagerInitializer\WindowManagerInitializerBase.cs" />
+    <Compile Include="ViewModel\CommandBase.cs" />
+    <Compile Include="ViewModel\Commands\Actions\GoBackCommand.cs" />
+    <Compile Include="ViewModel\Commands\Actions\GoToDeleteContentCommand.cs" />
+    <Compile Include="ViewModel\Commands\MultipleCommand.cs" />
+    <Compile Include="ViewModel\Commands\RelayCommand.cs" />
+    <Compile Include="ViewModel\Commands\Validations\AbonnementValidationCommand.cs" />
+    <Compile Include="ViewModel\Commands\Validations\AuthorValidationCommand.cs" />
+    <Compile Include="ViewModel\Commands\Validations\BookValidationCommand.cs" />
+    <Compile Include="ViewModel\Commands\Validations\CategoryValidationCommand.cs" />
+    <Compile Include="ViewModel\Commands\Validations\GenreValidationCommand.cs" />
+    <Compile Include="ViewModel\Commands\Validations\PublishingHouseValidationCommand.cs" />
+    <Compile Include="ViewModel\Commands\Validations\ReaderValidationCommand.cs" />
+    <Compile Include="ViewModel\Commands\Validations\ValidationCommandBase.cs" />
+    <Compile Include="ViewModel\Enums\CommandState.cs" />
+    <Compile Include="ViewModel\Enums\CrudMode.cs" />
+    <Compile Include="ViewModel\Structs\MenuItem.cs" />
+    <Compile Include="ViewModel\Structs\SelectedItemCollection.cs" />
+    <Compile Include="ViewModel\Structs\SelectedItem.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModels\Abonnements\AllItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Abonnements\SingleItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Abonnements\StatisticOfItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\AllItemViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModels\Authors\AllItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Authors\StatisticOfItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Book\AllItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Book\SingleItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Book\StatisticOfItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Category\AllItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Category\StatisticOfItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\DeleteEntityViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Genre\AllItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Genre\StatisticOfItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\MenuControllerViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\PublishingHouse\AllItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\PublishingHouse\SingleItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\PublishingHouse\StatisticOfItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Reader\AllItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\Reader\StatisticOfItemViewModel.cs" />
+    <Compile Include="ViewModel\ViewModels\SingleEntityViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModels\StatisticOfItemViewModelBase.cs" />
+    <Compile Include="View\Converters\IntToStingConverter.cs" />
+    <Compile Include="View\Converters\ImageSourceToVisibilityConverter.cs" />
+    <Compile Include="View\DependencyProperties\ComboBoxProperties.cs" />
+    <Compile Include="View\DependencyProperties\ImageButton.cs" />
+    <Compile Include="View\DependencyProperties\ListBoxProperties.cs" />
+    <Compile Include="View\Enums\MessageBoxButton.cs" />
+    <Compile Include="View\Interfaces\IFileDialog.cs" />
+    <Compile Include="View\Interfaces\IMessageBox.cs" />
+    <Compile Include="View\UserControls\Abonnement\AllItem.xaml.cs">
+      <DependentUpon>AllItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Abonnement\SingleItem.xaml.cs">
+      <DependentUpon>SingleItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Abonnement\StatisticOfItem.xaml.cs">
+      <DependentUpon>StatisticOfItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Author\AllItem.xaml.cs">
+      <DependentUpon>AllItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Author\SingleItem.xaml.cs">
+      <DependentUpon>SingleItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Author\StatisticOfItem.xaml.cs">
+      <DependentUpon>StatisticOfItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Book\AllItem.xaml.cs">
+      <DependentUpon>AllItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Book\SingleItem.xaml.cs">
+      <DependentUpon>SingleItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Book\StatisticOfItem.xaml.cs">
+      <DependentUpon>StatisticOfItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Category\AllItem.xaml.cs">
+      <DependentUpon>AllItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Category\SingleItem.xaml.cs">
+      <DependentUpon>SingleItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Category\StatisticOfItem.xaml.cs">
+      <DependentUpon>StatisticOfItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\DeleteItem.xaml.cs">
+      <DependentUpon>DeleteItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Genre\AllItem.xaml.cs">
+      <DependentUpon>AllItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Genre\SingleItem.xaml.cs">
+      <DependentUpon>SingleItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Genre\StatisticOfItem.xaml.cs">
+      <DependentUpon>StatisticOfItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\PublishingHouse\AllItem.xaml.cs">
+      <DependentUpon>AllItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\PublishingHouse\SingleItem.xaml.cs">
+      <DependentUpon>SingleItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\PublishingHouse\StatisticOfItem.xaml.cs">
+      <DependentUpon>StatisticOfItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Reader\AllItem.xaml.cs">
+      <DependentUpon>AllItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Reader\SingleItem.xaml.cs">
+      <DependentUpon>SingleItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Reader\StatisticOfItem.xaml.cs">
+      <DependentUpon>StatisticOfItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\Dialog\MessageBox.xaml.cs">
+      <DependentUpon>MessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\Theme\Brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Styles\Collections.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Styles\Default.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Styles\Texts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Templates\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Templates\Collections.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Templates\Default.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Theme\Templates\Texts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Abonnement\AllItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Abonnement\SingleItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Abonnement\StatisticOfItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Author\AllItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Author\SingleItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Author\StatisticOfItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Book\AllItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Book\SingleItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Book\StatisticOfItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Category\AllItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Category\SingleItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Category\StatisticOfItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\DeleteItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Genre\AllItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Genre\SingleItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Genre\StatisticOfItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\PublishingHouse\AllItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\PublishingHouse\SingleItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\PublishingHouse\StatisticOfItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Reader\AllItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Reader\SingleItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Reader\StatisticOfItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\Dialog\MessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\reader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{fb1b2c58-8f54-4034-bd71-c0dd85cd87d1}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{b9c52702-3bdc-44cc-99a2-f9ecfc78afa5}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\abonnement.png" />
+    <Resource Include="Resources\Pictogram\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\genre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\author.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\publishing_house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\maximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\CRUD\Update\regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\CRUD\Update\hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\CRUD\Read\hover.png" />
+    <Resource Include="Resources\Pictogram\CRUD\Read\regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\CRUD\Delete\hover.png" />
+    <Resource Include="Resources\Pictogram\CRUD\Delete\regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\no_book_cover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\CRUD\Create\regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ico\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ico\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\data.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\ClearButton\hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictogram\ClearButton\regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Files\Countries.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

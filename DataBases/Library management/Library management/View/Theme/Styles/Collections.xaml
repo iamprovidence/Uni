@@ -1,0 +1,324 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dp="clr-namespace:Library_management.View.DependencyProperties">
+    
+
+
+    <!--CHECKED LIST BOX-->
+
+    <Style TargetType="ListBox" x:Key="CheckedListBox">
+        <!--template-->
+        <Setter Property="Template" Value="{StaticResource ListBoxWithScrollingEnabled}"/>
+        
+        <!--colors-->
+        <Setter Property="BorderBrush" Value="{StaticResource GrayColorBrush_V4}"/>
+        
+        <!--sizes-->
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="BorderThickness" Value="3"/>
+
+        
+        <!--ITEMS-->
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+
+                <!--LIST BOX ITEM -->
+                <Style TargetType="ListBoxItem">
+                    <!--sizes-->
+                    <Setter Property="Margin" Value="1"/>
+
+                    <!--template-->
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="{TemplateBinding Margin}">
+
+                                    <CheckBox
+                                          x:Name="CheckBox"
+                                          Margin="5, 2"
+                                          IsChecked="{Binding Path=IsSelected}">
+                                    </CheckBox>
+
+                                    <ContentPresenter />
+                                </StackPanel>
+
+                                <!--TRIGGERS-->
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <!--sizes-->
+                                        <Setter Property="FontSize" Value="16"/>
+                                        <!--config-->
+                                        <Setter TargetName="CheckBox" Property="Visibility" Value="Collapsed" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+
+
+        <Style.Triggers>
+
+            <Trigger Property="dp:ListBoxProperties.IsEnabledWithScroll" Value="False">
+                <!--colors-->
+                <Setter Property="Foreground" Value="{StaticResource GrayColorBrush_V5}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource GrayColorBrush_V3}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--MENU LIST BOX-->
+    <Style TargetType="ListBox" x:Key="MenuListBox">
+        <!--colors-->
+        <Setter Property="Background" Value="{StaticResource BlackBrush_V3}"/>
+        <!--sizes-->
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+
+        <!--config-->
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                
+                <!--LIST BOX ITEM -->
+                <Style TargetType="ListBoxItem">
+                    <!--colors-->
+                    <Setter Property="Background" Value="{StaticResource BlackBrush_V3}"/>
+                    <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                    <!--sizes-->
+                    <Setter Property="FontSize" Value="22"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <!--config-->
+                    <Setter Property="Content" Value="{Binding}"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    
+                    <!--template-->
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border 
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                        Width="{TemplateBinding Width}"
+                                        Height="{TemplateBinding Height}">
+                                    
+                                    <!--Data-->
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Margin="3" Width="40" Height="40" Source="{Binding ImagePath}"/>
+                                        <TextBlock Margin="3" Foreground="{TemplateBinding Foreground}" Text="{Binding ItemText}"/>
+                                    </StackPanel>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!--TRIGGERS-->
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource MainBrush_V2}"/>
+                            <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource MainBrush_V5}"/>
+                            <Setter Property="Foreground" Value="{StaticResource BlackBrush_V3}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    <!--COMBO BOX-->
+    <Style TargetType="{x:Type ComboBox}" x:Key="Interface_ComboBox">
+
+        <!--colors-->
+        <Setter Property="Foreground" Value="{StaticResource BlackBrush_V1}"/>
+        <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+
+        <!--sizes-->
+        <Setter Property="Margin" Value="10, 5"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="MinWidth" Value="120"/>
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="MaxDropDownHeight" Value="100"/>
+
+        <!--config-->
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+
+        <Setter Property="Template" Value="{StaticResource ComboBoxTemplate}"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource GrayColorBrush_V4}"/>
+            </Trigger>
+            <Trigger Property="IsGrouping" Value="True">
+                <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!--COMBO BOX ITEM-->
+    <Style TargetType="{x:Type ComboBoxItem}">
+        <!--sizes-->
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    
+    <!--COMBO BOX TOGGLE BUTTON AND TEXT BOX-->
+    <Style TargetType="{x:Type ToggleButton}">
+        
+        <!--colors-->
+        <Setter Property="Background" Value="{StaticResource WhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource GrayColorBrush_V4}"/>
+        
+        <!--sizes-->
+        <Setter Property="BorderThickness" Value="3"/>
+
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="BorderBrush" Value="{StaticResource GrayColorBrush_V3}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+
+    <!--DATA GRID-->
+    <!--HEADER-->
+    <Style TargetType="{x:Type DataGridColumnHeader}" x:Key="DataGridColumnHeader">
+        <!--colors-->
+        <Setter Property="Background" Value="{StaticResource MainBrush_V1}"/>
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+
+        <!--sizes-->
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontStretch" Value="Condensed"/>
+
+        <!--config-->
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="ClickMode" Value="Press"/>
+        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource SecondaryBrush_A_V2}"/>
+                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+
+                <Setter Property="Background" Value="{StaticResource SecondaryBrush_A_V4}"/>
+                <Setter Property="Foreground" Value="{StaticResource SecondaryBrush_A_V1}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--DATA GRID CELL-->
+    <Style TargetType="{x:Type DataGridCell}" x:Key="DataGridCellStyle">
+
+        <!--sizes-->
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="BorderThickness" Value="0"/>
+
+        <!--config-->
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Background" Value="{StaticResource MainBrush_V4}"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!--DATA GRID ROW-->
+    <Style TargetType="DataGridRow" x:Key="DataGridRow">
+        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource MainBrush_V5}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--DATA GRID-->
+    <Style TargetType="DataGrid" x:Key="DataGridAdmin">
+        <!--colors-->
+        <Setter Property="Background" Value="{StaticResource SecondaryBrush_A_V5}"/>
+
+        <Setter Property="VerticalGridLinesBrush" Value="{StaticResource GrayColorBrush_V1}"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource GrayColorBrush_V6}"/>
+
+        <Setter Property="RowBackground" Value="{StaticResource GrayColorBrush_V1}"/>
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource GrayColorBrush_V2}"/>
+
+        <!--sizes-->
+        <Setter Property="BorderThickness" Value="0"/>
+
+        <Setter Property="Margin" Value="15"/>
+
+        <Setter Property="ColumnWidth" Value="*"/>
+        <Setter Property="ColumnHeaderHeight" Value="35"/>
+
+        <Setter Property="RowHeight" Value="20"/>
+        <Setter Property="RowHeaderWidth" Value="0"/>
+
+        <!--config-->
+        <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="SelectionUnit" Value="FullRow"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="CanUserReorderColumns" Value="False"/>
+        <Setter Property="CanUserResizeColumns" Value="True"/>
+        <Setter Property="CanUserResizeRows" Value="False"/>
+        <Setter Property="CanUserSortColumns" Value="True"/>
+
+        <Setter Property="EnableRowVirtualization" Value="True"/>
+        <Setter Property="EnableColumnVirtualization" Value="True"/>
+
+        <Setter Property="IsTextSearchCaseSensitive" Value="True"/>
+        <Setter Property="IsTextSearchEnabled" Value="False"/>
+
+        <Setter Property="VirtualizingStackPanel.ScrollUnit" Value="Pixel"/>
+
+
+        <!--styles-->
+        <Setter Property="CellStyle" Value="{StaticResource DataGridCellStyle}"/>
+        <Setter Property="ColumnHeaderStyle" Value="{StaticResource DataGridColumnHeader}"/>
+        <Setter Property="RowStyle" Value="{StaticResource DataGridRow}"/>
+
+    </Style>
+
+</ResourceDictionary>

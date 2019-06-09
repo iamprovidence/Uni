@@ -1,0 +1,176 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dp="clr-namespace:Library_management.View.DependencyProperties">
+
+    <!--TOP RIGHT BUTTONS-->
+    <Style TargetType="Button" x:Key="TopBarButton">
+        <!--template-->
+        <Setter Property="Template" Value="{StaticResource ButtonTemplate}"/>
+
+        <!--config-->
+        <Setter Property="Cursor" Value="Hand"/>
+        <!--colors-->
+        <Setter Property="Background" Value="Transparent"/>
+        <!--sizes-->
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="5"/>
+
+
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource MainBrush_V1}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource MainBrush_V5}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Button" BasedOn="{StaticResource TopBarButton}" x:Key="ExitTopBarButton">
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource RedBrush_V2}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource RedBrush_V1}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--BOTTOM BUTTONS-->
+    <Style TargetType="Button" x:Key="BottomButton">
+        <!--template-->
+        <Setter Property="Template" Value="{StaticResource ButtonTemplate}"/>
+        <!--colors-->
+        <Setter Property="Background" Value="{StaticResource BlackBrush_V4}"/>
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+        <!--sizes-->
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <!--config-->
+        <Setter Property="Content" Value="{Binding}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+       
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource MainBrush_V1}"/>
+                <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource MainBrush_V5}"/>
+                <Setter Property="Foreground" Value="{StaticResource BlackBrush_V3}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!--MESSAGE BOX BUTTON-->
+    <Style TargetType="Button" x:Key="MessageBoxButton">
+        <!--template-->
+        <Setter Property="Template" Value="{StaticResource ButtonTemplate}"/>
+        <!--colors-->
+        <Setter Property="Background" Value="{StaticResource SecondaryBrush_A_V3}"/>
+        <Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+        <!--sizes-->
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <!--config-->
+        <Setter Property="Content" Value="{Binding}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource SecondaryBrush_A_V4}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource SecondaryBrush_A_V2}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--MENU BUTTON-->
+    <Style TargetType="{x:Type dp:ImageButton}" x:Key="MenuButton">
+        <!--template-->
+        <Setter Property="Template" Value="{StaticResource ImageButtonTemplate}"/>
+        <!--colors-->
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="{StaticResource OppositeBrush_V3}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource OppositeBrush_V2}"/>
+        <!--sizes-->
+        <Setter Property="BorderThickness" Value="0 0 0 5"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="125"/>
+        <Setter Property="ImageWidth" Value="24"/>
+        <Setter Property="ImageHeight" Value="24"/>
+        <!--config-->
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Margin" Value="5 7 5 5"/>
+                <Setter Property="BorderThickness" Value="0 0 0 3"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Margin" Value="5 10 5 5"/>
+                <Setter Property="BorderThickness" Value="0 0 0 0"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Visibility" Value="Collapsed"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--ADD NEW ITEM BUTTON-->
+    <Style TargetType="{x:Type dp:ImageButton}" BasedOn="{StaticResource MenuButton}" x:Key="AddNew_Button">
+        <!--config-->
+        <Setter Property="Content" Value="Add new"/>
+        <Setter Property="Image" Value="/Resources/Pictogram/CRUD/Create/regular.png"/>
+    </Style>
+
+    <!--DATA BUTTON-->
+    <Style TargetType="{x:Type dp:ImageButton}" BasedOn="{StaticResource MenuButton}" x:Key="Data_Button">
+        <!--config-->
+        <Setter Property="Content" Value="Data"/>
+        <Setter Property="Image" Value="/Resources/Pictogram/data.png"/>
+    </Style>
+
+    <!--STATISTIC BUTTON-->
+    <Style TargetType="{x:Type dp:ImageButton}" BasedOn="{StaticResource MenuButton}" x:Key="Statistic_Button">
+        <!--config-->
+        <Setter Property="Content" Value="Statistic"/>
+        <Setter Property="Image" Value="/Resources/Pictogram/chart.png"/>
+    </Style>
+
+    <!--CLEAR COMBO BOX BUTTON-->
+    <Style TargetType="{x:Type dp:ImageButton}" x:Key="ClearComboBox_Button">
+        
+        <!--template-->
+        <Setter Property="Template" Value="{StaticResource ImageButtonTemplate}"/>
+        
+        <!--sizes-->
+        <Setter Property="ImageWidth" Value="24"/>
+        <Setter Property="ImageHeight" Value="24"/>
+        
+        <!--config-->
+        <Setter Property="Image" Value="/Resources/Pictogram/ClearButton/regular.png"/>
+        
+        <!--TRIGGERS-->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Image" Value="/Resources/Pictogram/ClearButton/hover.png"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+    
+</ResourceDictionary>

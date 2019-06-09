@@ -1,0 +1,97 @@
+﻿<Window x:Class="Library_management.View.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"   
+        xmlns:vm="clr-namespace:Library_management.ViewModel.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="600" Width="1000"
+        MinHeight="600" MinWidth="1000"        
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource ModalWindowResizable}">
+
+    <!--DATA CONTEXT-->
+    <Window.DataContext>
+        <vm:MenuControllerViewModel/>
+    </Window.DataContext>
+
+    <!--MARKUP-->
+    <Grid>
+        <!--SCALING-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--CONTENT-->
+        <!--TOP LEFT HEAD-->
+        <Label Grid.Row="0" Grid.Column="0" 
+               Content="Library management" 
+               Style="{StaticResource TopLeftLabel}"
+               MouseDown="MovingWindow"/>
+        
+        <!--HEADER-->
+        <Rectangle Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" 
+               Fill="{StaticResource MainBrush_V2}"
+               MouseDown="MovingWindow"/>
+        
+        <!--TOP RIGHT BUTTONS-->
+        <Grid Grid.Column="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Button Grid.Column="0"
+                    Style="{StaticResource TopBarButton}"
+                    Click="Minimize_Click">
+                <Image Source="/Resources/Pictogram/minimize.png"/>
+            </Button>
+            <Button Grid.Column="1"
+                    Style="{StaticResource TopBarButton}"
+                    Click="Maximize_Click">
+                <Image Source="/Resources/Pictogram/maximize.png"/>
+            </Button>
+            <Button Grid.Column="2"
+                    Style="{StaticResource ExitTopBarButton}"
+                    Click="Exit_Click">
+                <Image Source="/Resources/Pictogram/exit.png"/>
+            </Button>
+        </Grid>
+
+        <!--MENU-->
+        <ListBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="8"
+                 Style="{StaticResource MenuListBox}"
+                 ItemsSource="{Binding MenuItems, Mode=OneTime}"
+                 SelectedIndex="{Binding MenuItemIndex, Mode=OneWayToSource}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding ChangeContentCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+        <!--MAIN CONTENT-->
+        <Border Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="8">
+            <ContentControl x:Name="ContentControl"/>
+        </Border>
+    </Grid>
+</Window>

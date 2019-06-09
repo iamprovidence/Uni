@@ -1,0 +1,36 @@
+﻿<Window x:Class="Library_management.View.Windows.Dialog.MessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_management.View.Windows.Dialog"
+        mc:Ignorable="d"
+        Title="MessageBoxOK" 
+        Height="200" Width="400"
+        MinHeight="150" MinWidth="300"
+        MaxHeight="800" MaxWidth="1000"
+        Style="{StaticResource ModalWindow}"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight">
+    <Grid x:Name="GridMain">
+        <!--SCALING-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--CONTENT-->
+        <Label Grid.Row="0" Content="MessageBox" 
+               Style="{StaticResource TopLeftLabel}" 
+               Background="{StaticResource SecondaryBrush_A_V3}" 
+               MouseDown="MovingWindow"
+               x:Name="HeaderLbl"/>
+
+        <!--TEXT-->
+        <TextBlock Grid.Row="1" x:Name="ContentTb"
+                   Style="{StaticResource Default_TextBlock}"/>
+
+        <!--BUTTONS ARE DYNAMIC-->
+    </Grid>
+</Window>
