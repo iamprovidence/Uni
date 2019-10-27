@@ -417,3 +417,7 @@ fabric.properties
 .idea/sonarlint
 
 # End of https://www.gitignore.io/api/intellij
+
+/node_modules
+/dist
+npm-debug.log
