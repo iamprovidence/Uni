@@ -1,0 +1,19 @@
+age = 18
+password = 1234
+repeat_password = 1234
+age = 12
+password = 1111
+repeat_password = 1111
+age = 0
+password = 0
+repeat_password = 0
+15:59 19.02.2017
+age = 18
+password = 1234
+repeat_password = 1234
+age = 12
+password = 1111
+repeat_password = 1111
+age = 0
+password = 0
+repeat_password = 0
