@@ -64,5 +64,5 @@
 ## Архітектура сервісів
 
 <p align="center">
-  <img src="/docs/images/architecture.png">
+  <img src="/CVRPTW/docs/images/architecture.png">
 </p>
