@@ -1,0 +1,21 @@
+<div class="modal is-active">
+  <div class="modal-background has-transparent-background" (click)="closeModal()"></div>
+  <!--content-->
+  <div class="content" *appIsLoading="isLoading">
+    <div class="photo">
+      <!--image-->
+      <div class="wrapper">
+        <app-photo-details-panel></app-photo-details-panel>
+      </div>
+      <!--overlay-->
+      <div class="overlay">
+        <app-photo-top-bar-menu></app-photo-top-bar-menu>
+      </div>
+    </div>
+
+    <!--menu details-->
+    <div class="details">
+      <app-menu-details-panel></app-menu-details-panel>
+    </div>
+  </div>
+</div>
