@@ -48,7 +48,7 @@
 
 
 <p align="center">
-  <img src="/docs/images/microservices.png">
+  <img src="/GraduateWork/Lama/docs/images/microservices.png">
 </p>
 
 ## Технології
